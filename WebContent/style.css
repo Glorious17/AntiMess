@@ -85,7 +85,7 @@ form {
 	height:auto;
 	overflow:hidden;
 	position:absolute;
-	top:50%;
+	top:55%;
 	left:50%;
 	transform:translateX(-50%) translateY(-50%);
 	background:#FFFFFF;
@@ -96,7 +96,7 @@ form {
 	background:#dadada;
 	border:none;
 	color:#777;
-	width:80%;
+	width:70%;
 	margin:5% 10% 10% 10%;
 	cursor:pointer;
 }
