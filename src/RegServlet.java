@@ -13,16 +13,16 @@ import javax.servlet.http.HttpServletResponse;
 public class RegServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private RequestDispatcher view;
-	private AntiMessDao dao;
+	private AntiMessBusiness bus;
 
     public RegServlet() {
         super();
-        dao = new AntiMessDao();
+        bus = new AntiMessBusiness();
         // TODO Auto-generated constructor stub
     }
     
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		if(dao.registrieren(request.getParameter("email"), request.getParameter("password"))){
+		if(bus.registrieren(request.getParameter("email"), request.getParameter("password"))){
 			view = request.getRequestDispatcher("././");
 		}else{
 			view = request.getRequestDispatcher("./");

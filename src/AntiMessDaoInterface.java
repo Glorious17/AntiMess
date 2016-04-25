@@ -1,6 +1,7 @@
 
 public interface AntiMessDaoInterface {
 
-	public boolean anmelden(String name, String Passwort);
-	public boolean registrieren(String name, String passwort);
+	public boolean isIn(String data);
+	public boolean push(String data);
+	public String pull(int i);
 }

@@ -13,15 +13,20 @@ import javax.servlet.http.HttpServletResponse;
 public class AntiMessServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private RequestDispatcher view;
-	private AntiMessDao dao;
+	private AntiMessBusiness bus;
        
     public AntiMessServlet() {
         super();
-    	dao = new AntiMessDao();
+    	bus = new AntiMessBusiness();
+    }
+    
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
+    	view = request.getRequestDispatcher("./");
+        view.forward(request, response);  
     }
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		if(dao.anmelden(request.getParameter("email"), request.getParameter("password"))){
+		if(bus.anmelden(request.getParameter("email"), request.getParameter("password"))){
 			response.getWriter().println("<h1>Angemeldet</h1>");
 		}else{
 			view = request.getRequestDispatcher("./");
