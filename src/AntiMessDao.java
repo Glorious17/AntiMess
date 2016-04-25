@@ -25,10 +25,8 @@ public class AntiMessDao implements AntiMessDaoInterface {
 	public String pull(int i) {
 		return Datenbank.get(i);
 	}
-
-	@Override
+	
 	public int length() {
 		return Datenbank.size();
 	}
-
 }
