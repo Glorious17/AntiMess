@@ -16,11 +16,11 @@
         <h2>Bring dein Chaos in Ordnung</h2>       
     </header>
     
-	<form>
+	<form method="post" action="register">
     	<h3>Registrieren</h3>
         <input type="name" placeholder="Vollständiger Name" required>
-    	<input type="email" placeholder="E-Mail" required>
-        <input type="password" placeholder="Passwort" required>
+    	<input name="email" type="email" placeholder="E-Mail" required>
+        <input name="password" type="password" placeholder="Passwort" required>
         <input type="password_wdh" placeholder="Passwort wiederholen" required>
         <input type="submit" value="Senden" id="ud_send">
     </form>

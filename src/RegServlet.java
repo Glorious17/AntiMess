@@ -10,21 +10,22 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 
-public class AntiMessServlet extends HttpServlet {
+public class RegServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private RequestDispatcher view;
-       
-    public AntiMessServlet() {
-        super();
-    }
 
+    public RegServlet() {
+        super();
+        // TODO Auto-generated constructor stub
+    }
+    
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		if(AntiMessDao.anmelden(request.getParameter("email"), request.getParameter("password"))){
-			response.getWriter().println("<h1>Angemeldet</h1>");
-		}else{
+		if(AntiMessDao.registrieren(request.getParameter("email"), request.getParameter("password"))){
 			view = request.getRequestDispatcher("index.html");
-	        view.forward(request, response);  
+		}else{
+			view = request.getRequestDispatcher("reg.html");
 		}
+		view.forward(request, response);  
 	}
 
 }

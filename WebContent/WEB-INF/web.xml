@@ -6,12 +6,22 @@
   </welcome-file-list>
   
   <servlet>
-  	<servlet-name>AntiMessServlet</servlet-name>
-  	<servlet-class>AntiMessServlet</servlet-class>
+    <servlet-name>AntiMessServlet</servlet-name>
+    <servlet-class>AntiMessServlet</servlet-class>
+  </servlet>
+  
+  <servlet>
+  	<servlet-name>RegServlet</servlet-name>
+  	<servlet-class>RegServlet</servlet-class>
   </servlet>
   
   <servlet-mapping>
-  	<servlet-name>AntiMessServlet</servlet-name>
-  	<url-pattern>/AntiMessServlet</url-pattern>
+    <servlet-name>AntiMessServlet</servlet-name>
+    <url-pattern>/AntiMessServlet</url-pattern>
+  </servlet-mapping>
+  
+  <servlet-mapping>
+    <servlet-name>RegServlet</servlet-name>
+    <url-pattern>/register</url-pattern>
   </servlet-mapping>
 </web-app>
