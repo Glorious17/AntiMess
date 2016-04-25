@@ -25,7 +25,7 @@ public class RegServlet extends HttpServlet {
 		if(bus.registrieren(request.getParameter("email"), request.getParameter("password"))){
 			view = request.getRequestDispatcher("././");
 		}else{
-			view = request.getRequestDispatcher("./");
+			view = request.getRequestDispatcher("reg.html");
 		}
 		view.forward(request, response);  
 	}

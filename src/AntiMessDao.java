@@ -15,9 +15,8 @@ public class AntiMessDao implements AntiMessDaoInterface {
 
 	@Override
 	public boolean push(String data) {
-		if(!isIn(data)){
+		if(isIn(data))
 			return false;
-		}
 		Datenbank.add(data);
 		return true;
 	}
@@ -25,6 +24,11 @@ public class AntiMessDao implements AntiMessDaoInterface {
 	@Override
 	public String pull(int i) {
 		return Datenbank.get(i);
+	}
+
+	@Override
+	public int length() {
+		return Datenbank.size();
 	}
 
 }
