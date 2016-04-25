@@ -21,9 +21,9 @@ public class RegServlet extends HttpServlet {
     
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		if(AntiMessDao.registrieren(request.getParameter("email"), request.getParameter("password"))){
-			view = request.getRequestDispatcher("index.html");
+			view = request.getRequestDispatcher("././");
 		}else{
-			view = request.getRequestDispatcher("reg.html");
+			view = request.getRequestDispatcher("./");
 		}
 		view.forward(request, response);  
 	}

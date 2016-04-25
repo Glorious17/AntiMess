@@ -22,7 +22,7 @@ public class AntiMessServlet extends HttpServlet {
 		if(AntiMessDao.anmelden(request.getParameter("email"), request.getParameter("password"))){
 			response.getWriter().println("<h1>Angemeldet</h1>");
 		}else{
-			view = request.getRequestDispatcher("index.html");
+			view = request.getRequestDispatcher("./");
 	        view.forward(request, response);  
 		}
 	}
