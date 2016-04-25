@@ -1,16 +1,10 @@
 import java.util.ArrayList;
 
-public class AntiMessDao{
+public class AntiMessDao implements AntiMessDaoInterface{
 
 	private static ArrayList <String> anmeldeDaten = new ArrayList<String>();
 	
-	public AntiMessDao(){
-		anmeldeDaten.add("Student@hotmail.de");
-		anmeldeDaten.add("freutSich");
-	}
-	
-	public static boolean anmelden(String name, String passwort) {
-		System.out.println("name: " + name + " passwort: " + passwort);
+	public boolean anmelden(String name, String passwort) {
 		for(int i = 0; i<anmeldeDaten.size(); i+=2){
 			if(anmeldeDaten.get(i).equalsIgnoreCase(name))
 				if(anmeldeDaten.get(i+1).equals(passwort))
@@ -19,8 +13,7 @@ public class AntiMessDao{
 		return false;
 	}
 
-	public static boolean registrieren(String name, String passwort) {
-		System.out.println("name: " + name + " passwort: " + passwort);
+	public boolean registrieren(String name, String passwort) {
 		for(int i = 0; i<anmeldeDaten.size(); i+=2){
 			if(anmeldeDaten.get(i).equalsIgnoreCase(name))
 				return false;
