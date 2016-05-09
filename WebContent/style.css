@@ -1,0 +1,149 @@
+@charset "utf-8";
+/* CSS Document */
+
+body, html {
+	margin:0;
+	padding:0;
+	width:100%;
+	height:100%;
+	background:#F8F8F8 center center no-repeat;
+	background-size:cover;
+	font-family: 'lato', sens-serif;
+}
+
+h1, h2, h3 {
+	font-family: 'Lato', sans-serif;
+	color:#2E2D2D;
+	text-align:center;
+}
+
+h1{
+	font-size:7em;
+	letter-spacing:10px;
+}
+
+h2 {
+	font-family: 'Lato', sens-serif;
+	font-weight:200;
+	text-transform:uppercase;
+	font-size: 1em;
+	margin-top:-90px;
+	margin-left: 128px;
+	letter-spacing:2px;
+}
+
+h3 {
+	font-size:18px;
+	letter-spacing:2px;
+	font-weight:500;
+	text-transform:uppercase;
+	color:#777;
+}
+
+.logo{
+	text-transform:uppercase;
+	font-size:40px;
+}
+
+header{
+	width:600px;
+	position:absolute;
+	top:70px;
+	transform:translateX(-50%) translateY(-50%);
+	left:50%;
+}
+
+footer{
+	height:20px;
+	width:400px;
+	position:absolute;
+	bottom:10px;
+	transform:translateX(-30%) translateY(-50%);
+	left:50%;
+	
+	}
+
+.rg, .pw{
+	font-family: 'lato', sens-serif;
+	color:#777;
+	font-weight:400;
+	font-size:12px;
+	text-transform:uppercase;
+}
+.rg {
+	color:#474747;
+}
+
+
+input::-webkit-input-placeholder, input, #ud_send {
+	-webkit-transition:all 300ms ease-in-out;
+	transition:all 300ms ease-in-out;
+}
+
+form {
+	width:400px;
+	height:auto;
+	overflow:hidden;
+	position:absolute;
+	top:55%;
+	left:50%;
+	transform:translateX(-50%) translateY(-50%);
+	background:#FFFFFF;
+	box-sizing:border-box;
+}
+
+#ud_send {
+	background:#dadada;
+	border:none;
+	color:#777;
+	width:70%;
+	margin:5% 10% 10% 10%;
+	cursor:pointer;
+}
+
+#ud_send:hover{
+	background:#666;
+	color:#fff;
+}
+
+form input {
+	margin:10% 10% 0 10%; 
+	width:70%;
+	padding:5%;
+	display:block;
+	border:none;
+	border-bottom:1px solid #dadada;
+	background: -webkit-linear-gradient(top,rgba(255, 255, 255, 0) 99%, #dadada 1%;
+	background:linear-gradient( bottom, rgba(255, 255, 255, 0) 99%, #dadada 1%);
+	background-size:0 100%;
+	background-repeat:no-repeat;
+	color:#dadada;
+}
+
+input:focus {
+	outline:none;
+	background-size:100% 100%;
+}
+
+input:focus:: -webkit-input-placeholder {
+	font-size:11px; 
+	-webkit-transform:translateY(-25px);
+	transform:translateY(-25px);
+	visibility:visible !important;
+}
+
+input:focus:valid::-webkit-input-placeholder, input:valid {
+	color:#14DC19;
+	border-color:#14dc19;
+}
+
+input:focus:invalid:: -webkit-input-placeholder; input:focus:invalid {
+	color:#c9272a;
+	border-color:#C9272A;
+}
+
+	
+
+
+	
+	
