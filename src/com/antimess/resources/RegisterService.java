@@ -16,12 +16,18 @@ public class RegisterService {
 	}
 	
 	/*@GET
-	@Produces(MediaType.TEXT_HTML)
+	@Produces(MediaType.TEXT_XML)
 	public InputStream getRegisterHTML(){
 		InputStream is = getClass().getClassLoader().getResourceAsStream("../../WebContent/reg.html");
 		System.out.println("" + is);
 		return is;
 	}*/
+	
+	@GET
+	@Produces(MediaType.TEXT_XML)
+	public String sayXML(){
+		return "das ist xml";
+	}
 	
 	@POST
 	@Produces(MediaType.TEXT_HTML)
