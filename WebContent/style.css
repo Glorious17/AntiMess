@@ -45,6 +45,7 @@ h3 {
 	font-size:40px;
 }
 
+
 header{
 	width:600px;
 	position:absolute;
@@ -142,6 +143,16 @@ input:focus:invalid:: -webkit-input-placeholder; input:focus:invalid {
 	border-color:#C9272A;
 }
 
+
+<!--- Dashboard ---!>
+
+header #menu {
+	width: 1000px;
+	height: 80px;
+	background-color: #212121;
+	color:red;
+	position: absolute;
+}
 	
 
 
