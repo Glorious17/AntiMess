@@ -6,13 +6,28 @@
   </welcome-file-list>
   
   <servlet>
+  <display-name>Jersey Rest Servlet</display-name>
+  <servlet-name>RestServlet</servlet-name>
+  <servlet-class>org.glassfish.jersey.servlet.ServletContainer</servlet-class>
+  <init-param>
+   <param-name>jersey.config.server.provider.packages</param-name>
+   <param-value>com.antimess.resources</param-value>
+  </init-param>
+  <load-on-startup>1</load-on-startup>
+ </servlet>
+ <servlet-mapping>
+  <servlet-name>RestServlet</servlet-name>
+  <url-pattern>/rest/*</url-pattern>
+ </servlet-mapping> 
+  
+  <servlet>
     <servlet-name>AntiMessServlet</servlet-name>
-    <servlet-class>AntiMessServlet</servlet-class>
+    <servlet-class>com.antimess.resources.AntiMessServlet</servlet-class>
   </servlet>
   
   <servlet>
   	<servlet-name>RegServlet</servlet-name>
-  	<servlet-class>RegServlet</servlet-class>
+  	<servlet-class>com.antimess.resources.RegServlet</servlet-class>
   </servlet>
   
   <servlet-mapping>

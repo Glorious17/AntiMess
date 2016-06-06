@@ -1,3 +1,5 @@
+package com.antimess.resources;
+
 import java.util.ArrayList;
 
 public class AntiMessBusiness implements AntiMessBusinessInterface{

@@ -1,9 +1,8 @@
-<<<<<<< HEAD
-=======
+/com.antimess.resources/
 /AntiMessBusiness.class
 /AntiMessBusinessInterface.class
 /AntiMessDao.class
 /AntiMessDaoInterface.class
 /AntiMessServlet.class
->>>>>>> 0abd2fb2aeddee70ec28ca1e456b4d5acdba3b6b
 /RegServlet.class
+/com/

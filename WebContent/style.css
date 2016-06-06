@@ -75,6 +75,20 @@ footer{
 	color:#474747;
 }
 
+.highlight{
+	background:#ff0000;
+}
+
+.message{
+	font-family: 'lato', sens-serif;
+	text-align:center;
+	background-color:#99FF99;
+}
+
+.delete{
+	display:none;
+}
+
 
 input::-webkit-input-placeholder, input, #ud_send {
 	-webkit-transition:all 300ms ease-in-out;
