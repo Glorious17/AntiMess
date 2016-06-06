@@ -1,4 +1,4 @@
-
+package com.antimess.resources;
 
 import java.io.IOException;
 
@@ -27,11 +27,11 @@ public class AntiMessServlet extends HttpServlet {
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		if(bus.anmelden(request.getParameter("email"), request.getParameter("password"))){
-			response.getWriter().println("<h1>Angemeldet</h1>");
+			view = request.getRequestDispatcher("dashboard.html");
 		}else{
 			view = request.getRequestDispatcher("./");
-	        view.forward(request, response);  
 		}
+        view.forward(request, response);  
 	}
 
 }

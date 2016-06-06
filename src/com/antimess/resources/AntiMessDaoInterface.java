@@ -1,3 +1,5 @@
+package com.antimess.resources;
+
 
 public interface AntiMessDaoInterface {
 
