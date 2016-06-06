@@ -32,22 +32,54 @@ header #logo .logo{
 
 /* Suche */
 #suche {
-	margin-top: 100px;
+	text-align: center;
+	margin-top: 10%;
 }
 
-#query 
-{
-	background-image: url("http://ganz-sicher.net/blog/images/icons/search.png");
-	background-position: 2px center;
-	background-repeat: no-repeat;
-	border: 1px solid #CBD0D5;
-	color: gray;
-	float: right;
-	margin: 2px 2px 0 0;
-	padding: 1px 3px 1px 24px;
-	width: 200px;
-	display: none;
+#qsuche {
+	padding: 10px;
+	background-color: white;
+	width: 500px;
+	border-radius: 20px;
+	border: solid 2px gray;
 }
 
 
+/* Globale CSS-Klassen */
+
+article {
+	background-color: farbe;
+}
+.row {
+  width:auto;
+}
+
+.row:before,
+.row:after {
+  content: " ";
+  display: table;
+}
+
+.row:after {
+  clear: both;
+}
+
+.columns {
+  float:left;
+}
+
+/* Small */
+@media screen and (max-width:600px) {
+  .small-1 {width: 33.33333%;}
+}
+
+/* Medium */
+@media screen and (min-width:600px) and (max-width:1000px) {
+  .medium-1 {width:16.66666%;}
+}
+
+/* Large */
+@media screen and (min-width:1000px) {
+  .large-1 {width:16.66666%;}
+}
 
