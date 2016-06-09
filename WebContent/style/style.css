@@ -160,7 +160,7 @@ input:focus:invalid:: -webkit-input-placeholder; input:focus:invalid {
 
 <!--- Dashboard ---!>
 
-header #menu {
+header #header-menu {
 	width: 1000px;
 	height: 80px;
 	background-color: #212121;

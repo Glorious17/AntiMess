@@ -26,3 +26,15 @@ header #logo .logo{
     text-transform:uppercase;
     font-size:20px;
 }
+
+#add-form{
+    text-align: center;
+}
+
+#add-bild {
+    background: #98ff6f;
+}
+
+.ui-menu {
+    width: 200px;
+}
