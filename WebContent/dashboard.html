@@ -6,12 +6,14 @@
 <link rel="stylesheet" type="text/css" href="dashboard-style.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
 <script src="form.js"></script>
+<script src="Scripts/angular.js"></script>
+<script src="Scripts/nameFinder.js"></script>
 <script src="js/grid.js"></script>
 <link href='https://fonts.googleapis.com/css?family=Fira+Sans:400,700' rel='stylesheet' type='text/css'>
 <link href='https://fonts.googleapis.com/css?family=Lato:400,900,700,300' rel='stylesheet' type='text/css'>
 </head>
 
-<body>
+<body data-ng-app = "nameModule">
 	<header>
         <div id="menu">
         </div>
@@ -30,9 +32,9 @@
   
 
 
-<div class="row">
+<div class="row" data-ng-controller = "nameController">
   <div id="bilds" class="small-1 medium-1 large-1 columns farben">
-      Inhalt …
+      <div data-ng-repeat = "data in input">{{data}}</div>
   </div>
 
   <div id="bilds1" class="small-1 medium-1 large-1 columns">
