@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+
+    <head>
+        <link rel="stylesheet" href="style/dashboard-style.css"/>
+        <link href='https://fonts.googleapis.com/css?family=Fira+Sans:400,700' rel='stylesheet' type='text/css'>
+        <link href='https://fonts.googleapis.com/css?family=Lato:400,900,700,300' rel='stylesheet' type='text/css'>
+	    <meta charset="utf-8">
+        <title>Dashboard</title>
+    </head>
+
+    <body>
+    <header>
+        <div id="menu">
+        </div>
+        <div id="logo">
+            <h1><span class="logo">anti</span>MESS</h1>
+        </div>
+    </header>
+    <nav>
+        <button class="add">Hinzufügen</button>
+        <button class="verwaltung">Lagerverwaltung</button>
+    </nav>
+
+           <div ng-controller="ContentCtrl">
+               <div id="suche">
+                   <input name="global" type="text" autofocus required id="global" placeholder="Gegenstand suchen" ng-model="globalsearch">
+               </div>
+                   <ul>
+                       <li ng-repeat="person in person | filter : globalsearch | limitTo : 20"
+                           ng-class="getIteratingClass ($index, 'red-row', 'green-row', 'blue-row')">
+                           <img src="{{person.image}}" alt="{{person.firstName}} {{person.lastName}}">
+                       </li>
+                   </ul>
+
+           </div>
+
+
+
+
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
+    <script type="text/javascript" src="js/MainModule.js"></script>
+    <script type="text/javascript" src="js/ctrl/CtrlModule.js"></script>
+    <script type="text/javascript" src="js/main.js"></script>
+    <script type="text/javascript" src="js/ng-infinite-scroll.min.js"></script>
+
+
+    </body>
+</html>

@@ -1,10 +1,19 @@
 package com.antimess.resources;
 
+import java.awt.List;
 import java.util.ArrayList;
 
 public class AntiMessDao implements AntiMessDaoInterface {
 	
 	private static ArrayList <String> Datenbank = new ArrayList<String>();
+	private static List ObjektNamen = new List();
+	
+	public AntiMessDao(){
+		ObjektNamen.add("Buch");
+		ObjektNamen.add("Spiel");
+		ObjektNamen.add("CollageBlock");
+		ObjektNamen.add("Flasche");
+	}
 
 	@Override
 	public boolean isIn(String data) {
@@ -30,5 +39,11 @@ public class AntiMessDao implements AntiMessDaoInterface {
 	
 	public int length() {
 		return Datenbank.size();
+	}
+	
+// Just testfunctions
+	
+	public List objektReturn(){
+		return ObjektNamen;
 	}
 }

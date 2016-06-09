@@ -1,10 +1,11 @@
 package com.antimess.resources;
 
+import java.awt.List;
 import java.util.ArrayList;
 
 public class AntiMessBusiness implements AntiMessBusinessInterface{
 
-	private AntiMessDao dao;
+	private static AntiMessDao dao;
 	
 	public AntiMessBusiness(){
 		dao = new AntiMessDao();
@@ -22,5 +23,10 @@ public class AntiMessBusiness implements AntiMessBusinessInterface{
 		return dao.push(name+";"+passwort);
 	}
 
+// Just testfunctions
+	
+	public static List names(){
+		return dao.objektReturn();
+	}
 
 }

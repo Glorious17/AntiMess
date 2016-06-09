@@ -199,7 +199,7 @@ function ContentCtrl ( $scope, $log, $http )
             "image": "././img/fimg08.jpg"
         }
         ];
-
+**/
 
         $scope.getIteratingClass = function ( index )
         {
@@ -207,7 +207,7 @@ function ContentCtrl ( $scope, $log, $http )
             return arguments [ (index%n) + 1 ];
         }
 
-**/
+
 
 }
 
