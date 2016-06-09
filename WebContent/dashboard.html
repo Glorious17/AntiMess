@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <title>antiMESS - Anmelden</title>
-<link rel="stylesheet" type="text/css" href="dashboard-style.css">
+<link rel="stylesheet" type="text/css" href="style/dashboard-style.css">
 <link href='https://fonts.googleapis.com/css?family=Fira+Sans:400,700' rel='stylesheet' type='text/css'>
 <link href='https://fonts.googleapis.com/css?family=Lato:400,900,700,300' rel='stylesheet' type='text/css'>
 </head>
@@ -26,8 +26,8 @@
                    <input name="global" type="text" autofocus required id="global" placeholder="Gegenstand suchen" ng-model="globalsearch">
                </div>
                    <ul>
-                       <li ng-repeat="person in persons | filter : globalsearch | limitTo : 20"
-                           ng-class="getIteratingClass ($index, 'red-row', 'green-row', 'blue-row')">
+                       <li ng-repeat="person in person | filter : globalsearch | limitTo : 20"
+                           ng-class="getIteratingClass ($index)">
                            <img src="{{person.image}}" alt="{{person.firstName}} {{person.lastName}}">
                        </li>
                    </ul>

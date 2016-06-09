@@ -29,7 +29,7 @@ public class AntiMessServlet extends HttpServlet {
 		if(bus.anmelden(request.getParameter("email"), request.getParameter("password"))){
 			view = request.getRequestDispatcher("dashboard.html");
 		}else{
-			view = request.getRequestDispatcher("./");
+			view = request.getRequestDispatcher("index.html");
 		}
         view.forward(request, response);  
 	}

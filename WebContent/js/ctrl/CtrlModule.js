@@ -12,7 +12,7 @@ function ContentCtrl ( $scope, $log, $http )
         });
 
 
-
+    /*
     $scope.persons = [
         {
             "id": 1,
@@ -203,10 +203,10 @@ function ContentCtrl ( $scope, $log, $http )
 
         $scope.getIteratingClass = function ( index )
         {
-            var n = arguments.length - 1
+            var n = arguments.length - 1;
             return arguments [ (index%n) + 1 ];
         }
-
+		*/
 
 
 }
