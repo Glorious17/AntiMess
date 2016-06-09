@@ -1,18 +1,21 @@
 package com.antimess.resources;
 
 import java.awt.List;
+import java.sql.*;
 import java.util.ArrayList;
 
 public class AntiMessDao implements AntiMessDaoInterface {
 	
 	private static ArrayList <String> Datenbank = new ArrayList<String>();
-	private static List ObjektNamen = new List();
+	private Connection conn;
 	
 	public AntiMessDao(){
-		ObjektNamen.add("Buch");
-		ObjektNamen.add("Spiel");
-		ObjektNamen.add("CollageBlock");
-		ObjektNamen.add("Flasche");
+		try {
+			conn = DriverManager.getConnection("jdbc:mysql://localhost/");
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 
 	@Override
@@ -40,10 +43,5 @@ public class AntiMessDao implements AntiMessDaoInterface {
 	public int length() {
 		return Datenbank.size();
 	}
-	
-// Just testfunctions
-	
-	public List objektReturn(){
-		return ObjektNamen;
-	}
+
 }
