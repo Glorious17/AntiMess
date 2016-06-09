@@ -3,7 +3,7 @@ function ContentCtrl ( $scope, $log, $http )
     $log.log ("ContentCtrl");
 
 
-        $http.get('././data/searchdata.json').
+        $http.get('././data/gegenstand.json').
         success(function(data, status, headers, config) {
             $scope.person = data;
         }).
@@ -12,7 +12,7 @@ function ContentCtrl ( $scope, $log, $http )
         });
 
 
-
+/**
     $scope.persons = [
         {
             "id": 1,
@@ -207,7 +207,7 @@ function ContentCtrl ( $scope, $log, $http )
             return arguments [ (index%n) + 1 ];
         }
 
-
+**/
 
 }
 

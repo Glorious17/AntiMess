@@ -27,7 +27,7 @@ public class RegServlet extends HttpServlet {
 			response.flushBuffer();
 			//view = request.getRequestDispatcher("afterReg.html");
 		}else{
-			view = request.getRequestDispatcher("reg.html");
+			view = request.getRequestDispatcher("registry.html");
 		}
 		view.forward(request, response);  
 	}

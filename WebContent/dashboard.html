@@ -26,7 +26,7 @@
                    <input name="global" type="text" autofocus required id="global" placeholder="Gegenstand suchen" ng-model="globalsearch">
                </div>
                    <ul>
-                       <li ng-repeat="person in persons | filter : globalsearch | limitTo : 20"
+                       <li ng-repeat="person in person | filter : globalsearch | limitTo : 20"
                            ng-class="getIteratingClass ($index, 'red-row', 'green-row', 'blue-row')">
                            <img src="{{person.image}}" alt="{{person.firstName}} {{person.lastName}}">
                        </li>
