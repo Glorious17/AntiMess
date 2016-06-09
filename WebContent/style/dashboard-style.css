@@ -1,0 +1,68 @@
+body, html {
+    margin:0;
+    padding:0;
+    width:100%;
+    height:100%;
+    background:#F8F8F8 center center no-repeat;
+    background-size:cover;
+    font-family: 'lato', sens-serif;
+}
+
+header #menu {
+    width: 100%;
+    height: 60px;
+    background-color: #212121;
+
+}
+
+header #logo {
+    margin: -70px 0 0 20px;
+    color: #F8F8F8;
+    letter-spacing:5px;
+    text-align: center;
+}
+
+header #logo .logo{
+    text-transform:uppercase;
+    font-size:20px;
+}
+
+#suche {
+    text-align: center;
+    margin-top: 1%;
+    margin-bottom: 5%;
+}
+
+#global {
+    padding: 20px;
+    background-color: white;
+    width: 500px;
+    border: solid 2px #212121;
+}
+
+ul {list-style: none;}
+
+li {
+    list-style: none;
+    display: inline;
+}
+
+nav{
+    text-align: center;
+}
+button {
+
+    width: 400px;
+    color: #fff;
+    background-color:#212121;
+    border: none;
+    margin: 5% 0.5% 0 0.5%;
+    padding:20px 0;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    font-family: 'lato', sens-serif;
+    text-transform: uppercase;
+    letter-spacing: 5px;
+}

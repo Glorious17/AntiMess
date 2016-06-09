@@ -1,66 +1,49 @@
-<!doctype html>
-<html>
-<head>
-<meta charset="utf-8">
-<title>antiMESS - Anmelden</title>
-<link rel="stylesheet" type="text/css" href="dashboard-style.css">
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
-<script src="form.js"></script>
-<script src="js/grid.js"></script>
-<link href='https://fonts.googleapis.com/css?family=Fira+Sans:400,700' rel='stylesheet' type='text/css'>
-<link href='https://fonts.googleapis.com/css?family=Lato:400,900,700,300' rel='stylesheet' type='text/css'>
-</head>
+<!DOCTYPE html>
 
-<body>
-	<header>
+    <head>
+        <link rel="stylesheet" href="style/dashboard-style.css"/>
+        <link href='https://fonts.googleapis.com/css?family=Fira+Sans:400,700' rel='stylesheet' type='text/css'>
+        <link href='https://fonts.googleapis.com/css?family=Lato:400,900,700,300' rel='stylesheet' type='text/css'>
+	    <meta charset="utf-8">
+        <title>Dashboard</title>
+    </head>
+
+    <body>
+    <header>
         <div id="menu">
         </div>
         <div id="logo">
             <h1><span class="logo">anti</span>MESS</h1>
         </div>
-
     </header>
+    <nav>
+        <button class="add">Hinzufügen</button>
+        <button class="verwaltung">Lagerverwaltung</button>
+    </nav>
 
-    <div id="suche">
-        <input type="search" name="qsuche" id="qsuche" placeholder="Gegenstand suchen">
-    </div>
+           <div ng-controller="ContentCtrl">
+               <div id="suche">
+                   <input name="global" type="text" autofocus required id="global" placeholder="Gegenstand suchen" ng-model="globalsearch">
+               </div>
+                   <ul>
+                       <li ng-repeat="person in persons | filter : globalsearch | limitTo : 20"
+                           ng-class="getIteratingClass ($index, 'red-row', 'green-row', 'blue-row')">
+                           <img src="{{person.image}}" alt="{{person.firstName}} {{person.lastName}}">
+                       </li>
+                   </ul>
 
-    <div id="gegenstand-grid">
-        
-  
+           </div>
 
 
-<div class="row">
-  <div id="bilds" class="small-1 medium-1 large-1 columns farben">
-      Inhalt …
-  </div>
 
-  <div id="bilds1" class="small-1 medium-1 large-1 columns">
-      Inhalt …
-  </div id="bilds1">
-  <div id="bilds1" class="small-1 medium-1 large-1 columns">
-      Inhalt …
-  </div id="bilds1">
-  <div id="bilds1" class="small-1 medium-1 large-1 columns">
-      Inhalt …
-  </div id="bilds1">
-  <div id="bilds1" class="small-1 medium-1 large-1 columns">
-      Inhalt …
-  </div id="bilds1">
-  <div id="bilds1" class="small-1 medium-1 large-1 columns">
-      Inhalt …
-  </div id="bilds1">
-  <div id="bilds1" class="small-1 medium-1 large-1 columns">
-      Inhalt …
-  </div id="bilds1">
-  <div id="bilds1" class="small-1 medium-1 large-1 columns">
-      Inhalt …
-  </div id="bilds1">
-</div>
 
-    </div>
-    
-    <footer>
-    </footer>
-</body>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
+    <script type="text/javascript" src="js/MainModule.js"></script>
+    <script type="text/javascript" src="js/ctrl/CtrlModule.js"></script>
+    <script type="text/javascript" src="js/main.js"></script>
+    <script type="text/javascript" src="js/ng-infinite-scroll.min.js"></script>
+
+
+    </body>
 </html>
