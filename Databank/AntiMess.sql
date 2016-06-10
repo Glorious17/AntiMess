@@ -1,31 +1,32 @@
 DROP SCHEMA IF EXISTS AntiMess;
+
 CREATE SCHEMA AntiMess DEFAULT CHARACTER SET utf8;
 
 USE AntiMess;
 
 CREATE TABLE Lagerort
 (
-	LagerortID INT AUTO_INCREMENT,
     Container VARCHAR(255),
+	LagerortID INT AUTO_INCREMENT,
     PRIMARY KEY (LagerortID)
 );
 
 CREATE TABLE Benutzer
 (
-	UserID INT AUTO_INCREMENT,
     BenutzerName VARCHAR (255),
     Password VARCHAR(255),
+    UserID INT AUTO_INCREMENT,
     PRIMARY KEY (UserID)
 );
 
 CREATE TABLE Gegenstand
 (
-	GegenstandID INT AUTO_INCREMENT,
     GegenstandName VARCHAR(255) NOT NULL,
     Lagerdatum DATE,
     Icon VARCHAR(255),
 	LagerortID_FK INT,
     UserID_FK INT,
+	GegenstandID INT AUTO_INCREMENT,
     FOREIGN KEY (LagerortID_FK) REFERENCES Lagerort(LagerortID),
     FOREIGN KEY (UserID_FK) REFERENCES Benutzer(UserID),
 	PRIMARY KEY (GegenstandID)
