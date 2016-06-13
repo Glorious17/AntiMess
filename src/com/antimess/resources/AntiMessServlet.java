@@ -1,6 +1,7 @@
 package com.antimess.resources;
 
 import java.io.IOException;
+import java.sql.SQLException;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -28,6 +29,7 @@ public class AntiMessServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		if(bus.anmelden(request.getParameter("email"), request.getParameter("password"))){
 			view = request.getRequestDispatcher("dashboard.html");
+			bus.close();
 		}else{
 			view = request.getRequestDispatcher("index.html");
 		}

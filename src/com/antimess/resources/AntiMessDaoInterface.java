@@ -1,9 +1,11 @@
 package com.antimess.resources;
 
+import java.sql.SQLException;
+import java.util.ArrayList;
 
 public interface AntiMessDaoInterface {
 
-	public boolean isIn(String data);
-	public boolean push(String data);
-	public String pull(int i);
+	boolean push(String[] data, String table) throws SQLException;
+	boolean isIn(String data, String table, int length) throws SQLException;
+	ArrayList pull(String table, int index) throws SQLException;
 }
