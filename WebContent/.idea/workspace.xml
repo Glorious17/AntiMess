@@ -2,15 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b4ff6540-1fcf-4d27-859c-82662c96c2ca" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/add.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/style/add-style.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data/gegenstand.json" afterPath="$PROJECT_DIR$/data/gegenstand.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/style/dashboard-style.css" afterPath="$PROJECT_DIR$/style/dashboard-style.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/style/style.css" afterPath="$PROJECT_DIR$/style/style.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/style/verwaltung-style.css" afterPath="$PROJECT_DIR$/style/verwaltung-style.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/verwaltung.html" afterPath="$PROJECT_DIR$/verwaltung.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../Databank/AntiMess.sql" afterPath="$PROJECT_DIR$/../Databank/AntiMess.sql" />
     </list>
     <ignored path="WebContent.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -299,12 +291,12 @@
       <updated>1465459699807</updated>
       <workItem from="1465459702188" duration="205000" />
       <workItem from="1465462167137" duration="3521000" />
-      <workItem from="1465466595543" duration="9675000" />
+      <workItem from="1465466595543" duration="10275000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="13401000" />
+    <option name="totallyTimeSpent" value="14001000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-12" y="-12" width="3224" height="1754" extended-state="6" />
