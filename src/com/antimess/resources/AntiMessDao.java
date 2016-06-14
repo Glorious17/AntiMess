@@ -31,41 +31,39 @@ public class AntiMessDao implements AntiMessDaoInterface {
 	}
 
 	@Override
-	public boolean isIn(String data, String table, int length) throws SQLException {
-		ResultSet rs = stmt.executeQuery("SELECT * FROM " + table);
+	public boolean isInUser(String username) throws SQLException {
+		ResultSet rs = stmt.executeQuery("SELECT BenutzerName FROM Benutzer");
 		while (rs.next()){
-			for(int i = 0; i < length; i++){
-				if(rs.getString(i+1).equals(data))
-					return true;
-			}
+			if(rs.getString("BenutzerName").equals(username))
+				return true;
 		}
 		return false;
 	}
 
 	@Override
-	public boolean push(String data[], String table) throws SQLException {
+	public boolean pushUser(Object data[]) throws SQLException {
 		String insertValues = "(";
-		for(int i = 0; i < data.length; i++){
-			if(isIn(data[i], table, data.length))
-				return false;
-			if(i != 0)
-				insertValues += ", '" + data[i] + "'";
-			else
-				insertValues += "'" + data[i] + "'";
+		if(isInUser((String) data[0]))
+			return false;
+		
+		for(int i = 1; i < 2; i++){
+			switch(i){
+			case 1:
+				insertValues += (String) data[i] + ", ";
+				break;
+			case 2:
+				insertValues += (String) data[i] + ")";
+				break;
+			}
 		}
-		insertValues += ", DEFAULT)";
-		stmt.executeUpdate("INSERT INTO " + table + " VALUES " + insertValues);
+		stmt.executeUpdate("INSERT INTO Benutzer VALUES " + insertValues);
 		return true;
 	}
 
 	@Override
-	public ArrayList pull(String table, int index) throws SQLException {
-		ArrayList output = null;
-		ResultSet rs = stmt.executeQuery("SELECT * FROM " + table);
-		while(rs.next()){
-			output.add(rs.getObject(index));
-		}
-		return output;
+	public ResultSet pullUser(String username) throws SQLException {
+		ResultSet rs = stmt.executeQuery("SELECT * FROM Benutzer WHERE BenutzerName = " + username);
+		return rs;
 	}
 	
 	public void close(){
