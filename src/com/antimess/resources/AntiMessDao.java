@@ -46,13 +46,13 @@ public class AntiMessDao implements AntiMessDaoInterface {
 		if(isInUser((String) data[0]))
 			return false;
 		
-		for(int i = 1; i < 2; i++){
+		for(int i = 0; i < 2; i++){
 			switch(i){
-			case 1:
-				insertValues += (String) data[i] + ", ";
+			case 0:
+				insertValues += "'" + (String) data[i] + "', ";
 				break;
-			case 2:
-				insertValues += (String) data[i] + ")";
+			case 1:
+				insertValues += "'" + (String) data[i] + "')";
 				break;
 			}
 		}
@@ -62,7 +62,7 @@ public class AntiMessDao implements AntiMessDaoInterface {
 
 	@Override
 	public ResultSet pullUser(String username) throws SQLException {
-		ResultSet rs = stmt.executeQuery("SELECT * FROM Benutzer WHERE BenutzerName = " + username);
+		ResultSet rs = stmt.executeQuery("SELECT * FROM Benutzer WHERE BenutzerName = '" + username + "'");
 		return rs;
 	}
 	
