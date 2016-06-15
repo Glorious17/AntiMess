@@ -56,9 +56,9 @@ public class AntiMessBusiness implements AntiMessBusinessInterface{
 	}
 	
 	@Override
-	public boolean registrieren(String name, String passwort) {
+	public boolean registrieren(String name, String passwort, String nickname) {
 		name.toLowerCase();
-		String[] input = {name, passwort};
+		String[] input = {name, passwort, nickname};
 		try {
 			return dao.pushUser(input);
 		} catch (SQLException e) {

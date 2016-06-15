@@ -53,7 +53,10 @@ public class AntiMessDao implements AntiMessDaoInterface {
 				insertValues += "'" + (String) data[i] + "', ";
 				break;
 			case 1:
-				insertValues += "'" + (String) data[i] + "' , DEFAULT)";
+				insertValues += "'" + (String) data[i] + "',";
+				break;
+			case 2:
+				insertValues += "'" + (String) data[i] + "'),";
 				break;
 			}
 		}
