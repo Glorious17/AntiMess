@@ -16,7 +16,9 @@ h1, h2, h3 {
 	color:#2E2D2D;
 	text-align:center;
 }
-
+a{
+	text-decoration: none;
+}
 h1{
 	font-size:7em;
 	letter-spacing:10px;
