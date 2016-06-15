@@ -8,7 +8,7 @@ body, html {
     font-family: 'lato', sens-serif;
 }
 
-header #menu {
+header #header-menu {
     width: 100%;
     height: 60px;
     background-color: #212121;
