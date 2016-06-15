@@ -2,7 +2,7 @@
 <web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd" id="WebApp_ID" version="3.1">
   <display-name>AntiMess</display-name>
   <welcome-file-list>
-    <welcome-file>index.html</welcome-file>
+    <welcome-file>desk</welcome-file>
   </welcome-file-list>
   <servlet>
     <display-name>Jersey Rest Servlet</display-name>
@@ -26,6 +26,14 @@
     <servlet-name>RegServlet</servlet-name>
     <servlet-class>com.antimess.resources.RegServlet</servlet-class>
   </servlet>
+  <servlet>
+    <servlet-name>home</servlet-name>
+    <servlet-class>com.antimess.resources.home</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>home</servlet-name>
+    <url-pattern>/desk</url-pattern>
+  </servlet-mapping>
   <servlet-mapping>
     <servlet-name>AntiMessServlet</servlet-name>
     <url-pattern>/AntiMessServlet</url-pattern>
@@ -61,11 +69,10 @@
     <servlet-name>AdminServlet</servlet-name>
     <url-pattern>/servlet/AdminServlet</url-pattern>
   </servlet-mapping>
-  
   <resource-ref>
-      <description>DB Connection</description>
-      <res-ref-name>jdbc/AntiMess</res-ref-name>
-      <res-type>javax.sql.DataSource</res-type>
-      <res-auth>Container</res-auth>
+    <description>DB Connection</description>
+    <res-ref-name>jdbc/AntiMess</res-ref-name>
+    <res-type>javax.sql.DataSource</res-type>
+    <res-auth>Container</res-auth>
   </resource-ref>
 </web-app>
