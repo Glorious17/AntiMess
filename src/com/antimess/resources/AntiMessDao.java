@@ -2,6 +2,7 @@ package com.antimess.resources;
 
 import java.sql.*;
 import java.util.ArrayList;
+import java.util.Random;
 
 import javax.naming.Context;
 import javax.naming.InitialContext;
@@ -34,7 +35,7 @@ public class AntiMessDao implements AntiMessDaoInterface {
 	public boolean isInUser(String username) throws SQLException {
 		ResultSet rs = stmt.executeQuery("SELECT BenutzerName FROM Benutzer");
 		while (rs.next()){
-			if(rs.getString("BenutzerName").equals(username))
+			if(rs.getString(1).equals(username))
 				return true;
 		}
 		return false;
@@ -52,12 +53,25 @@ public class AntiMessDao implements AntiMessDaoInterface {
 				insertValues += "'" + (String) data[i] + "', ";
 				break;
 			case 1:
-				insertValues += "'" + (String) data[i] + "')";
+				insertValues += "'" + (String) data[i] + "' , DEFAULT)";
 				break;
 			}
 		}
 		stmt.executeUpdate("INSERT INTO Benutzer VALUES " + insertValues);
 		return true;
+	}
+	
+	@Override
+	public void setSession(String username, String id) throws SQLException{
+		stmt.executeUpdate("INSERT INTO Aktive_Session VALUES ('" + id + "', '" + username + "')");
+	}
+	
+	@Override
+	public boolean isOnline(String id) throws SQLException{
+		ResultSet rs = stmt.executeQuery("SELECT * FROM Aktive_Session WHERE Session_ID = '" + id + "'");
+		if(rs.next())
+			return true;
+		return false;
 	}
 
 	@Override

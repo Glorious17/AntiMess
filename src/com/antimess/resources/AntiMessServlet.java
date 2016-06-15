@@ -28,12 +28,12 @@ public class AntiMessServlet extends HttpServlet {
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		if(bus.anmelden(request.getParameter("email"), request.getParameter("password"))){
-			view = request.getRequestDispatcher("dashboard.html");
-			bus.close();
+			bus.setSession(request.getParameter("email"), request.getSession().getId());
+			response.sendRedirect("dashboard.html");
+			//bus.close();
 		}else{
-			view = request.getRequestDispatcher("index.html");
+			response.sendRedirect("index.html");
 		}
-        view.forward(request, response);  
 	}
 
 }

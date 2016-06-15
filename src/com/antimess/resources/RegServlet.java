@@ -31,7 +31,6 @@ public class RegServlet extends HttpServlet {
 			view = request.getRequestDispatcher("reg.html");
 			bus.close();
 			view.forward(request, response); 
-
 		}
 	}
 

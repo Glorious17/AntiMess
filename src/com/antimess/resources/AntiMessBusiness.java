@@ -13,6 +13,28 @@ public class AntiMessBusiness implements AntiMessBusinessInterface{
 		dao = new AntiMessDao();
 	}
 	
+	@Override
+	public void setSession(String name, String id){
+		try {
+			dao.setSession(name, id);
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+	
+	@Override
+	public boolean isLogedIn(String id){
+		try {
+			if(dao.isOnline(id))
+				return true;
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return false;
+	}
+	
+	@Override
 	public boolean anmelden(String name, String passwort) {
 		name.toLowerCase();
 		try {
@@ -20,8 +42,7 @@ public class AntiMessBusiness implements AntiMessBusinessInterface{
 				return false;
 			
 			try (ResultSet rs = dao.pullUser(name)) {
-				rs.next();
-				if(passwort.equals(rs.getString(2))){
+				if(rs.next() && passwort.equals(rs.getString(2))){
 					return true;
 				}
 			} catch (SQLException e) {
@@ -34,6 +55,7 @@ public class AntiMessBusiness implements AntiMessBusinessInterface{
 		return false;
 	}
 	
+	@Override
 	public boolean registrieren(String name, String passwort) {
 		name.toLowerCase();
 		String[] input = {name, passwort};
