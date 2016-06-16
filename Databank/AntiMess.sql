@@ -70,6 +70,9 @@ ALTER TABLE Lagerort ADD Lagerort_Name VARCHAR(255);
 ALTER TABLE Lagerort ADD Lagerort_berechtigt VARCHAR(255);
 ALTER TABLE Lagerort ADD FOREIGN KEY (Lagerort_berechtigt) REFERENCES Benutzer(BenutzerName);
 
+ALTER TABLE Adresse ADD Bewohner VARCHAR(255);
+ALTER TABLE Adresse ADD FOREIGN KEY (Bewohner) REFERENCES Benutzer(BenutzerName);
+
 CREATE TABLE Aktive_Session
 (
 	Session_ID VARCHAR(255) DEFAULT NULL,
@@ -88,4 +91,4 @@ INSERT INTO USER_LAGERORT VALUES(1, 'a@a');
 INSERT INTO USER_LAGERORT VALUES(2, 'b@b');
 
 INSERT INTO Gegenstand VALUES ('Schraubenschluessel', '2016-6-15', '././img/mimg01.jpg', 1, DEFAULT, 'a@a');
-INSERT INTO Gegenstand VALUES ('Schraubenschluessel', '2016-6-15', '././img/fimg02.jpg', 2, DEFAULT, 'a@a');
+INSERT INTO Gegenstand VALUES ('Grillwender', '2016-6-15', '././img/fimg02.jpg', 2, DEFAULT, 'a@a');
