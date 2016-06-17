@@ -1,9 +1,26 @@
+function get_url_param( name )
+{
+	name = name.replace(/[\[]/,"\\\[").replace(/[\]]/,"\\\]");
+
+	var regexS = "[\\?&]"+name+"=([^&#]*)";
+	var regex = new RegExp( regexS );
+	var results = regex.exec( window.location.href );
+
+	if ( results == null )
+		return "";
+	else
+		return results[1];
+}
+
 function ContentCtrl ( $scope, $log, $http )
 {
     $log.log ("ContentCtrl");
 
 
-        $http.get('././data/gegenstand.json').
+        $http({
+        	mehtod: 'GET',
+        	url: 'rest/search?&id=' + get_url_param("id")
+        }).
         success(function(data, status, headers, config) {
             $scope.person = data;
         }).

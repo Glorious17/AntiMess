@@ -23,7 +23,7 @@ public class home extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		if(bus.isLogedIn(request.getSession().getId()))
-			response.sendRedirect("dashboard.html");
+			response.sendRedirect("dashboard.html?id=" + request.getSession().getId());
 		else
 			response.sendRedirect("index.html");
 	}

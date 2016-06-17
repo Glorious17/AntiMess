@@ -63,7 +63,7 @@ public class AntiMessDao implements AntiMessDaoInterface {
 	
 	@Override
 	public ResultSet pullItem(String name) throws SQLException{
-		return stmt.executeQuery("SELECT GegenstandName, Lagerort_Name, Lagerdatum, Icon FROM Gegenstand, Lagerort, Benutzer WHERE LagerortID_FK = LagerortID and BenutzerName = " + name);
+		return stmt.executeQuery("SELECT GegenstandName, Lagerort_Name, Lagerdatum, Icon FROM Gegenstand, Lagerort, Benutzer WHERE LagerortID_FK = LagerortID and BenutzerName = '" + name + "'");
 	}
 	
 	@Override
@@ -78,11 +78,26 @@ public class AntiMessDao implements AntiMessDaoInterface {
 			return true;
 		return false;
 	}
+	
+	@Override
+	public ResultSet getSession(String id) throws SQLException{
+		return stmt.executeQuery("SELECT * FROM Aktive_Session WHERE Session_ID = '" + id + "'");
+	}
 
 	@Override
 	public ResultSet pullUser(String username) throws SQLException {
 		ResultSet rs = stmt.executeQuery("SELECT * FROM Benutzer WHERE BenutzerName = '" + username + "'");
 		return rs;
+	}
+	
+	@Override
+	public String getUserThroughId(String id) throws SQLException{
+		ResultSet rs = stmt.executeQuery("SELECT BenutzerName_FK FROM Aktive_Session WHERE Session_ID = '" + id + "'");
+		String output = "";
+		if(rs.next()){
+			output = rs.getString(1);
+		}
+		return output;
 	}
 	
 	public void close(){

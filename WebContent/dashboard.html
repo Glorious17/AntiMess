@@ -28,7 +28,7 @@
                    <ul>
                        <li ng-repeat="person in person | filter : globalsearch | limitTo : 20"
                            ng-class="getIteratingClass ($index, 'red-row', 'green-row', 'blue-row')">
-                           <img src="{{person.image}}" alt="{{person.firstName}} {{person.lastName}}">
+                           <img src="{{person.Icon}}">
                        </li>
                    </ul>
 
