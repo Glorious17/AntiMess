@@ -26,7 +26,7 @@ public class AntiMessServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		if(bus.anmelden(request.getParameter("email"), request.getParameter("password"))){
 			bus.setSession(request.getParameter("email"), request.getSession().getId());
-			response.sendRedirect("dashboard.html?id=" + request.getSession().getId());
+			response.sendRedirect("dash?id=" + request.getSession().getId());
 			//bus.close();
 		}else{
 			response.sendRedirect("index.html");

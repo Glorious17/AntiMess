@@ -82,6 +82,16 @@ public class AntiMessBusiness implements AntiMessBusinessInterface{
 		}
 	}
 	
+	public boolean logout(String id){
+		try {
+			dao.deleteOnlineStatus(id);
+			return true;
+		} catch (SQLException e) {
+			e.printStackTrace();
+			return false;
+		}
+	}
+	
 	@Override
 	public boolean checkAcc(String name, String id){
 		try {

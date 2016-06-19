@@ -71,6 +71,10 @@ public class AntiMessDao implements AntiMessDaoInterface {
 		stmt.executeUpdate("INSERT INTO Aktive_Session VALUES ('" + id + "', '" + username + "')");
 	}
 	
+	public void deleteOnlineStatus(String id) throws SQLException{
+		stmt.executeUpdate("DELETE FROM Aktive_Session WHERE Session_ID = '" + id + "'");
+	}
+	
 	@Override
 	public boolean isOnline(String id) throws SQLException{
 		ResultSet rs = stmt.executeQuery("SELECT * FROM Aktive_Session WHERE Session_ID = '" + id + "'");
