@@ -1,9 +1,6 @@
 package com.antimess.resources;
 
 import java.sql.*;
-import java.util.ArrayList;
-import java.util.Random;
-
 import javax.naming.Context;
 import javax.naming.InitialContext;
 import javax.naming.NamingException;
@@ -47,18 +44,26 @@ public class AntiMessDao implements AntiMessDaoInterface {
 		if(isInUser((String) data[0]))
 			return false;
 		
-		for(int i = 0; i < 2; i++){
+		for(int i = 0; i < 3; i++){
 			switch(i){
 			case 0:
 				insertValues += "'" + (String) data[i] + "', ";
 				break;
 			case 1:
-				insertValues += "'" + (String) data[i] + "' , DEFAULT)";
+				insertValues += "'" + (String) data[i] + "',";
+				break;
+			case 2:
+				insertValues += "'" + (String) data[i] + "')";
 				break;
 			}
 		}
 		stmt.executeUpdate("INSERT INTO Benutzer VALUES " + insertValues);
 		return true;
+	}
+	
+	@Override
+	public ResultSet pullItem(String name) throws SQLException{
+		return stmt.executeQuery("SELECT GegenstandName, Lagerort_Name, Lagerdatum, Icon FROM Gegenstand, Lagerort, Benutzer WHERE LagerortID_FK = LagerortID and BenutzerName = " + name);
 	}
 	
 	@Override

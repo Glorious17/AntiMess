@@ -22,7 +22,6 @@ public class home extends HttpServlet {
     }
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		System.out.println("ID: " + request.getSession().getId());
 		if(bus.isLogedIn(request.getSession().getId()))
 			response.sendRedirect("dashboard.html");
 		else

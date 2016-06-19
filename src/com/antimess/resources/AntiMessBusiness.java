@@ -1,9 +1,9 @@
 package com.antimess.resources;
 
-import java.awt.List;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.List;
 
 public class AntiMessBusiness implements AntiMessBusinessInterface{
 
@@ -55,10 +55,25 @@ public class AntiMessBusiness implements AntiMessBusinessInterface{
 		return false;
 	}
 	
+	public ArrayList<String> getItems(String name){
+		ResultSet rs;
+		ArrayList<String>ls = new ArrayList<String>();
+		try {
+			rs = dao.pullItem(name);
+			while(rs.next()){
+				ls.add("{'GegenstandName':  '" + rs.getString(1) + "', 'Lagerort': '" + rs.getString(2) + "', 'LagerDatum': '"
+						+ rs.getDate(3) + "', 'Icon': '" + rs.getString(4) + "}");
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return ls;
+	}
+	
 	@Override
-	public boolean registrieren(String name, String passwort) {
+	public boolean registrieren(String name, String passwort, String nickname) {
 		name.toLowerCase();
-		String[] input = {name, passwort};
+		String[] input = {name, passwort, nickname};
 		try {
 			return dao.pushUser(input);
 		} catch (SQLException e) {
