@@ -10,12 +10,14 @@
 
     <body>
     <header>
-        <div id="menu">
+        <div id="header-menu">
+            <a class="logout-link" href="#"><img class="logout-icon" src="img/logout-icon.png"></a>
         </div>
         <div id="logo">
             <h1><span class="logo">anti</span>MESS</h1>
         </div>
     </header>
+
     <nav>
         <button class="add">Hinzufügen</button>
         <button class="verwaltung">Lagerverwaltung</button>
@@ -23,7 +25,7 @@
     <a href="./logout">Logout</a>
 
            <div ng-controller="ContentCtrl">
-               <div>
+               <div id="suche">
                    <input name="global" type="text" autofocus required id="global" placeholder="Gegenstand suchen" ng-model="globalsearch">
                </div>
                    <ul>
