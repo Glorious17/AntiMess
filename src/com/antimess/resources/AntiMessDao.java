@@ -63,7 +63,7 @@ public class AntiMessDao implements AntiMessDaoInterface {
 	
 	@Override
 	public ResultSet pullItem(String name) throws SQLException{
-		return stmt.executeQuery("SELECT GegenstandName, Lagerort_Name, Lagerdatum, Icon FROM Gegenstand, Lagerort, Benutzer WHERE LagerortID_FK = LagerortID and BenutzerName = '" + name + "'");
+		return stmt.executeQuery("SELECT GegenstandName, Lagerort_Name, Lagerdatum, Icon FROM Gegenstand, Lagerort WHERE LagerortID_FK = LagerortID and BenutzerNameFK = '" + name + "'");
 	}
 	
 	@Override

@@ -69,6 +69,8 @@ ALTER TABLE Lagerort DROP Container;
 ALTER TABLE Lagerort ADD Lagerort_Name VARCHAR(255);
 ALTER TABLE Lagerort ADD Lagerort_berechtigt VARCHAR(255);
 ALTER TABLE Lagerort ADD FOREIGN KEY (Lagerort_berechtigt) REFERENCES Benutzer(BenutzerName);
+ALTER TABLE Lagerort ADD SubContainerID INT DEFAULT NULL;
+ALTER TABLE Lagerort ADD FOREIGN KEY (SubContainerID) REFERENCES Lagerort(LagerortID);
 
 ALTER TABLE Adresse ADD Bewohner VARCHAR(255);
 ALTER TABLE Adresse ADD FOREIGN KEY (Bewohner) REFERENCES Benutzer(BenutzerName);
@@ -84,11 +86,15 @@ CREATE TABLE Aktive_Session
 INSERT INTO Benutzer VALUES ('a@a', 'aa', 'Jens');
 INSERT INTO Benutzer VALUES ('b@b', 'bb', 'Pascal');
 
-INSERT INTO Lagerort VALUES(DEFAULT, 'Keller', 'a@a');
-INSERT INTO Lagerort VALUES(DEFAULT, 'Küchenschrank', 'b@b');
+INSERT INTO Lagerort VALUES(DEFAULT, 'Keller', 'a@a', DEFAULT);
+INSERT INTO Lagerort VALUES(DEFAULT, 'Küchenschrank', 'b@b', DEFAULT);
 
 INSERT INTO USER_LAGERORT VALUES(1, 'a@a');
 INSERT INTO USER_LAGERORT VALUES(2, 'b@b');
 
 INSERT INTO Gegenstand VALUES ('Schraubenschluessel', '2016-6-15', '././img/mimg01.jpg', 1, DEFAULT, 'a@a');
 INSERT INTO Gegenstand VALUES ('Grillwender', '2016-6-15', '././img/fimg02.jpg', 2, DEFAULT, 'a@a');
+
+INSERT INTO Gegenstand VALUES ('Bügeleisen', '2016-6-15', '././img/fimg06.jpg', 1, DEFAULT, 'b@b');
+INSERT INTO Gegenstand VALUES ('Alte Computer Maus', '2016-6-15', '././img/mimg10.jpg', 2, DEFAULT, 'b@b');
+
