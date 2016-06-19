@@ -27,6 +27,16 @@ header #logo .logo{
     font-size:20px;
 }
 
+header #header-menu .logout-link{
+    float: right;
+    margin: 17px 20px 0 0;
+}
+
+header #header-menu .logout-icon {
+    width: 25px;
+    height: 25px;
+}
+
 #suche {
     text-align: center;
     margin-top: 1%;

@@ -22,18 +22,24 @@ public class searchService {
 
 	@GET
 	@Produces(MediaType.APPLICATION_JSON)
-	public String getItems(@QueryParam("UserName") String name){
-		String output = "[";
-		ArrayList<String> items = bus.getItems(name);
-		for(int i = 0; i < items.size(); i++){
-			
-			if(i < (items.size()-1))
-				output += items.get(i) + ",";
-			else
-				output += items.get(i);
-			
+	public String getItems(@QueryParam("id") String id){
+		String name = bus.getUserThroughId(id);
+		System.out.println("name: " + name + "; id: " + id);
+		if(bus.checkAcc(name, id)){
+			String output = "[";
+			ArrayList<String> items = bus.getItems(name);
+			for(int i = 0; i < items.size(); i++){
+				
+				if(i < (items.size()-1))
+					output += items.get(i) + ",";
+				else
+					output += items.get(i);
+				
+			}
+			output += "]";
+			System.out.println(output);
+			return output;
 		}
-		output += "]";
-		return output;
+		return null;
 	}
 }

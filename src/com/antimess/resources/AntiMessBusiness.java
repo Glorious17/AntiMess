@@ -18,7 +18,6 @@ public class AntiMessBusiness implements AntiMessBusinessInterface{
 		try {
 			dao.setSession(name, id);
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}
@@ -55,14 +54,15 @@ public class AntiMessBusiness implements AntiMessBusinessInterface{
 		return false;
 	}
 	
+	@Override
 	public ArrayList<String> getItems(String name){
 		ResultSet rs;
 		ArrayList<String>ls = new ArrayList<String>();
 		try {
 			rs = dao.pullItem(name);
 			while(rs.next()){
-				ls.add("{'GegenstandName':  '" + rs.getString(1) + "', 'Lagerort': '" + rs.getString(2) + "', 'LagerDatum': '"
-						+ rs.getDate(3) + "', 'Icon': '" + rs.getString(4) + "}");
+				ls.add("{\"GegenstandName\":  \"" + rs.getString(1) + "\", \"Lagerort\": \"" + rs.getString(2) + "\", \"LagerDatum\": \""
+						+ rs.getDate(3) + "\", \"Icon\": \"" + rs.getString(4) + "\"}");
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -77,10 +77,33 @@ public class AntiMessBusiness implements AntiMessBusinessInterface{
 		try {
 			return dao.pushUser(input);
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 			return false;
 		}
+	}
+	
+	@Override
+	public boolean checkAcc(String name, String id){
+		try {
+			ResultSet rs = dao.getSession(id);
+			if(rs.next()){
+				if(name.equals(rs.getString(2)))
+					System.out.println("true");
+					return true;
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return false;
+	}
+	
+	public String getUserThroughId(String id){
+		try {
+			return dao.getUserThroughId(id);
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return null;
 	}
 	
 	public void close(){

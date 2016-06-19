@@ -11,4 +11,6 @@ public interface AntiMessDaoInterface {
 	void setSession(String Username, String id) throws SQLException;
 	boolean isOnline(String id) throws SQLException;
 	ResultSet pullItem(String name) throws SQLException;
+	ResultSet getSession(String id) throws SQLException;
+	String getUserThroughId(String id) throws SQLException;
 }
