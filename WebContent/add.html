@@ -8,59 +8,40 @@
     <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
 
     <link rel="stylesheet" href="style/add-style.css"/>
+    <link rel="stylesheet" href="style/dashboard-style.css">
     <link href='https://fonts.googleapis.com/css?family=Fira+Sans:400,700' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Lato:400,900,700,300' rel='stylesheet' type='text/css'>
     <meta charset="UTF-8">
     <title>Hinzufügen</title>
 </head>
 <body>
-    <header>
-        <div id="header-menu">
-        </div>
-        <div id="logo">
-            <h1><span class="logo">anti</span>MESS</h1>
-        </div>
-    </header>
+<header>
+    <div id="header-menu">
+        <a class="logout-link" href="#"><img class="logout-icon" src="img/logout-icon.png"></a>
+    </div>
+    <div id="logo">
+        <h1><span class="logo">anti</span>MESS</h1>
+    </div>
+</header>
 
 
     <div ng-controller="ContentCtrl">
         <div id="add-form">
-            <ul>
-               <li><img src="img/kein-img.png" alt="Foto hochladen"></li>
-                <li><input type="file" id="file" name="file" required/></li>
+            <img src="img/kein-img.png" alt="Foto hochladen">
+            <form method="post" action="AntiMessServlet">
+                <input type="file" id="file" name="file" required/>
+                </br>
+                <input name="lagerort" type="text" placeholder="Lagerort" required>
+                </br>
+                <input name="keyword" type="text" placeholder="Schlagwörter" required>
+                </br>
+                <input type="submit" value="add" id="am_add">
+            </form>
 
-                <li><button ng-click="add()">Hinzufügen</button></li>
 
-            </ul>
-        </div>
+
+
     </div>
-
-
-    <!-------- MENU --------->
-
-    <ul id="menu">
-        <li>Item 1</li>
-        <li>Item 2</li>
-        <li>Item 3
-            <ul>
-                <li>Item 3-1</li>
-                <li>Item 3-2</li>
-                <li>Item 3-3</li>
-                <li>Item 3-4</li>
-                <li>Item 3-5</li>
-            </ul>
-        </li>
-        <li>Item 4</li>
-        <li>Item 5</li>
-    </ul>
-
-    <script>
-        $( "#menu" ).menu();
-    </script>
-
-
-
-
 
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
     <script type="text/javascript" src="js/MainModule.js"></script>
