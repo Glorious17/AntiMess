@@ -31,10 +31,18 @@ header #logo .logo{
     text-align: center;
 }
 
-#add-bild {
-    background: #98ff6f;
+img{
+    margin-top: 5%;
 }
 
-.ui-menu {
-    width: 200px;
+form {
+    width:400px;
+    height:auto;
+    overflow:hidden;
+    position:absolute;
+    top:55%;
+    left:50%;
+    transform:translateX(-50%) translateY(-50%);
+    background:#FFFFFF;
+    box-sizing:border-box;
 }

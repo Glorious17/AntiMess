@@ -50,11 +50,31 @@ header #header-menu .logout-icon {
     border: solid 2px #212121;
 }
 
-ul {list-style: none;}
+ul {list-style: none;
+
+}
 
 li {
     list-style: none;
     display: inline;
+    width: 400px;
+    color: #fff;
+    background-color:#212121;
+    border: none;
+    margin: 5% 0.5% 0 0.5%;
+    padding:20px 0;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    font-family: 'lato', sens-serif;
+    text-transform: uppercase;
+    letter-spacing: 5px;
+}
+
+a{
+    text-decoration: none;
+    color: #FFFFFF;
 }
 
 nav{
