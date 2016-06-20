@@ -24,7 +24,6 @@ public class searchService {
 	@Produces(MediaType.APPLICATION_JSON)
 	public String getItems(@QueryParam("id") String id){
 		String name = bus.getUserThroughId(id);
-		System.out.println("name: " + name + "; id: " + id);
 		if(bus.checkAcc(name, id)){
 			String output = "[";
 			ArrayList<String> items = bus.getItems(name);
@@ -37,7 +36,6 @@ public class searchService {
 				
 			}
 			output += "]";
-			System.out.println(output);
 			return output;
 		}
 		return null;

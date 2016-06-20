@@ -14,6 +14,7 @@ public class AntiMessDao implements AntiMessDaoInterface {
 	private DataSource ds = null;
 	private Connection conn = null; 
 	private Statement stmt = null;
+	private PreparedStatement prpStPushUser, prpStSetSession, prpStDelOnlineStatus; 
 	
 	public AntiMessDao(){
 		try {
@@ -40,25 +41,21 @@ public class AntiMessDao implements AntiMessDaoInterface {
 
 	@Override
 	public boolean pushUser(Object data[]) throws SQLException {
-		String insertValues = "(";
 		if(isInUser((String) data[0]))
 			return false;
-		
-		for(int i = 0; i < 3; i++){
-			switch(i){
-			case 0:
-				insertValues += "'" + (String) data[i] + "', ";
-				break;
-			case 1:
-				insertValues += "'" + (String) data[i] + "',";
-				break;
-			case 2:
-				insertValues += "'" + (String) data[i] + "')";
-				break;
-			}
-		}
-		stmt.executeUpdate("INSERT INTO Benutzer VALUES " + insertValues);
+
+		prpStPushUser = conn.prepareStatement("INSERT INTO Benutzer VALUES (?, ?, ?)");
+		prpStPushUser.setString(1, (String) data[0]);
+		prpStPushUser.setString(2, (String) data[1]);
+		prpStPushUser.setString(3, (String) data[2]);
+		prpStPushUser.execute();
 		return true;
+	}
+	
+	public void userLogoff(String username) throws SQLException{
+		prpStDelOnlineStatus = conn.prepareStatement("DELETE FROM Aktive_Session WHERE BenutzerName_FK = ?");
+		prpStDelOnlineStatus.setString(1, username);
+		prpStDelOnlineStatus.execute();
 	}
 	
 	@Override
@@ -68,11 +65,17 @@ public class AntiMessDao implements AntiMessDaoInterface {
 	
 	@Override
 	public void setSession(String username, String id) throws SQLException{
-		stmt.executeUpdate("INSERT INTO Aktive_Session VALUES ('" + id + "', '" + username + "')");
+		prpStSetSession = conn.prepareStatement("INSERT INTO Aktive_Session VALUES (?, ?)");
+		prpStSetSession.setString(1, id);
+		prpStSetSession.setString(2, username);
+		prpStSetSession.execute();
 	}
 	
+	@Override
 	public void deleteOnlineStatus(String id) throws SQLException{
-		stmt.executeUpdate("DELETE FROM Aktive_Session WHERE Session_ID = '" + id + "'");
+		prpStDelOnlineStatus = conn.prepareStatement("DELETE FROM Aktive_Session WHERE Session_ID = ?");
+		prpStDelOnlineStatus.setString(1, id);
+		prpStDelOnlineStatus.execute();
 	}
 	
 	@Override
@@ -86,6 +89,11 @@ public class AntiMessDao implements AntiMessDaoInterface {
 	@Override
 	public ResultSet getSession(String id) throws SQLException{
 		return stmt.executeQuery("SELECT * FROM Aktive_Session WHERE Session_ID = '" + id + "'");
+	}
+	
+	@Override
+	public ResultSet getSessionName(String username) throws SQLException{
+		return stmt.executeQuery("SELECT * FROM Aktive_Session WHERE BenutzerName_FK = '" + username + "'");
 	}
 
 	@Override

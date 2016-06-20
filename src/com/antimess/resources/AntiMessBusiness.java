@@ -3,7 +3,6 @@ package com.antimess.resources;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
-import java.util.List;
 
 public class AntiMessBusiness implements AntiMessBusinessInterface{
 
@@ -11,6 +10,19 @@ public class AntiMessBusiness implements AntiMessBusinessInterface{
 	
 	public AntiMessBusiness(){
 		dao = new AntiMessDao();
+	}
+	
+	@Override
+	public boolean forgotToLogoff(String username){
+		try {
+			ResultSet rs = dao.getSessionName(username);
+			if(rs.next())
+				return true;
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return false;
 	}
 	
 	@Override
@@ -82,6 +94,7 @@ public class AntiMessBusiness implements AntiMessBusinessInterface{
 		}
 	}
 	
+	@Override
 	public boolean logout(String id){
 		try {
 			dao.deleteOnlineStatus(id);
@@ -92,21 +105,29 @@ public class AntiMessBusiness implements AntiMessBusinessInterface{
 		}
 	}
 	
+	public void logoutUser(String username){
+		try {
+			dao.userLogoff(username);
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+	
 	@Override
 	public boolean checkAcc(String name, String id){
 		try {
 			ResultSet rs = dao.getSession(id);
-			if(rs.next()){
+			if(rs.next())
 				if(name.equals(rs.getString(2)))
-					System.out.println("true");
 					return true;
-			}
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
 		return false;
 	}
 	
+	@Override
 	public String getUserThroughId(String id){
 		try {
 			return dao.getUserThroughId(id);

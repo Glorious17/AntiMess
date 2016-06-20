@@ -1,6 +1,8 @@
 package com.antimess.resources;
 
 import java.io.IOException;
+import java.io.PrintWriter;
+
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -17,16 +19,18 @@ public class AntiMessServlet extends HttpServlet {
         super();
     	bus = new AntiMessBusiness();
     }
-    
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
-    	view = request.getRequestDispatcher("./");
-        view.forward(request, response);  
-    }
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		if(bus.anmelden(request.getParameter("email"), request.getParameter("password"))){
-			bus.setSession(request.getParameter("email"), request.getSession().getId());
-			response.sendRedirect("dash?id=" + request.getSession().getId());
+		String username = request.getParameter("email");
+		if(bus.anmelden(username, request.getParameter("password"))){
+			if(bus.forgotToLogoff(username)){
+				bus.logoutUser(username);
+				bus.setSession(request.getParameter("email"), request.getSession().getId());
+				request.getRequestDispatcher("forgotToLogoff.html").forward(request, response);
+			}else{
+				bus.setSession(request.getParameter("email"), request.getSession().getId());
+				response.sendRedirect("dash?id=" + request.getSession().getId());
+			}
 			//bus.close();
 		}else{
 			response.sendRedirect("index.html");
