@@ -19,6 +19,10 @@
     <url-pattern>/rest/*</url-pattern>
   </servlet-mapping>
   <servlet>
+  	<servlet-name>AddServlet</servlet-name>
+  	<servlet-class>com.antimess.resources.addServlet</servlet-class>
+  </servlet>
+  <servlet>
     <servlet-name>LogoutServlet</servlet-name>
     <servlet-class>com.antimess.resources.LogoutServlet</servlet-class>
   </servlet>
@@ -38,6 +42,10 @@
     <servlet-name>dash</servlet-name>
     <servlet-class>com.antimess.resources.dashboard</servlet-class>
   </servlet>
+   <servlet-mapping>
+    <servlet-name>AddServlet</servlet-name>
+    <url-pattern>/add</url-pattern>
+  </servlet-mapping>
   <servlet-mapping>
     <servlet-name>dash</servlet-name>
     <url-pattern>/dash</url-pattern>

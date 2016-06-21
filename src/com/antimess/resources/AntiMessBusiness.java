@@ -1,5 +1,6 @@
 package com.antimess.resources;
 
+import java.sql.Date;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -64,6 +65,16 @@ public class AntiMessBusiness implements AntiMessBusinessInterface{
 			e.printStackTrace();
 		}
 		return false;
+	}
+	
+	public boolean addItem(String name, Date date, String url, String lagerort, String username){
+		try {
+			dao.addItem(name, date, url, lagerort, username);
+		} catch (SQLException e) {
+			e.printStackTrace();
+			return false;
+		}
+		return true;
 	}
 	
 	@Override

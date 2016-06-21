@@ -1,6 +1,7 @@
 package com.antimess.resources;
 
 import java.sql.*;
+import java.util.Date;
 import javax.naming.Context;
 import javax.naming.InitialContext;
 import javax.naming.NamingException;
@@ -14,7 +15,8 @@ public class AntiMessDao implements AntiMessDaoInterface {
 	private DataSource ds = null;
 	private Connection conn = null; 
 	private Statement stmt = null;
-	private PreparedStatement prpStPushUser, prpStSetSession, prpStDelOnlineStatus; 
+	private PreparedStatement prpStPushUser, prpStSetSession, prpStDelOnlineStatus;
+	private PreparedStatement prpStAddItem; 
 	
 	public AntiMessDao(){
 		try {
@@ -56,6 +58,28 @@ public class AntiMessDao implements AntiMessDaoInterface {
 		prpStDelOnlineStatus = conn.prepareStatement("DELETE FROM Aktive_Session WHERE BenutzerName_FK = ?");
 		prpStDelOnlineStatus.setString(1, username);
 		prpStDelOnlineStatus.execute();
+	}
+	
+	public void addItem(String name, java.sql.Date date, String url, String lagerort, String username) throws SQLException{
+		prpStAddItem = conn.prepareStatement("INSERT INTO Gegenstand VALUES (?, ?, ?, ?, DEFAULT, ?)");
+		prpStAddItem.setString(1, name);
+		prpStAddItem.setDate(2, date);
+		prpStAddItem.setString(3, url);
+		prpStAddItem.setInt(4, getLagerortID(lagerort));
+		prpStAddItem.setString(5, username);
+		prpStAddItem.execute();
+	}
+	
+	public int getLagerortID(String name){
+		try {
+			ResultSet rs = stmt.executeQuery("SELECT LagerortID FROM Lagerort WHERE Lagerort_Name = '" + name + "'");
+			if(rs.next()){
+				return rs.getInt(1);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return -1;
 	}
 	
 	@Override
