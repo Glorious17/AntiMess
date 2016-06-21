@@ -54,7 +54,7 @@ ul {list-style: none;
 
 }
 
-li {
+.menu {
     list-style: none;
     display: inline;
     width: 400px;
