@@ -23,7 +23,7 @@
         <h1><span class="logo">anti</span>MESS</h1>
     </div>
 </header>
-        <div id="add-form">
+        <div id="add-form" ng-modul="app.strgctrl">
             <img src="img/kein-img.png" alt="Foto hochladen" id="pic">
 
 
@@ -32,18 +32,14 @@
                 <input type="submit" value="upload" id="am_add">
             </form>
 
-            <form id="attribute" method="post" action="add">
+            <form id="attribute" method="post" action="add" ng-controller="strgController">
                 <input name="attribut" type="text" placeholder="Schlagwort1,Schlagwort2, usw.," required>
 				<input name="gegenstand" type="text" placeholder="Name des Gegenstands" required>
 				
                 </br>
                 <label>Lagerort:
                     <select name="top5" size="1">
-                        <option>Keller</option>
-                        <option>Abstellrum</option>
-                        <option selected>Garage</option>
-                        <option>Schuppen</option>
-                        <option>Dachboden</option>
+                        <option ng-repeat="data in storage">data</option>
                     </select>
                 </label>
                 </br>

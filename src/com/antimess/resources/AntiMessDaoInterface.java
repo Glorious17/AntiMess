@@ -15,4 +15,5 @@ public interface AntiMessDaoInterface {
 	ResultSet getSessionName(String username) throws SQLException;
 	String getUserThroughId(String id) throws SQLException;
 	void deleteOnlineStatus(String id) throws SQLException;
+	boolean addLagerort(String name, String berechtigt, String user) throws SQLException;
 }

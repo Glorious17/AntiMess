@@ -15,7 +15,7 @@ public class AntiMessDao implements AntiMessDaoInterface {
 	private DataSource ds = null;
 	private Connection conn = null; 
 	private Statement stmt = null;
-	private PreparedStatement prpStPushUser, prpStSetSession, prpStDelOnlineStatus;
+	private PreparedStatement prpStPushUser, prpStSetSession, prpStDelOnlineStatus, prpStAddLagerort;
 	private PreparedStatement prpStAddItem; 
 	
 	public AntiMessDao(){
@@ -81,6 +81,26 @@ public class AntiMessDao implements AntiMessDaoInterface {
 			e.printStackTrace();
 		}
 		return -1;
+	}
+	
+	@Override
+	public boolean addLagerort(String name, String berechtigt, String user) throws SQLException{
+		if(getLagerortID(name) != -1)
+			return false;
+		prpStAddLagerort = conn.prepareStatement("INSERT INTO Lagerort VALUES (DEFAULT, ?, ?, DEFAULT, ?)");
+		prpStAddLagerort.setString(1, name);
+		prpStAddLagerort.setString(2, berechtigt);
+		prpStAddLagerort.setString(3, user);
+		prpStAddLagerort.execute();
+		return true;
+	}
+	
+	public ResultSet getLagerortBesitz(String user) throws SQLException{
+		return stmt.executeQuery("SELECT Lagerort_Name FROM Lagerort WHERE Ersteller = '" + user + "'");
+	}
+	
+	public ResultSet getLagerortBerechtigt(String user) throws SQLException{
+		return stmt.executeQuery("SELECT Lagerort_Name FROM Lagerort WHERE Lagerort_berechtigt = '" + user + "'");
 	}
 	
 	@Override

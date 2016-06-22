@@ -67,6 +67,7 @@ public class AntiMessBusiness implements AntiMessBusinessInterface{
 		return false;
 	}
 	
+	@Override
 	public boolean addItem(String name, Date date, String url, String lagerort, String username, String keyword){
 		try {
 			dao.addItem(name, date, url, lagerort, username, keyword);
@@ -93,6 +94,35 @@ public class AntiMessBusiness implements AntiMessBusinessInterface{
 		return ls;
 	}
 	
+	public ArrayList<String> getLagerort(String name){
+		ArrayList<String> output = null;
+		try {
+			ResultSet rs = dao.getLagerortBesitz(name);
+			output = new <String> ArrayList();
+			while(rs.next()){
+				output.add(rs.getString(1));
+			}
+			rs = dao.getLagerortBerechtigt(name);
+			while(rs.next()){
+				output.add("Berechtigter Zugriff: " + rs.getString(1));
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return output;
+	}
+	
+	@Override
+	public boolean addLagerort(String name, String berechtigt, String user){
+		try {
+			return dao.addLagerort(name, berechtigt, user);
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return false;
+	}
+	
 	@Override
 	public boolean registrieren(String name, String passwort, String nickname) {
 		name.toLowerCase();
@@ -116,6 +146,7 @@ public class AntiMessBusiness implements AntiMessBusinessInterface{
 		}
 	}
 	
+	@Override
 	public void logoutUser(String username){
 		try {
 			dao.userLogoff(username);

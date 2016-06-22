@@ -2,6 +2,7 @@ package com.antimess.resources;
 
 import java.io.File;
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -32,17 +33,43 @@ public class addServlet extends HttpServlet {
     }
     
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		if(ServletFileUpload.isMultipartContent(request)){
-			url = getFile(request);
-			request.getSession().setAttribute("url", url);
-			response.sendRedirect("./add.html?pic="+url.substring(url.lastIndexOf("/")+1));
+		if(request.getParameter("new-lagerort") == null){
+			if(ServletFileUpload.isMultipartContent(request)){
+				url = getFile(request);
+				request.getSession().setAttribute("pic-url", url);
+				response.sendRedirect("add.html?pic="+url.substring(url.lastIndexOf("/")+1));
+			}else if(request.getSession().getAttribute("pic-url") != null){
+				String name = request.getParameter("gegenstand");
+				String lagerort = request.getParameter("top5");
+				String keyword = request.getParameter("attribut");
+				bus.addItem(name, new java.sql.Date(findDate().getTime()), (String) request.getSession().getAttribute("pic-url"), lagerort, bus.getUserThroughId(request.getSession().getId()), keyword);
+				request.getSession().setAttribute("pic-url", null);
+				response.sendRedirect("./home");
+			}else{
+				response.sendRedirect("add.html");
+			}
 		}else{
-			String name = request.getParameter("gegenstand");
-			String lagerort = request.getParameter("top5");
-			String keyword = request.getParameter("attribut");
-			bus.addItem(name, new java.sql.Date(findDate().getTime()), (String) request.getSession().getAttribute("url"), lagerort, bus.getUserThroughId(request.getSession().getId()), keyword);
-			response.sendRedirect("./home");
+			if(bus.addLagerort(request.getParameter("new-lagerort"), "a@a", bus.getUserThroughId(request.getSession().getId()))){
+				String url = (String) request.getSession().getAttribute("pic-url");
+				if(url == null){
+					request.getRequestDispatcher("add.html").forward(request, response);
+				}else{
+					response.sendRedirect("add.html?pic="+url.substring(url.lastIndexOf("/")+1));
+				}
+				
+			}else{
+				response.setContentType("text/html");
+				PrintWriter out = response.getWriter();
+				out.println("Dein Lagerort existiert bereits! Trage einen neuen ein:");
+				out.println("<form id=\"lagerort\" method=\"post\" action=\"add\">");
+				out.println("<input name=\"new-lagerort\" type=\"text\" placeholder=\"Lagerort\" required>");
+				out.println("</br>");
+				out.println("<input type=\"submit\" value=\"upload\" id=\"lo_add\">");
+				out.println("</form>");
+				out.close();
+			}
 		}
+		
 	}
 	
 	private Date findDate(){
