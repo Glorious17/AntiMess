@@ -24,7 +24,7 @@
     </div>
 </header>
         <div id="add-form">
-            <img src="img/kein-img.png" alt="Foto hochladen">
+            <img src="img/kein-img.png" alt="Foto hochladen" id="pic">
 
 
             <form id="upload" method="post" action="add" enctype="multipart/form-data">
@@ -32,9 +32,10 @@
                 <input type="submit" value="upload" id="am_add">
             </form>
 
-            <form id="attribute" method="post" action="add" enctype="multipart/form-data">
+            <form id="attribute" method="post" action="add">
                 <input name="attribut" type="text" placeholder="Schlagwort1,Schlagwort2, usw.," required>
-
+				<input name="gegenstand" type="text" placeholder="Name des Gegenstands" required>
+				
                 </br>
                 <label>Lagerort:
                     <select name="top5" size="1">
@@ -49,7 +50,7 @@
                 <input type="submit" value="Hinzufügen" id="at_add">
             </form>
 
-            <form id="lagerort" method="post" action="add" enctype="multipart/form-data">
+            <form id="lagerort" method="post" action="add">
                 <input name="new-lagerort" type="text" placeholder="Lagerort" required>
                 </br>
                 <input type="submit" value="upload" id="lo_add">
@@ -65,5 +66,28 @@
     <script type="text/javascript" src="js/MainModule.js"></script>
     <script type="text/javascript" src="js/ctrl/CtrlModule.js"></script>
     <script type="text/javascript" src="js/main.js"></script>
+    <script type="text/javascript">
+    function get_url_param( name )
+    {
+    	name = name.replace(/[\[]/,"\\\[").replace(/[\]]/,"\\\]");
+
+    	var regexS = "[\\?&]"+name+"=([^&#]*)";
+    	var regex = new RegExp( regexS );
+    	var results = regex.exec( window.location.href );
+
+    	if ( results == null )
+    		return "";
+    	else
+    		return results[1];
+    }
+    
+    var url_param = get_url_param("pic");
+    var img = document.getElementById("pic");
+    if(url_param != ""){
+        img.src="/images/"+url_param;
+    }else{
+    	img.src="img/kein-img.png";
+    }
+    </script>
 </body>
 </html>
