@@ -1,5 +1,6 @@
 package com.antimess.resources;
 
+import java.sql.Date;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
@@ -13,4 +14,7 @@ public interface AntiMessBusinessInterface {
 	String getUserThroughId(String id);
 	boolean logout(String id);
 	boolean forgotToLogoff(String username);
+	boolean addItem(String name, Date date, String url, String lagerort, String username, String keyword);
+	void logoutUser(String username);
+	boolean addLagerort(String name, String berechtigt, String user);
 }

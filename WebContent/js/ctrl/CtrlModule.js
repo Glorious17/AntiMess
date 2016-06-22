@@ -232,3 +232,17 @@ var ctrl = angular.module('app.ctrl', [])
         .controller ( 'ContentCtrl', ContentCtrl )
     ;
 
+var strgctrl = angular.module('app.strgctrl', [])
+		.controller('strgController', function($scope, $log, $http){
+			$http({
+	        	mehtod: 'GET',
+	        	url: 'rest/getStorage?&id=' + get_url_param("id")
+	        }).
+	        success(function(data, status, headers, config) {
+	            $scope.storage = data;
+	        }).
+	        error(function(data, status, headers, config) {
+	            // log error
+	        });
+
+		});
