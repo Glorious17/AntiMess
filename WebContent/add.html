@@ -7,6 +7,7 @@
     <script src="//code.jquery.com/jquery-1.10.2.js"></script>
     <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
     <script src="js/upload.js"></script>
+    <script src="js/hiddenform.js"></script>
     <link rel="stylesheet" href="style/add-style.css"/>
     <link rel="stylesheet" href="style/dashboard-style.css">
     <link href='https://fonts.googleapis.com/css?family=Fira+Sans:400,700' rel='stylesheet' type='text/css'>
@@ -28,14 +29,15 @@
 
 
             <form id="upload" method="post" action="add" enctype="multipart/form-data">
+                <h2>Schritt 1: Bild hochladen</h2>
                 <input type="file" id="file" name="file" required/>
-                <input type="submit" value="upload" id="am_add">
+                <input type="submit" value="Hochladen" id="ud_send">
             </form>
 
             <form id="attribute" method="post" action="add" ng-controller="strgController">
+                <h2>Schritt 2: Gegenstand anlegen</h2>
+                <input name="gegenstand" type="text" placeholder="Name des Gegenstands" required>
                 <input name="attribut" type="text" placeholder="Schlagwort1,Schlagwort2, usw.," required>
-				<input name="gegenstand" type="text" placeholder="Name des Gegenstands" required>
-				
                 </br>
                 <label>Lagerort:
                     <select name="top5" size="1">
@@ -43,13 +45,19 @@
                     </select>
                 </label>
                 </br>
-                <input type="submit" value="Hinzufügen" id="at_add">
+
+                <input type="submit" value="Anlegen" id="ud_send">
             </form>
 
+            <button id="new" onclick="newLagerort()">Neuen Lagerort anlegen</button>
+            <button id="back" onclick="back()">Doch nicht</button>
+
             <form id="lagerort" method="post" action="add">
+                <h2>Neuer Lagerort</h2>
                 <input name="new-lagerort" type="text" placeholder="Lagerort" required>
                 </br>
-                <input type="submit" value="upload" id="lo_add">
+                <input type="submit" value="Hinzufügen" id="ud_send">
+
             </form>
 
 
