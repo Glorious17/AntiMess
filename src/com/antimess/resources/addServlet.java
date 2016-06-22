@@ -35,11 +35,11 @@ public class addServlet extends HttpServlet {
 		if(ServletFileUpload.isMultipartContent(request)){
 			url = getFile(request);
 			request.getSession().setAttribute("url", url);
-			response.sendRedirect("./add1.html");
+			response.sendRedirect("./add.html?pic="+url.substring(url.lastIndexOf("/")+1));
 		}else{
 			String name = request.getParameter("gegenstand");
-			String lagerort = request.getParameter("lagerort");
-			String keyword = request.getParameter("keyword");
+			String lagerort = request.getParameter("top5");
+			String keyword = request.getParameter("attribut");
 			bus.addItem(name, new java.sql.Date(findDate().getTime()), (String) request.getSession().getAttribute("url"), lagerort, bus.getUserThroughId(request.getSession().getId()), keyword);
 			response.sendRedirect("./home");
 		}
