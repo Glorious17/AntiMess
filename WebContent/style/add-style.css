@@ -41,6 +41,8 @@ header #logo .logo{
 
 img{
     margin-top: 5%;
+    height: 200px;
+    width: auto;
 }
 
 form {
