@@ -51,9 +51,7 @@ header #header-menu .logout-icon {
     border: solid 2px #212121;
 }
 
-ul {list-style: none;
-
-}
+ul {list-style: none;}
 
 .menu {
     list-style: none;
@@ -77,6 +75,8 @@ a{
     text-decoration: none;
     color: #FFFFFF;
 }
+
+li{display: inline-block;}
 
 nav{
     text-align: center;
