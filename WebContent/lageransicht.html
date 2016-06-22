@@ -2,6 +2,7 @@
 <html>
 <head>
 	<link rel="stylesheet" href="style/verwaltung-style.css"/>
+    <link rel="stylesheet" href="style/dashboard-style.css"/>
         <link href='https://fonts.googleapis.com/css?family=Fira+Sans:400,700' rel='stylesheet' type='text/css'>
         <link href='https://fonts.googleapis.com/css?family=Lato:400,900,700,300' rel='stylesheet' type='text/css'>
 	    <meta charset="utf-8">
@@ -9,8 +10,9 @@
 	<title>Lagerverwaltung</title>
 </head>
 <body>
-	<header>
-        <div id="menu">
+	   <header>
+        <div id="header-menu">
+            <a class="logout-link" href="./logout"><img class="logout-icon" src="img/logout-icon.png"></a>
         </div>
         <div id="logo">
             <h1><span class="logo">anti</span>MESS</h1>
@@ -39,10 +41,6 @@
 
         </ul>
 
-        <form name="myForm" ng-submit="">
-            <input ng-model='file' type="file"/>
-            <input type="submit" value='Submit'/>
-        </form>
 
 
     </div>

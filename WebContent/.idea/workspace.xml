@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b4ff6540-1fcf-4d27-859c-82662c96c2ca" name="Default" comment="">
+      <change type="MOVED" beforePath="$PROJECT_DIR$/verwaltung.html" afterPath="$PROJECT_DIR$/lageransicht.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dashboard.html" afterPath="$PROJECT_DIR$/dashboard.html" />
     </list>
@@ -24,14 +25,24 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="525">
-      <file leaf-file-name="dashboard.html" pinned="false" current-in-tab="true">
+      <file leaf-file-name="dashboard.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/dashboard.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="304">
-              <caret line="24" column="60" selection-start-line="24" selection-start-column="60" selection-end-line="24" selection-end-column="60" />
+            <state relative-caret-position="155">
+              <caret line="12" column="0" selection-start-line="12" selection-start-column="0" selection-end-line="19" selection-end-column="13" />
               <folding>
-                <marker date="1466604510666" expanded="true" signature="1720:2030" ph="..." />
+                <marker date="1466604712778" expanded="true" signature="1696:2006" ph="..." />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="lageransicht.html" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/lageransicht.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="420">
+              <caret line="12" column="4" selection-start-line="12" selection-start-column="4" selection-end-line="12" selection-end-column="4" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -105,6 +116,7 @@
         <option value="$PROJECT_DIR$/style/add-style.css" />
         <option value="$PROJECT_DIR$/style/dashboard-style.css" />
         <option value="$PROJECT_DIR$/dashboard.html" />
+        <option value="$PROJECT_DIR$/lageransicht.html" />
       </list>
     </option>
   </component>
@@ -227,11 +239,11 @@
     <property name="settings.editor.splitter.proportion" value="0.2" />
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
   </component>
-  <component name="RunManager" selected="JavaScript Debug.dashboard.html">
+  <component name="RunManager">
     <configuration default="false" name="dashboard.html" type="JavascriptDebugType" factoryName="JavaScript Debug" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/WebContent/dashboard.html">
       <method />
     </configuration>
-    <configuration default="false" name="verwaltung.html" type="JavascriptDebugType" factoryName="JavaScript Debug" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/WebContent/verwaltung.html">
+    <configuration default="false" name="lageransicht.html" type="JavascriptDebugType" factoryName="JavaScript Debug" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/WebContent/lageransicht.html">
       <method />
     </configuration>
     <configuration default="false" name="index.html" type="JavascriptDebugType" factoryName="JavaScript Debug" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/WebContent/index.html">
@@ -295,16 +307,16 @@
     </configuration>
     <list size="4">
       <item index="0" class="java.lang.String" itemvalue="JavaScript Debug.dashboard.html" />
-      <item index="1" class="java.lang.String" itemvalue="JavaScript Debug.verwaltung.html" />
+      <item index="1" class="java.lang.String" itemvalue="JavaScript Debug.lageransicht.html" />
       <item index="2" class="java.lang.String" itemvalue="JavaScript Debug.index.html" />
       <item index="3" class="java.lang.String" itemvalue="JavaScript Debug.add.html" />
     </list>
     <recent_temporary>
       <list size="4">
-        <item index="0" class="java.lang.String" itemvalue="JavaScript Debug.dashboard.html" />
-        <item index="1" class="java.lang.String" itemvalue="JavaScript Debug.index.html" />
-        <item index="2" class="java.lang.String" itemvalue="JavaScript Debug.add.html" />
-        <item index="3" class="java.lang.String" itemvalue="JavaScript Debug.verwaltung.html" />
+        <item index="0" class="java.lang.String" itemvalue="JavaScript Debug.lageransicht.html" />
+        <item index="1" class="java.lang.String" itemvalue="JavaScript Debug.dashboard.html" />
+        <item index="2" class="java.lang.String" itemvalue="JavaScript Debug.index.html" />
+        <item index="3" class="java.lang.String" itemvalue="JavaScript Debug.add.html" />
       </list>
     </recent_temporary>
   </component>
@@ -335,12 +347,12 @@
       <workItem from="1466509856056" duration="4446000" />
       <workItem from="1466593320768" duration="2099000" />
       <workItem from="1466596183001" duration="7489000" />
-      <workItem from="1466604495433" duration="37000" />
+      <workItem from="1466604495433" duration="246000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="33364000" />
+    <option name="totallyTimeSpent" value="33573000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-12" y="-12" width="3224" height="1754" extended-state="6" />
@@ -391,6 +403,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="455">
           <caret line="13" column="8" selection-start-line="13" selection-start-column="8" selection-end-line="13" selection-end-column="77" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -413,7 +426,7 @@
         <state relative-caret-position="1540">
           <caret line="44" column="79" selection-start-line="39" selection-start-column="4" selection-end-line="44" selection-end-column="79" />
           <folding>
-            <marker date="1466604510666" expanded="true" signature="1720:2030" ph="..." />
+            <marker date="1466604712778" expanded="true" signature="1696:2006" ph="..." />
           </folding>
         </state>
       </provider>
@@ -452,6 +465,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="455">
           <caret line="13" column="8" selection-start-line="13" selection-start-column="8" selection-end-line="13" selection-end-column="77" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -474,7 +488,7 @@
         <state relative-caret-position="1540">
           <caret line="44" column="79" selection-start-line="39" selection-start-column="4" selection-end-line="44" selection-end-column="79" />
           <folding>
-            <marker date="1466604510666" expanded="true" signature="1720:2030" ph="..." />
+            <marker date="1466604712778" expanded="true" signature="1696:2006" ph="..." />
           </folding>
         </state>
       </provider>
@@ -521,7 +535,7 @@
         <state relative-caret-position="1540">
           <caret line="44" column="79" selection-start-line="39" selection-start-column="4" selection-end-line="44" selection-end-column="79" />
           <folding>
-            <marker date="1466604510666" expanded="true" signature="1720:2030" ph="..." />
+            <marker date="1466604712778" expanded="true" signature="1696:2006" ph="..." />
           </folding>
         </state>
       </provider>
@@ -568,7 +582,7 @@
         <state relative-caret-position="1540">
           <caret line="44" column="79" selection-start-line="39" selection-start-column="4" selection-end-line="44" selection-end-column="79" />
           <folding>
-            <marker date="1466604510666" expanded="true" signature="1720:2030" ph="..." />
+            <marker date="1466604712778" expanded="true" signature="1696:2006" ph="..." />
           </folding>
         </state>
       </provider>
@@ -615,7 +629,7 @@
         <state relative-caret-position="980">
           <caret line="28" column="44" selection-start-line="28" selection-start-column="44" selection-end-line="28" selection-end-column="44" />
           <folding>
-            <marker date="1466604510666" expanded="true" signature="1720:2030" ph="..." />
+            <marker date="1466604712778" expanded="true" signature="1696:2006" ph="..." />
           </folding>
         </state>
       </provider>
@@ -646,7 +660,7 @@
         <state relative-caret-position="351">
           <caret line="13" column="14" selection-start-line="13" selection-start-column="14" selection-end-line="13" selection-end-column="14" />
           <folding>
-            <marker date="1466604510666" expanded="true" signature="1720:2030" ph="..." />
+            <marker date="1466604712778" expanded="true" signature="1696:2006" ph="..." />
           </folding>
         </state>
       </provider>
@@ -655,6 +669,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="135">
           <caret line="5" column="51" selection-start-line="5" selection-start-column="51" selection-end-line="5" selection-end-column="51" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -669,13 +684,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="490">
           <caret line="14" column="3" selection-start-line="14" selection-start-column="3" selection-end-line="14" selection-end-column="3" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/verwaltung.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="960">
-          <caret line="42" column="12" selection-start-line="42" selection-start-column="12" selection-end-line="43" selection-end-column="49" />
         </state>
       </provider>
     </entry>
@@ -712,6 +720,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="735">
           <caret line="21" column="48" selection-start-line="21" selection-start-column="48" selection-end-line="21" selection-end-column="55" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -756,11 +765,19 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/dashboard.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="304">
-          <caret line="24" column="60" selection-start-line="24" selection-start-column="60" selection-end-line="24" selection-end-column="60" />
+        <state relative-caret-position="155">
+          <caret line="12" column="0" selection-start-line="12" selection-start-column="0" selection-end-line="19" selection-end-column="13" />
           <folding>
-            <marker date="1466604510666" expanded="true" signature="1720:2030" ph="..." />
+            <marker date="1466604712778" expanded="true" signature="1696:2006" ph="..." />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lageransicht.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="420">
+          <caret line="12" column="4" selection-start-line="12" selection-start-column="4" selection-end-line="12" selection-end-column="4" />
+          <folding />
         </state>
       </provider>
     </entry>
