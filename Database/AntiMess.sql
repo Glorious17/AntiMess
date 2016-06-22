@@ -51,6 +51,7 @@ CREATE TABLE Adresse
 ALTER TABLE Gegenstand DROP FOREIGN KEY gegenstand_ibfk_2;
 ALTER TABLE Gegenstand DROP UserID_FK;
 ALTER TABLE Gegenstand ADD BenutzerNameFK VARCHAR(255);
+ALTER TABLE Gegenstand ADD Keywords VARCHAR(255);
 
 ALTER TABLE USER_LAGERORT DROP FOREIGN KEY user_lagerort_ibfk_2;
 ALTER TABLE USER_LAGERORT DROP UserID_FK;
@@ -75,6 +76,7 @@ ALTER TABLE Lagerort ADD FOREIGN KEY (SubContainerID) REFERENCES Lagerort(Lagero
 ALTER TABLE Adresse ADD Bewohner VARCHAR(255);
 ALTER TABLE Adresse ADD FOREIGN KEY (Bewohner) REFERENCES Benutzer(BenutzerName);
 
+
 CREATE TABLE Aktive_Session
 (
 	Session_ID VARCHAR(255) PRIMARY KEY,
@@ -92,9 +94,9 @@ INSERT INTO Lagerort VALUES(DEFAULT, 'Küchenschrank', 'b@b', DEFAULT);
 INSERT INTO USER_LAGERORT VALUES(1, 'a@a');
 INSERT INTO USER_LAGERORT VALUES(2, 'b@b');
 
-INSERT INTO Gegenstand VALUES ('Schraubenschluessel', '2016-6-15', '././img/mimg01.jpg', 1, DEFAULT, 'a@a');
-INSERT INTO Gegenstand VALUES ('Grillwender', '2016-6-15', '././img/fimg02.jpg', 2, DEFAULT, 'a@a');
+INSERT INTO Gegenstand VALUES ('Schraubenschluessel', '2016-6-15', '././img/mimg01.jpg', 1, DEFAULT, 'a@a', 'Schrauben, Schlüssel');
+INSERT INTO Gegenstand VALUES ('Grillwender', '2016-6-15', '././img/fimg02.jpg', 2, DEFAULT, 'a@a', 'Wender, Grill');
 
-INSERT INTO Gegenstand VALUES ('Bügeleisen', '2016-6-15', '././img/fimg06.jpg', 1, DEFAULT, 'b@b');
-INSERT INTO Gegenstand VALUES ('Alte Computer Maus', '2016-6-15', '././img/mimg10.jpg', 2, DEFAULT, 'b@b');
+INSERT INTO Gegenstand VALUES ('Bügeleisen', '2016-6-15', '././img/fimg06.jpg', 1, DEFAULT, 'b@b', 'Bügel, Eisen');
+INSERT INTO Gegenstand VALUES ('Alte Computer Maus', '2016-6-15', '././img/mimg10.jpg', 2, DEFAULT, 'b@b', 'Maus, Computer');
 

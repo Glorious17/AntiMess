@@ -40,7 +40,7 @@ public class addServlet extends HttpServlet {
 			String name = request.getParameter("gegenstand");
 			String lagerort = request.getParameter("lagerort");
 			String keyword = request.getParameter("keyword");
-			bus.addItem(name, new java.sql.Date(findDate().getTime()), (String) request.getSession().getAttribute("url"), lagerort, bus.getUserThroughId(request.getSession().getId()));
+			bus.addItem(name, new java.sql.Date(findDate().getTime()), (String) request.getSession().getAttribute("url"), lagerort, bus.getUserThroughId(request.getSession().getId()), keyword);
 			response.sendRedirect("./home");
 		}
 	}
@@ -78,9 +78,9 @@ public class addServlet extends HttpServlet {
 				if ( !fi.isFormField () )
 				{
 					String fileName = fi.getName();
-					path = "C:/tomcat/" + bus.getUserThroughId(request.getSession().getId())
-					+ "/" + fileName.substring(fileName.lastIndexOf("\\")+1);
-					file = new File( path );
+					path = bus.getUserThroughId(request.getSession().getId())
+					+ "_" + fileName.substring(fileName.lastIndexOf("\\")+1);
+					file = new File("C:/tomcat/" +  path );
 					fi.write( file ) ;
 				}
 			}
@@ -88,8 +88,7 @@ public class addServlet extends HttpServlet {
 			ex.printStackTrace();
 			return null;
 		}
-		return "./././././././tomcat/" + bus.getUserThroughId(request.getSession().getId())
-					+ "/" + path.substring(path.lastIndexOf("\\")+1);
+		return "/images/" + path;
 	}
 
 }

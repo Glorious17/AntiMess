@@ -60,13 +60,14 @@ public class AntiMessDao implements AntiMessDaoInterface {
 		prpStDelOnlineStatus.execute();
 	}
 	
-	public void addItem(String name, java.sql.Date date, String url, String lagerort, String username) throws SQLException{
-		prpStAddItem = conn.prepareStatement("INSERT INTO Gegenstand VALUES (?, ?, ?, ?, DEFAULT, ?)");
+	public void addItem(String name, java.sql.Date date, String url, String lagerort, String username, String keyword) throws SQLException{
+		prpStAddItem = conn.prepareStatement("INSERT INTO Gegenstand VALUES (?, ?, ?, ?, DEFAULT, ?, ?)");
 		prpStAddItem.setString(1, name);
 		prpStAddItem.setDate(2, date);
 		prpStAddItem.setString(3, url);
 		prpStAddItem.setInt(4, getLagerortID(lagerort));
 		prpStAddItem.setString(5, username);
+		prpStAddItem.setString(6, keyword);
 		prpStAddItem.execute();
 	}
 	
@@ -84,7 +85,7 @@ public class AntiMessDao implements AntiMessDaoInterface {
 	
 	@Override
 	public ResultSet pullItem(String name) throws SQLException{
-		return stmt.executeQuery("SELECT GegenstandName, Lagerort_Name, Lagerdatum, Icon FROM Gegenstand, Lagerort WHERE LagerortID_FK = LagerortID and BenutzerNameFK = '" + name + "'");
+		return stmt.executeQuery("SELECT GegenstandName, Lagerort_Name, Lagerdatum, Icon, Keywords FROM Gegenstand, Lagerort WHERE LagerortID_FK = LagerortID and BenutzerNameFK = '" + name + "'");
 	}
 	
 	@Override

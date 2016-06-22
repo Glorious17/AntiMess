@@ -67,9 +67,9 @@ public class AntiMessBusiness implements AntiMessBusinessInterface{
 		return false;
 	}
 	
-	public boolean addItem(String name, Date date, String url, String lagerort, String username){
+	public boolean addItem(String name, Date date, String url, String lagerort, String username, String keyword){
 		try {
-			dao.addItem(name, date, url, lagerort, username);
+			dao.addItem(name, date, url, lagerort, username, keyword);
 		} catch (SQLException e) {
 			e.printStackTrace();
 			return false;
@@ -85,7 +85,7 @@ public class AntiMessBusiness implements AntiMessBusinessInterface{
 			rs = dao.pullItem(name);
 			while(rs.next()){
 				ls.add("{\"GegenstandName\":  \"" + rs.getString(1) + "\", \"Lagerort\": \"" + rs.getString(2) + "\", \"LagerDatum\": \""
-						+ rs.getDate(3) + "\", \"Icon\": \"" + rs.getString(4) + "\"}");
+						+ rs.getDate(3) + "\", \"Icon\": \"" + rs.getString(4) + "\", \"Keywords\": \"" + rs.getString(5) + "\"}");
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
