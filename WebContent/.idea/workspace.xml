@@ -1,14 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="b4ff6540-1fcf-4d27-859c-82662c96c2ca" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/add.html" afterPath="$PROJECT_DIR$/add.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dashboard.html" afterPath="$PROJECT_DIR$/dashboard.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/style/add-style.css" afterPath="$PROJECT_DIR$/style/add-style.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/style/dashboard-style.css" afterPath="$PROJECT_DIR$/style/dashboard-style.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/style/style.css" afterPath="$PROJECT_DIR$/style/style.css" />
-    </list>
+    <list default="true" id="b4ff6540-1fcf-4d27-859c-82662c96c2ca" name="Default" comment="" />
     <ignored path="WebContent.iws" />
     <ignored path=".idea/workspace.xml" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -301,12 +294,12 @@
       <workItem from="1466336444640" duration="60000" />
       <workItem from="1466405290788" duration="1545000" />
       <workItem from="1466412808322" duration="719000" />
-      <workItem from="1466509856056" duration="3852000" />
+      <workItem from="1466509856056" duration="4446000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="23145000" />
+    <option name="totallyTimeSpent" value="23739000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-12" y="-12" width="3224" height="1754" extended-state="6" />
@@ -660,6 +653,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="960">
           <caret line="42" column="12" selection-start-line="42" selection-start-column="12" selection-end-line="43" selection-end-column="49" />
+          <folding />
         </state>
       </provider>
     </entry>
