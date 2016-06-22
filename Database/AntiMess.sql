@@ -77,7 +77,7 @@ ALTER TABLE Adresse ADD FOREIGN KEY (Bewohner) REFERENCES Benutzer(BenutzerName)
 
 CREATE TABLE Aktive_Session
 (
-	Session_ID VARCHAR(255) DEFAULT NULL,
+	Session_ID VARCHAR(255) PRIMARY KEY,
     BenutzerName_FK VARCHAR(255),
     FOREIGN KEY (BenutzerName_FK) REFERENCES Benutzer(BenutzerName)
 );

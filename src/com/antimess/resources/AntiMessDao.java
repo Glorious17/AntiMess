@@ -1,6 +1,7 @@
 package com.antimess.resources;
 
 import java.sql.*;
+import java.util.Date;
 import javax.naming.Context;
 import javax.naming.InitialContext;
 import javax.naming.NamingException;
@@ -14,6 +15,8 @@ public class AntiMessDao implements AntiMessDaoInterface {
 	private DataSource ds = null;
 	private Connection conn = null; 
 	private Statement stmt = null;
+	private PreparedStatement prpStPushUser, prpStSetSession, prpStDelOnlineStatus;
+	private PreparedStatement prpStAddItem; 
 	
 	public AntiMessDao(){
 		try {
@@ -40,25 +43,43 @@ public class AntiMessDao implements AntiMessDaoInterface {
 
 	@Override
 	public boolean pushUser(Object data[]) throws SQLException {
-		String insertValues = "(";
 		if(isInUser((String) data[0]))
 			return false;
-		
-		for(int i = 0; i < 3; i++){
-			switch(i){
-			case 0:
-				insertValues += "'" + (String) data[i] + "', ";
-				break;
-			case 1:
-				insertValues += "'" + (String) data[i] + "',";
-				break;
-			case 2:
-				insertValues += "'" + (String) data[i] + "')";
-				break;
-			}
-		}
-		stmt.executeUpdate("INSERT INTO Benutzer VALUES " + insertValues);
+
+		prpStPushUser = conn.prepareStatement("INSERT INTO Benutzer VALUES (?, ?, ?)");
+		prpStPushUser.setString(1, (String) data[0]);
+		prpStPushUser.setString(2, (String) data[1]);
+		prpStPushUser.setString(3, (String) data[2]);
+		prpStPushUser.execute();
 		return true;
+	}
+	
+	public void userLogoff(String username) throws SQLException{
+		prpStDelOnlineStatus = conn.prepareStatement("DELETE FROM Aktive_Session WHERE BenutzerName_FK = ?");
+		prpStDelOnlineStatus.setString(1, username);
+		prpStDelOnlineStatus.execute();
+	}
+	
+	public void addItem(String name, java.sql.Date date, String url, String lagerort, String username) throws SQLException{
+		prpStAddItem = conn.prepareStatement("INSERT INTO Gegenstand VALUES (?, ?, ?, ?, DEFAULT, ?)");
+		prpStAddItem.setString(1, name);
+		prpStAddItem.setDate(2, date);
+		prpStAddItem.setString(3, url);
+		prpStAddItem.setInt(4, getLagerortID(lagerort));
+		prpStAddItem.setString(5, username);
+		prpStAddItem.execute();
+	}
+	
+	public int getLagerortID(String name){
+		try {
+			ResultSet rs = stmt.executeQuery("SELECT LagerortID FROM Lagerort WHERE Lagerort_Name = '" + name + "'");
+			if(rs.next()){
+				return rs.getInt(1);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return -1;
 	}
 	
 	@Override
@@ -68,7 +89,17 @@ public class AntiMessDao implements AntiMessDaoInterface {
 	
 	@Override
 	public void setSession(String username, String id) throws SQLException{
-		stmt.executeUpdate("INSERT INTO Aktive_Session VALUES ('" + id + "', '" + username + "')");
+		prpStSetSession = conn.prepareStatement("INSERT INTO Aktive_Session VALUES (?, ?)");
+		prpStSetSession.setString(1, id);
+		prpStSetSession.setString(2, username);
+		prpStSetSession.execute();
+	}
+	
+	@Override
+	public void deleteOnlineStatus(String id) throws SQLException{
+		prpStDelOnlineStatus = conn.prepareStatement("DELETE FROM Aktive_Session WHERE Session_ID = ?");
+		prpStDelOnlineStatus.setString(1, id);
+		prpStDelOnlineStatus.execute();
 	}
 	
 	@Override
@@ -82,6 +113,11 @@ public class AntiMessDao implements AntiMessDaoInterface {
 	@Override
 	public ResultSet getSession(String id) throws SQLException{
 		return stmt.executeQuery("SELECT * FROM Aktive_Session WHERE Session_ID = '" + id + "'");
+	}
+	
+	@Override
+	public ResultSet getSessionName(String username) throws SQLException{
+		return stmt.executeQuery("SELECT * FROM Aktive_Session WHERE BenutzerName_FK = '" + username + "'");
 	}
 
 	@Override

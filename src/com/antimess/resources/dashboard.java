@@ -8,22 +8,24 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * Servlet implementation class home
+ * Servlet implementation class dashboard
  */
-@WebServlet("/home")
-public class home extends HttpServlet {
+@WebServlet("/dashboard")
+public class dashboard extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	private AntiMessBusiness bus;
+	AntiMessBusiness bus;
        
-    public home() {
+    /**
+     * @see HttpServlet#HttpServlet()
+     */
+    public dashboard() {
         super();
         bus = new AntiMessBusiness();
-        // TODO Auto-generated constructor stub
     }
-
+    
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		if(bus.isLogedIn(request.getSession().getId()))
-			response.sendRedirect("dash?id=" + request.getSession().getId());
+		if(bus.isLogedIn(request.getParameter("id")))
+			request.getRequestDispatcher("dashboard.html").forward(request, response);
 		else
 			response.sendRedirect("index.html");
 	}

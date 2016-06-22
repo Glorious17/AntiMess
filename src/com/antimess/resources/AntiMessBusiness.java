@@ -1,9 +1,9 @@
 package com.antimess.resources;
 
+import java.sql.Date;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
-import java.util.List;
 
 public class AntiMessBusiness implements AntiMessBusinessInterface{
 
@@ -11,6 +11,19 @@ public class AntiMessBusiness implements AntiMessBusinessInterface{
 	
 	public AntiMessBusiness(){
 		dao = new AntiMessDao();
+	}
+	
+	@Override
+	public boolean forgotToLogoff(String username){
+		try {
+			ResultSet rs = dao.getSessionName(username);
+			if(rs.next())
+				return true;
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return false;
 	}
 	
 	@Override
@@ -54,6 +67,16 @@ public class AntiMessBusiness implements AntiMessBusinessInterface{
 		return false;
 	}
 	
+	public boolean addItem(String name, Date date, String url, String lagerort, String username){
+		try {
+			dao.addItem(name, date, url, lagerort, username);
+		} catch (SQLException e) {
+			e.printStackTrace();
+			return false;
+		}
+		return true;
+	}
+	
 	@Override
 	public ArrayList<String> getItems(String name){
 		ResultSet rs;
@@ -83,20 +106,39 @@ public class AntiMessBusiness implements AntiMessBusinessInterface{
 	}
 	
 	@Override
+	public boolean logout(String id){
+		try {
+			dao.deleteOnlineStatus(id);
+			return true;
+		} catch (SQLException e) {
+			e.printStackTrace();
+			return false;
+		}
+	}
+	
+	public void logoutUser(String username){
+		try {
+			dao.userLogoff(username);
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+	
+	@Override
 	public boolean checkAcc(String name, String id){
 		try {
 			ResultSet rs = dao.getSession(id);
-			if(rs.next()){
+			if(rs.next())
 				if(name.equals(rs.getString(2)))
-					System.out.println("true");
 					return true;
-			}
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
 		return false;
 	}
 	
+	@Override
 	public String getUserThroughId(String id){
 		try {
 			return dao.getUserThroughId(id);

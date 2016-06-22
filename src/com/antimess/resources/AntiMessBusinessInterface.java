@@ -10,4 +10,7 @@ public interface AntiMessBusinessInterface {
 	boolean registrieren(String name, String passwort, String nickname);
 	ArrayList<String> getItems(String name);
 	boolean checkAcc(String name, String id);
+	String getUserThroughId(String id);
+	boolean logout(String id);
+	boolean forgotToLogoff(String username);
 }
