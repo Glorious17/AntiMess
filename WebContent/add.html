@@ -25,26 +25,39 @@
 </header>
         <div id="add-form">
             <img src="img/kein-img.png" alt="Foto hochladen">
-            <form method="post" action="add" enctype="multipart/form-data">
+
+
+            <form id="upload" method="post" action="add" enctype="multipart/form-data">
                 <input type="file" id="file" name="file" required/>
-      			</br>
                 <input type="submit" value="upload" id="am_add">
             </form>
+
+            <form id="attribute" method="post" action="add" enctype="multipart/form-data">
+                <input name="attribut" type="text" placeholder="Schlagwort1,Schlagwort2, usw.," required>
+
+                </br>
+                <label>Lagerort:
+                    <select name="top5" size="1">
+                        <option>Keller</option>
+                        <option>Abstellrum</option>
+                        <option selected>Garage</option>
+                        <option>Schuppen</option>
+                        <option>Dachboden</option>
+                    </select>
+                </label>
+                </br>
+                <input type="submit" value="Hinzufügen" id="at_add">
+            </form>
+
+            <form id="lagerort" method="post" action="add" enctype="multipart/form-data">
+                <input name="new-lagerort" type="text" placeholder="Lagerort" required>
+                </br>
+                <input type="submit" value="upload" id="lo_add">
+            </form>
+
+
 		</div>
 
-<!-- 
-       <div id="add-form">
-			<form method="post" action="add">
-				 <input type="text" id="gegenstand" name="gegenstand" required/>
-                </br>
-                <input name="lagerort" type="text" placeholder="Lagerort" required>
-                </br>
-                <input name="keyword" type="text" placeholder="Schlagwörter" required>
-                </br>
-                <input type="submit" value="add" id="am_add">
-			</form>
-		</div>
--->
 
 
 
