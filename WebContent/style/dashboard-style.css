@@ -55,6 +55,15 @@ ul {list-style: none;}
 
 
 .menu {
+    margin-top: 5% ;
+    list-style: none;
+
+}
+.menu a:hover{
+    background-color: #363636;
+}
+
+.menu a {
     list-style: none;
     display: inline;
     width: 400px;
@@ -70,8 +79,8 @@ ul {list-style: none;}
     font-family: 'lato', sens-serif;
     text-transform: uppercase;
     letter-spacing: 5px;
-}
 
+}
 a{
     text-decoration: none;
     color: #FFFFFF;
@@ -83,7 +92,6 @@ nav{
     text-align: center;
 }
 button {
-
     width: 400px;
     color: #fff;
     background-color:#212121;
@@ -97,4 +105,8 @@ button {
     font-family: 'lato', sens-serif;
     text-transform: uppercase;
     letter-spacing: 5px;
+}
+
+button:hover{
+    background-color: #363636;
 }
