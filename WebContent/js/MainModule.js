@@ -1,4 +1,4 @@
-var app = angular.module( 'app', ['app.ctrl'])
+var app = angular.module( 'app', ['app.ctrl', 'strgctrl'])
 
 
         .run ( function ( $rootScope, $log ) {

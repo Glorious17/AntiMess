@@ -54,12 +54,14 @@ public class AntiMessDao implements AntiMessDaoInterface {
 		return true;
 	}
 	
+	@Override
 	public void userLogoff(String username) throws SQLException{
 		prpStDelOnlineStatus = conn.prepareStatement("DELETE FROM Aktive_Session WHERE BenutzerName_FK = ?");
 		prpStDelOnlineStatus.setString(1, username);
 		prpStDelOnlineStatus.execute();
 	}
 	
+	@Override
 	public void addItem(String name, java.sql.Date date, String url, String lagerort, String username, String keyword) throws SQLException{
 		prpStAddItem = conn.prepareStatement("INSERT INTO Gegenstand VALUES (?, ?, ?, ?, DEFAULT, ?, ?)");
 		prpStAddItem.setString(1, name);
@@ -71,6 +73,7 @@ public class AntiMessDao implements AntiMessDaoInterface {
 		prpStAddItem.execute();
 	}
 	
+	@Override
 	public int getLagerortID(String name){
 		try {
 			ResultSet rs = stmt.executeQuery("SELECT LagerortID FROM Lagerort WHERE Lagerort_Name = '" + name + "'");
@@ -95,10 +98,12 @@ public class AntiMessDao implements AntiMessDaoInterface {
 		return true;
 	}
 	
+	@Override
 	public ResultSet getLagerortBesitz(String user) throws SQLException{
 		return stmt.executeQuery("SELECT Lagerort_Name FROM Lagerort WHERE Ersteller = '" + user + "'");
 	}
 	
+	@Override
 	public ResultSet getLagerortBerechtigt(String user) throws SQLException{
 		return stmt.executeQuery("SELECT Lagerort_Name FROM Lagerort WHERE Lagerort_berechtigt = '" + user + "'");
 	}

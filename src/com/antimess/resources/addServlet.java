@@ -37,7 +37,7 @@ public class addServlet extends HttpServlet {
 			if(ServletFileUpload.isMultipartContent(request)){
 				url = getFile(request);
 				request.getSession().setAttribute("pic-url", url);
-				response.sendRedirect("add.html?pic="+url.substring(url.lastIndexOf("/")+1));
+				response.sendRedirect("add.html?id="+ request.getSession().getId() +"&pic="+url.substring(url.lastIndexOf("/")+1));
 			}else if(request.getSession().getAttribute("pic-url") != null){
 				String name = request.getParameter("gegenstand");
 				String lagerort = request.getParameter("top5");
@@ -46,15 +46,15 @@ public class addServlet extends HttpServlet {
 				request.getSession().setAttribute("pic-url", null);
 				response.sendRedirect("./home");
 			}else{
-				response.sendRedirect("add.html");
+				response.sendRedirect("add.html?id="+request.getSession().getId());
 			}
 		}else{
-			if(bus.addLagerort(request.getParameter("new-lagerort"), "a@a", bus.getUserThroughId(request.getSession().getId()))){
+			if(bus.addLagerort(request.getParameter("new-lagerort"), null, bus.getUserThroughId(request.getSession().getId()))){
 				String url = (String) request.getSession().getAttribute("pic-url");
 				if(url == null){
-					request.getRequestDispatcher("add.html").forward(request, response);
+					response.sendRedirect("add.html?id="+request.getSession().getId());
 				}else{
-					response.sendRedirect("add.html?pic="+url.substring(url.lastIndexOf("/")+1));
+					response.sendRedirect("add.html?id="+ request.getSession().getId() +"&pic="+url.substring(url.lastIndexOf("/")+1));
 				}
 				
 			}else{

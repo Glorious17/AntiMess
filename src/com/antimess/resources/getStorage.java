@@ -27,9 +27,9 @@ public class getStorage {
 		ArrayList <String> data = bus.getLagerort(bus.getUserThroughId(id));
 		for(int i = 0; i < data.size(); i++){
 			if(i < (data.size()-1)){
-				output += "\"Lagerort\" = \"" + data.get(i) + "\", ";
+				output += "\"Lagerort\": \"" + data.get(i) + "\"}, {";
 			}else{
-				output += "\"Lagerort\" = \"" + data.get(i) + "\"}]";
+				output += "\"Lagerort\": \"" + data.get(i) + "\"}]";
 			}
 		}
 		return output;

@@ -1,5 +1,6 @@
 package com.antimess.resources;
 
+import java.sql.Date;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
@@ -16,4 +17,10 @@ public interface AntiMessDaoInterface {
 	String getUserThroughId(String id) throws SQLException;
 	void deleteOnlineStatus(String id) throws SQLException;
 	boolean addLagerort(String name, String berechtigt, String user) throws SQLException;
+	void userLogoff(String username) throws SQLException;
+	void addItem(String name, Date date, String url, String lagerort, String username, String keyword)
+			throws SQLException;
+	int getLagerortID(String name);
+	ResultSet getLagerortBesitz(String user) throws SQLException;
+	ResultSet getLagerortBerechtigt(String user) throws SQLException;
 }
