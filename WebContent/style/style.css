@@ -22,6 +22,7 @@ a{
 h1{
 	font-size:7em;
 	letter-spacing:10px;
+	color:#212121;
 }
 
 h2 {
@@ -130,7 +131,7 @@ form input {
 	display:block;
 	border:none;
 	border-bottom:1px solid #dadada;
-	background: -webkit-linear-gradient(top,rgba(255, 255, 255, 0) 99%, #dadada 1%;
+	background: -webkit-linear-gradient(top,rgba(255, 255, 255, 0) 99%, #dadada 1%);
 	background:linear-gradient( bottom, rgba(255, 255, 255, 0) 99%, #dadada 1%);
 	background-size:0 100%;
 	background-repeat:no-repeat;
@@ -142,7 +143,7 @@ input:focus {
 	background-size:100% 100%;
 }
 
-input:focus:: -webkit-input-placeholder {
+input:focus::-webkit-input-placeholder {
 	font-size:11px; 
 	-webkit-transform:translateY(-25px);
 	transform:translateY(-25px);
@@ -154,23 +155,7 @@ input:focus:valid::-webkit-input-placeholder, input:valid {
 	border-color:#14dc19;
 }
 
-input:focus:invalid:: -webkit-input-placeholder; input:focus:invalid {
+input:focus:invalid::-webkit-input-placeholder; input:focus:invalid {
 	color:#c9272a;
 	border-color:#C9272A;
 }
-
-
-<!--- Dashboard ---!>
-
-header #header-menu {
-	width: 1000px;
-	height: 80px;
-	background-color: #212121;
-	color:red;
-	position: absolute;
-}
-	
-
-
-	
-	
