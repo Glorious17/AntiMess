@@ -67,7 +67,11 @@ public class AntiMessDao implements AntiMessDaoInterface {
 		prpStAddItem.setString(1, name);
 		prpStAddItem.setDate(2, date);
 		prpStAddItem.setString(3, url);
-		prpStAddItem.setInt(4, getLagerortID(lagerort));
+		if(lagerort.contains("Berechtigter Zugriff:")){
+			prpStAddItem.setInt(4, getLagerortID(lagerort.substring(22)));
+		}else{
+			prpStAddItem.setInt(4, getLagerortID(lagerort));
+		}
 		prpStAddItem.setString(5, username);
 		prpStAddItem.setString(6, keyword);
 		prpStAddItem.execute();
