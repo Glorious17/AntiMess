@@ -104,7 +104,7 @@ public class AntiMessBusiness implements AntiMessBusinessInterface{
 			}
 			rs = dao.getLagerortBerechtigt(name);
 			while(rs.next()){
-				output.add("Berechtigter Zugriff: " + rs.getString(1));
+				output.add("Berechtigter Zugriff von " + rs.getString(2) + ": " + rs.getString(1));
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
