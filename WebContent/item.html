@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="style/dashboard-style.css"/>
+    <link rel="stylesheet" href="style/item-style.css"/>
+    <link href='https://fonts.googleapis.com/css?family=Fira+Sans:400,700' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Lato:400,900,700,300' rel='stylesheet' type='text/css'>
+
+    <meta charset="UTF-8">
+    <title>Gegenstand</title>
+</head>
+<body>
+
+<header>
+    <div id="header-menu">
+        <a class="logout-link" href="./logout"><img class="logout-icon" src="img/logout-icon.png"></a>
+    </div>
+    <div id="logo">
+        <a class="logo-link" href="dashboard.html"><h1><span class="logo">anti</span>MESS</h1> </a>
+    </div>
+</header>
+<img src="img/kein-img.png" alt="Gegenstand" id="item_pic">
+<div id="content">
+
+    <div id="title">
+        <p>Bezeichnung:</p>
+        <p>Schlagwörter:</p>
+        <p>Lagerort:</p>
+        <p>Lagerdatum:</p>
+    </div>
+    <div id="gegenstand">
+        <p>Bohrmaschine</p>
+        <p>Bohrer, Bohrmaschine, Schlagbohrer</p>
+        <p>Keller</p>
+        <p>29.06.2016</p>
+    </div>
+</div>
+<div id="menu">
+    <ul>
+        <li><a class="menu-auslagern" href="#">Auslagern</a></li>
+        <li><a class="menu-einalgern" href="#">Einlagern</a></li>
+        <li><a class="menu-löschen" href="#">Löschen</a></li>
+    </ul>
+</div>
+
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
+<script type="text/javascript" src="js/MainModule.js"></script>
+<script type="text/javascript" src="js/ctrl/CtrlModule.js"></script>
+<script type="text/javascript" src="js/main.js"></script>
+<script type="text/javascript" src="js/ng-infinite-scroll.min.js"></script>
+
+</body>
+</html>
