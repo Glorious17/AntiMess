@@ -68,9 +68,9 @@ public class AntiMessDao implements AntiMessDaoInterface {
 		prpStAddItem.setDate(2, date);
 		prpStAddItem.setString(3, url);
 		if(lagerort.contains("Berechtigter Zugriff:")){
-			prpStAddItem.setInt(4, getLagerortID(lagerort.substring(22)));
+			prpStAddItem.setInt(4, getLagerortID(lagerort.substring(22), username));
 		}else{
-			prpStAddItem.setInt(4, getLagerortID(lagerort));
+			prpStAddItem.setInt(4, getLagerortID(lagerort, username));
 		}
 		prpStAddItem.setString(5, username);
 		prpStAddItem.setString(6, keyword);
@@ -78,9 +78,9 @@ public class AntiMessDao implements AntiMessDaoInterface {
 	}
 	
 	@Override
-	public int getLagerortID(String name){
+	public int getLagerortID(String name, String user){
 		try {
-			ResultSet rs = stmt.executeQuery("SELECT LagerortID FROM Lagerort WHERE Lagerort_Name = '" + name + "'");
+			ResultSet rs = stmt.executeQuery("SELECT LagerortID FROM Lagerort WHERE Lagerort_Name = '" + name + "' and Ersteller = '" + user + "'");
 			if(rs.next()){
 				return rs.getInt(1);
 			}
@@ -91,13 +91,16 @@ public class AntiMessDao implements AntiMessDaoInterface {
 	}
 	
 	@Override
-	public boolean addLagerort(String name, String berechtigt, String user) throws SQLException{
-		if(getLagerortID(name) != -1)
+	public boolean addLagerort(String lagerortname, String berechtigt, String user) throws SQLException{
+		if(getLagerortID(lagerortname, user) != -1)
 			return false;
-		prpStAddLagerort = conn.prepareStatement("INSERT INTO Lagerort VALUES (DEFAULT, ?, ?, DEFAULT, ?)");
-		prpStAddLagerort.setString(1, name);
+		prpStAddLagerort = conn.prepareStatement("INSERT INTO Lagerort VALUES (DEFAULT, ?, DEFAULT, ?)");
+		prpStAddLagerort.setString(1, lagerortname);
+		prpStAddLagerort.setString(2, user);
+		prpStAddLagerort.execute();
+		prpStAddLagerort = conn.prepareStatement("INSERT INTO Lagerort_Berechtigt VALUES (?, ?)");
+		prpStAddLagerort.setInt(1, getLagerortID(lagerortname, user));
 		prpStAddLagerort.setString(2, berechtigt);
-		prpStAddLagerort.setString(3, user);
 		prpStAddLagerort.execute();
 		return true;
 	}
@@ -109,7 +112,7 @@ public class AntiMessDao implements AntiMessDaoInterface {
 	
 	@Override
 	public ResultSet getLagerortBerechtigt(String user) throws SQLException{
-		return stmt.executeQuery("SELECT Lagerort_Name FROM Lagerort WHERE Lagerort_berechtigt = '" + user + "'");
+		return stmt.executeQuery("SELECT Lagerort_Name FROM Lagerort, Lagerort_Berechtigt WHERE Berechtigt = '" + user + "' and LagerortID_FK = LagerortID");
 	}
 	
 	@Override
@@ -168,7 +171,6 @@ public class AntiMessDao implements AntiMessDaoInterface {
 	
 	public void close(){
 		try {
-			stmt.close();
 			conn.close();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block

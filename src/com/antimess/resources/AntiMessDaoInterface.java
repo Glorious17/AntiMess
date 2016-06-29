@@ -20,7 +20,7 @@ public interface AntiMessDaoInterface {
 	void userLogoff(String username) throws SQLException;
 	void addItem(String name, Date date, String url, String lagerort, String username, String keyword)
 			throws SQLException;
-	int getLagerortID(String name);
 	ResultSet getLagerortBesitz(String user) throws SQLException;
 	ResultSet getLagerortBerechtigt(String user) throws SQLException;
+	int getLagerortID(String name, String user);
 }
