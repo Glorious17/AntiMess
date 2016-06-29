@@ -62,7 +62,7 @@ public class AntiMessDao implements AntiMessDaoInterface {
 	}
 	
 	@Override
-	public void addItem(String name, java.sql.Date date, String url, String lagerort, String username, String keyword) throws SQLException{
+	public ResultSet addItem(String name, java.sql.Date date, String url, String lagerort, String username, String keyword) throws SQLException{
 		prpStAddItem = conn.prepareStatement("INSERT INTO Gegenstand VALUES (?, ?, ?, ?, DEFAULT, ?, ?)");
 		prpStAddItem.setString(1, name);
 		prpStAddItem.setDate(2, date);
@@ -74,6 +74,13 @@ public class AntiMessDao implements AntiMessDaoInterface {
 		}
 		prpStAddItem.setString(5, username);
 		prpStAddItem.setString(6, keyword);
+		prpStAddItem.execute();
+		return stmt.executeQuery("SELECT LAST_INSERT_ID() FROM Gegenstand");
+	}
+	
+	@Override
+	public void updateItemPic(int id, String url) throws SQLException{
+		prpStAddItem = conn.prepareStatement("UPDATE Gegenstand SET Icon = '" + url + "' WHERE GegenstandID = " + id);
 		prpStAddItem.execute();
 	}
 	

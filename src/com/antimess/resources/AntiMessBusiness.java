@@ -68,14 +68,29 @@ public class AntiMessBusiness implements AntiMessBusinessInterface{
 	}
 	
 	@Override
-	public boolean addItem(String name, Date date, String url, String lagerort, String username, String keyword){
+	public void updateItemPic(int id, String url){
 		try {
-			dao.addItem(name, date, url, lagerort, username, keyword);
+			dao.updateItemPic(id, url);
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+	
+	@Override
+	public int addItem(String name, Date date, String url, String lagerort, String username, String keyword){
+		int output;
+		try {
+			ResultSet rs = dao.addItem(name, date, url, lagerort, username, keyword);
+			if(rs.next())
+				output = rs.getInt(1);
+			else
+				return -1;
 		} catch (SQLException e) {
 			e.printStackTrace();
-			return false;
+			return -1;
 		}
-		return true;
+		return output;
 	}
 	
 	@Override

@@ -14,7 +14,8 @@ public interface AntiMessBusinessInterface {
 	String getUserThroughId(String id);
 	boolean logout(String id);
 	boolean forgotToLogoff(String username);
-	boolean addItem(String name, Date date, String url, String lagerort, String username, String keyword);
+	int addItem(String name, Date date, String url, String lagerort, String username, String keyword);
 	void logoutUser(String username);
 	boolean addLagerort(String name, String berechtigt, String user);
+	void updateItemPic(int id, String url);
 }
