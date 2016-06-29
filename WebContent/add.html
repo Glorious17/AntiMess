@@ -6,12 +6,12 @@
     <link rel="stylesheet" href="style/jquery-ui.css">
     <script src="//code.jquery.com/jquery-1.10.2.js"></script>
     <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
-    <script src="js/upload.js"></script>
     <script src="js/hiddenform.js"></script>
     <link rel="stylesheet" href="style/add-style.css"/>
     <link rel="stylesheet" href="style/dashboard-style.css">
     <link href='https://fonts.googleapis.com/css?family=Fira+Sans:400,700' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Lato:400,900,700,300' rel='stylesheet' type='text/css'>
+
 
 
     <link rel="stylesheet" media="(max-height:790px)" href="style/tabletadd-style.css"/>
@@ -27,7 +27,7 @@
         <h1><span class="logo">anti</span>MESS</h1>
     </div>
 </header>
-        <div id="add-form" ng-modul="app.strgctrl">
+        <div id="add-form">
             <img src="img/kein-img.png" alt="Foto hochladen" id="pic">
 
 
@@ -37,14 +37,14 @@
                 <input type="submit" value="Hochladen" id="ud_send">
             </form>
 
-            <form id="attribute" method="post" action="add" ng-controller="strgController">
+            <form id="attribute" method="post" action="add">
                 <h2>Schritt 2: Gegenstand anlegen</h2>
                 <input name="gegenstand" type="text" placeholder="Name des Gegenstands" required>
                 <input name="attribut" type="text" placeholder="Schlagwort1,Schlagwort2, usw.," required>
                 </br>
-                <label>Lagerort:
+                <label ng-controller="strgController">Lagerort:
                     <select name="top5" size="1">
-                        <option ng-repeat="data in storage">data</option>
+                        <option ng-repeat = "item in store">{{item.Lagerort}}</option>
                     </select>
                 </label>
                 </br>
@@ -68,9 +68,8 @@
 
 
 
-
-    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
-    <script type="text/javascript" src="js/MainModule.js"></script>
+	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
+	<script type="text/javascript" src="js/MainModule.js"></script>
     <script type="text/javascript" src="js/ctrl/CtrlModule.js"></script>
     <script type="text/javascript" src="js/main.js"></script>
     <script type="text/javascript">

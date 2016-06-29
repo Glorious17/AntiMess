@@ -87,16 +87,29 @@ CREATE TABLE Aktive_Session
     FOREIGN KEY (BenutzerName_FK) REFERENCES Benutzer(BenutzerName)
 );
 
+ALTER TABLE Lagerort DROP FOREIGN KEY lagerort_ibfk_1;
+ALTER TABLE Lagerort DROP Lagerort_berechtigt;
+
+CREATE TABLE Lagerort_Berechtigt
+(
+	LagerortID_FK INT NOT NULL,
+    Berechtigt VARCHAR(255),
+    FOREIGN KEY (LagerortID_FK) REFERENCES Lagerort(LagerortID),
+    FOREIGN KEY (Berechtigt) REFERENCES Benutzer(BenutzerName)
+);
 
 INSERT INTO Benutzer VALUES ('a@a', 'aa', 'Jens');
 INSERT INTO Benutzer VALUES ('b@b', 'bb', 'Pascal');
 
-INSERT INTO Lagerort VALUES(DEFAULT, 'Keller', 'a@a', DEFAULT, 'b@b');
-INSERT INTO Lagerort VALUES(DEFAULT, 'Küchenschrank', 'b@b', DEFAULT, 'a@a');
+INSERT INTO Lagerort VALUES(DEFAULT, 'Keller', DEFAULT, 'b@b');
+INSERT INTO Lagerort VALUES(DEFAULT, 'Küchenschrank', DEFAULT, 'a@a');
 
 INSERT INTO Gegenstand VALUES ('Schraubenschluessel', '2016-6-15', '././img/mimg01.jpg', 1, DEFAULT, 'a@a', 'Schrauben, Schlüssel');
 INSERT INTO Gegenstand VALUES ('Grillwender', '2016-6-15', '././img/fimg02.jpg', 2, DEFAULT, 'a@a', 'Wender, Grill');
 
 INSERT INTO Gegenstand VALUES ('Bügeleisen', '2016-6-15', '././img/fimg06.jpg', 1, DEFAULT, 'b@b', 'Bügel, Eisen');
 INSERT INTO Gegenstand VALUES ('Alte Computer Maus', '2016-6-15', '././img/mimg10.jpg', 2, DEFAULT, 'b@b', 'Maus, Computer');
+
+INSERT INTO Lagerort_Berechtigt VALUES (1, 'a@a');
+INSERT INTO Lagerort_Berechtigt VALUES (2, 'b@b');
 
