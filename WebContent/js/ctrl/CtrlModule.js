@@ -41,7 +41,6 @@ var ctrl = angular.module('app.ctrl', [])
 
 var strgctrl = angular.module('strgctrl', [])
 		.controller('strgController', function($scope, $log, $http){
-			$scope.storage = "nichts besonderes"
 			$http({
 	        	mehtod: 'GET',
 	        	url: 'rest/getStorage?&id=' + get_url_param("id")

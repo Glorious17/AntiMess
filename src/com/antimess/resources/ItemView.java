@@ -66,6 +66,7 @@ public class ItemView extends HttpServlet {
 		out.println("</div>");
 		out.println("</body>");
 		out.println("</html>");
+		out.close();
 	}
 
 }

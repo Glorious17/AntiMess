@@ -56,9 +56,9 @@
 
 
         <div id="menu">
-            <label ng-controller="strgController">
+            <label>
                 <select name="top5" size="1">
-                    <option ng-repeat = "item in store">{{item.Lagerort}}</option>
+                    <option></option>
                 </select>
             </label>
 
@@ -69,17 +69,25 @@
 
 
         </div>
-        <div ng-controller="ContentCtrl">
-            <ul class="item-pic">
-                <a href="item.html"><li  ng-repeat="person in person | filter : globalsearch | limitTo : 20"
-                                        ng-class="getIteratingClass ($index, 'red-row', 'green-row', 'blue-row')">
-                    <img src="{{person.Icon}}" height="200" width="auto">
-                </li></a>
+
+       <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
+       <script src="js/hiddenform.js"></script>
+
+        <div>
+            <ul class="item-pic" ng-controller="ContentCtrl">
+                <li ng-repeat="data in person | filter : globalsearch">
+                    <a href="item?picid={{data.ID}}"><img src="{{data.Icon}}" height="200" width="auto"></a>
+                </li>
             </ul>
         </div>
     </div>
-       <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
-       <script src="js/hiddenform.js"></script>
+
+	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
+	<script type="text/javascript" src="js/MainModule.js"></script>
+    <script type="text/javascript" src="js/ctrl/CtrlModule.js"></script>
+    <script type="text/javascript" src="js/main.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
+    <script src="js/hiddenform.js"></script>
 
 </body>
 </html>
