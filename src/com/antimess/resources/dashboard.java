@@ -23,7 +23,7 @@ public class dashboard extends HttpServlet {
     }
     
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		if(bus.isLogedIn(request.getParameter("id")))
+		if(bus.isLogedIn(request.getParameter("id")) || request.getParameter("id") != null)
 			request.getRequestDispatcher("dashboard.html").forward(request, response);
 		else
 			response.sendRedirect("index.html");

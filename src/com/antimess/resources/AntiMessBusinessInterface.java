@@ -19,4 +19,5 @@ public interface AntiMessBusinessInterface {
 	void logoutUser(String username);
 	boolean addLagerort(String name, String berechtigt, String user);
 	void updateItemPic(int id, String url);
+	void deleteItem(int id);
 }

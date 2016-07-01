@@ -47,6 +47,15 @@ public class AntiMessBusiness implements AntiMessBusinessInterface{
 	}
 	
 	@Override
+	public void deleteItem(int id){
+		try {
+			dao.deleteItem(id);
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+	}
+	
+	@Override
 	public boolean anmelden(String name, String passwort) {
 		name.toLowerCase();
 		try {

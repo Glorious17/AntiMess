@@ -61,15 +61,11 @@ public class ItemView extends HttpServlet {
 		out.println("<ul>");
 		out.println("<li><a class=\"menu-auslagern\" href=\"#\">Auslagern</a></li>");
 		out.println("<li><a class=\"menu-einalgern\" href=\"#\">Einlagern</a></li>");
-		out.println("<li><a class=\"menu-löschen\" href=\"#\">Löschen</a></li>");
+		out.println("<li><a class=\"menu-löschen\" href=\"./delItem?picid=" + picid + "\">Löschen</a></li>");
 		out.println("</ul>");
 		out.println("</div>");
 		out.println("</body>");
 		out.println("</html>");
-	}
-
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
 	}
 
 }

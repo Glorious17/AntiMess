@@ -10,7 +10,6 @@ import javax.servlet.http.HttpServletResponse;
 /**
  * Servlet implementation class home
  */
-@WebServlet("/home")
 public class home extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private AntiMessBusiness bus;

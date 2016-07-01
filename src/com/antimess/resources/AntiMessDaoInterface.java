@@ -25,4 +25,5 @@ public interface AntiMessDaoInterface {
 	ResultSet getLagerortBerechtigt(String user) throws SQLException;
 	int getLagerortID(String name, String user);
 	void updateItemPic(int id, String url) throws SQLException;
+	void deleteItem(int id) throws SQLException;
 }
