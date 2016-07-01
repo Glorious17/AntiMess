@@ -108,15 +108,15 @@ INSERT INTO Lagerort VALUES(DEFAULT, 'Zimmer', DEFAULT, 'c@c');
 
 INSERT INTO Gegenstand VALUES ('Schweizer Taschenmesser', '2016-6-15', '././img/taschenmesser.jpg', 1, DEFAULT, 'a@a', 'Schweizer, Taschenmesser');
 INSERT INTO Gegenstand VALUES ('Bluetooth Maus', '2016-6-15', '././img/maus.jpg', 2, DEFAULT, 'a@a', 'Bluetooth, Maus, Computer');
-INSERT INTO Gegenstand VALUES ('Rucksack', '2016-6-15', '././img/rucksack.jpg', 3, DEFAULT, 'a@a', 'Rucksack, Tasche');
-INSERT INTO Gegenstand VALUES ('Bluetooth Kopfhörer', '2016-6-15', '././img/bluetoothkopfhoerer.jpg', 4, DEFAULT, 'a@a', 'Bluetooth, Kopfhörer, Computer');
+INSERT INTO Gegenstand VALUES ('Rucksack', '2016-6-15', '././img/rucksack.jpg', 2, DEFAULT, 'a@a', 'Rucksack, Tasche');
+INSERT INTO Gegenstand VALUES ('Bluetooth Kopfhörer', '2016-6-15', '././img/bluetoothkopfhoerer.jpg', 3, DEFAULT, 'a@a', 'Bluetooth, Kopfhörer, Computer');
 
 INSERT INTO Gegenstand VALUES ('Kopfhörer', '2016-6-15', '././img/kopfhörer.jpg', 1, DEFAULT, 'b@b', 'Kopfhörer, Computer');
 INSERT INTO Gegenstand VALUES ('Mülleimer', '2016-6-15', '././img/muell.jpg', 2, DEFAULT, 'b@b', 'Mülleimer, Abfall');
-INSERT INTO Gegenstand VALUES ('Laptoptasche', '2016-6-15', '././img/laptoptasche.jpg', 3, DEFAULT, 'b@b', 'Laptop, Tasche');
-INSERT INTO Gegenstand VALUES ('Portmonaie', '2016-6-15', '././img/portmonaie.jpg', 4, DEFAULT, 'b@b', 'Geldbeutel, Portmonaie');
+INSERT INTO Gegenstand VALUES ('Laptoptasche', '2016-6-15', '././img/laptoptasche.jpg', 1, DEFAULT, 'b@b', 'Laptop, Tasche');
+INSERT INTO Gegenstand VALUES ('Portmonaie', '2016-6-15', '././img/portmonaie.jpg', 3, DEFAULT, 'b@b', 'Geldbeutel, Portmonaie');
 
-INSERT INTO Gegenstand VALUES ('Stuhl', '2016-6-15', '././img/stuhl.jpg', 1, DEFAULT, 'c@c', 'Stuhl');
+INSERT INTO Gegenstand VALUES ('Stuhl', '2016-6-15', '././img/stuhl.jpg', 3, DEFAULT, 'c@c', 'Stuhl');
 INSERT INTO Gegenstand VALUES ('Tischverkleidung', '2016-6-15', '././img/tischverkleidung.jpg', 2, DEFAULT, 'c@c', 'Tischverkleidung');
 
 INSERT INTO Lagerort_Berechtigt VALUES (1, 'a@a');
