@@ -105,12 +105,21 @@ public class AntiMessDao implements AntiMessDaoInterface {
 	
 	@Override
 	public boolean addLagerort(String lagerortname, String berechtigt, String user) throws SQLException{
+		String berechtigter;
 		if(getLagerortID(lagerortname, user) != -1)
 			return false;
 		prpSt = conn.prepareStatement("INSERT INTO Lagerort VALUES (DEFAULT, ?, DEFAULT, ?)");
 		prpSt.setString(1, lagerortname);
 		prpSt.setString(2, user);
 		prpSt.execute();
+		while(berechtigt.contains(",")){
+			berechtigter = berechtigt.substring(0, berechtigt.indexOf(','));
+			berechtigt = berechtigt.substring(berechtigt.indexOf(',')+2);
+			prpSt = conn.prepareStatement("INSERT INTO Lagerort_Berechtigt VALUES (?, ?)");
+			prpSt.setInt(1, getLagerortID(lagerortname, user));
+			prpSt.setString(2, berechtigter);
+			prpSt.execute();
+		}
 		prpSt = conn.prepareStatement("INSERT INTO Lagerort_Berechtigt VALUES (?, ?)");
 		prpSt.setInt(1, getLagerortID(lagerortname, user));
 		prpSt.setString(2, berechtigt);
@@ -130,12 +139,12 @@ public class AntiMessDao implements AntiMessDaoInterface {
 	
 	@Override
 	public ResultSet pullItem(String name) throws SQLException{
-		return stmt.executeQuery("SELECT GegenstandName, Lagerort_Name, Lagerdatum, Icon, Keywords, GegenstandID FROM Gegenstand, Lagerort WHERE LagerortID_FK = LagerortID and BenutzerNameFK = '" + name + "'");
+		return stmt.executeQuery("SELECT GegenstandName, Lagerort_Name, Lagerdatum, Icon, Keywords, GegenstandID FROM Gegenstand, Lagerort, Lagerort_Berechtigt WHERE (Gegenstand.LagerortID_FK = LagerortID and BenutzerNameFK = '" + name + "') or (Lagerort_Berechtigt.LagerortID_FK = Gegenstand.LagerortID_FK and Berechtigt = '" + name + "')");
 	}
 	
 	@Override
 	public ResultSet pullItem(int id) throws SQLException{
-		return stmt.executeQuery("SELECT GegenstandName, Lagerort_Name, Lagerdatum, Icon, Keywords FROM Gegenstand, Lagerort WHERE LagerortID_FK = LagerortID and GegenstandID = " + id);
+		return stmt.executeQuery("SELECT GegenstandName, Lagerort_Name, Lagerdatum, Icon, Keywords, Gegenstand.BenutzerNameFK FROM Gegenstand, Lagerort, Lagerort_Berechtigt, Benutzer WHERE Lagerort_Berechtigt.LagerortID_FK = LagerortID and Berechtigt = BenutzerName and GegenstandID = " + id);
 	}
 	
 	@Override

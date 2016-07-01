@@ -49,12 +49,14 @@ public class ItemView extends HttpServlet {
 		out.println("<p>Schlagwörter:</p>");
 		out.println("<p>Lagerort:</p>");
 		out.println("<p>Lagerdatum:</p>");
+		out.println("<p>Besitzer:</p>");
 		out.println("</div>");
 		out.println("<div id=\"gegenstand\">");
 		out.println("<p>" + ls.get(0) + "</p>");
 		out.println("<p>" + ls.get(4) + "</p>");
 		out.println("<p>" + ls.get(1) + "</p>");
 		out.println("<p>" + ls.get(2) + "</p>");
+		out.println("<p>" + ls.get(5) + "</p>");
 		out.println("</div>");
 		out.println("</div>");
 		out.println("<div id=\"menu\">");

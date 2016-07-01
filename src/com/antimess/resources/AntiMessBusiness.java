@@ -126,7 +126,7 @@ public class AntiMessBusiness implements AntiMessBusinessInterface{
 		try {
 			rs = dao.pullItem(id);
 			while(rs.next()){
-				for(int zaehler = 1; zaehler < 6; zaehler++)
+				for(int zaehler = 1; zaehler < 7; zaehler++)
 				switch(zaehler){
 				case 3:
 					ls.add(rs.getDate(zaehler) + "");
