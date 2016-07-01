@@ -59,7 +59,7 @@ public class addServlet extends HttpServlet {
 				response.sendRedirect("add.html?id="+request.getSession().getId());
 			}
 		}else{
-			if(bus.addLagerort(request.getParameter("new-lagerort"), null, bus.getUserThroughId(request.getSession().getId()))){
+			if(bus.addLagerort(request.getParameter("new-lagerort"), request.getParameter("permission"), bus.getUserThroughId(request.getSession().getId()))){
 				String url = (String) request.getSession().getAttribute("pic-url");
 				if(url == null){
 					response.sendRedirect("add.html?id="+request.getSession().getId());
