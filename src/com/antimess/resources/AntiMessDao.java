@@ -140,7 +140,7 @@ public class AntiMessDao implements AntiMessDaoInterface {
 	@Override
 	public ResultSet pullItem(String name) throws SQLException{
 		return stmt.executeQuery("SELECT DISTINCT GegenstandName, Lagerort_Name, Lagerdatum, Icon, Keywords, GegenstandID"
-				+ " FROM Gegenstand, Lagerort, Lagerort_Berechtigt WHERE (BenutzerNameFK = '" + name + "' and Gegenstand.LagerortID_FK = LagerortID)"
+				+ " FROM Gegenstand, Lagerort, Lagerort_Berechtigt WHERE (Ersteller = '" + name + "' and Gegenstand.LagerortID_FK = LagerortID)"
 				+ " or (Berechtigt = '" + name + "' and Gegenstand.LagerortID_FK = Lagerort_Berechtigt.LagerortID_FK and LagerortID = Gegenstand.LagerortID_FK)");
 	}
 	
