@@ -40,7 +40,7 @@ p{
     left: 23%;
 }
 
-.menu-auslagern, .menu-einalgern, .menu-lÃ¶schen {
+.menu-auslagern, .menu-einalgern, .menu-löschen {
     width: 300px;
     color: #fff;
     border: none;
@@ -55,7 +55,7 @@ p{
     letter-spacing: 5px;
 }
 
-.menu-lÃ¶schen {
+.menu-löschen {
     background-color: #F44336;
 }
 

@@ -101,7 +101,31 @@ public class AntiMessBusiness implements AntiMessBusinessInterface{
 			rs = dao.pullItem(name);
 			while(rs.next()){
 				ls.add("{\"GegenstandName\":  \"" + rs.getString(1) + "\", \"Lagerort\": \"" + rs.getString(2) + "\", \"LagerDatum\": \""
-						+ rs.getDate(3) + "\", \"Icon\": \"" + rs.getString(4) + "\", \"Keywords\": \"" + rs.getString(5) + "\"}");
+						+ rs.getDate(3) + "\", \"Icon\": \"" + rs.getString(4) + "\", \"Keywords\": \"" + rs.getString(5)
+						+ "\", \"ID\": " + rs.getInt(6) + "}");
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return ls;
+	}
+	
+	@Override
+	public ArrayList<String> getItems(int id){
+		ResultSet rs;
+		ArrayList<String>ls = new ArrayList<String>();
+		try {
+			rs = dao.pullItem(id);
+			while(rs.next()){
+				for(int zaehler = 1; zaehler < 6; zaehler++)
+				switch(zaehler){
+				case 3:
+					ls.add(rs.getDate(zaehler) + "");
+					break;
+				default:
+					ls.add(rs.getString(zaehler));
+					break;
+				}
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
