@@ -29,6 +29,7 @@ public class addServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private AntiMessBusiness bus;
 	private String url;
+	private	File file = null;
 
     public addServlet() {
         super();
@@ -47,13 +48,11 @@ public class addServlet extends HttpServlet {
 				String lagerort = request.getParameter("top5");
 				String keyword = request.getParameter("attribut");
 				String url = (String) request.getSession().getAttribute("pic-url");
-				System.out.println(url);
-				int id = bus.addItem(name, new java.sql.Date(findDate().getTime()), url, lagerort, bus.getUserThroughId(request.getSession().getId()), keyword);
-				File file = file// <--Hier weiter arbeiten Jens
-				url = "C:/tomcat/" + id + url.substring(url.lastIndexOf('_'));
-				File newFile = new File(url);
+				int id = bus.addItem(name, new java.sql.Date(findDate().getTime()), url, lagerort, bus.getUserThroughId(request.getSession().getId()), keyword);				
+				url = id + url.substring(url.lastIndexOf('_'));
+				File newFile = new File("C:/tomcat/" + url);
 				file.renameTo(newFile);
-				bus.updateItemPic(id, url);
+				bus.updateItemPic(id, "/images/" + url);
 				request.getSession().setAttribute("pic-url", null);
 				response.sendRedirect("./home");
 			}else{
@@ -97,7 +96,6 @@ public class addServlet extends HttpServlet {
 	}
 
 	private String getFile(HttpServletRequest request) {
-		File file = null;
 		String path = "";
 		
 		DiskFileItemFactory factory = new DiskFileItemFactory();
