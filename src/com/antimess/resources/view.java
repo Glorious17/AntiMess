@@ -74,6 +74,7 @@ public class view extends HttpServlet {
 		out.println("<script type=\"text/javascript\" src=\"js/main.js\"></script>");
 		out.println("</body>");
 		out.println("</html>");
+		out.close();
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
