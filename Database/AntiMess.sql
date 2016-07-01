@@ -121,4 +121,5 @@ INSERT INTO Gegenstand VALUES ('Tischverkleidung', '2016-6-15', '././img/tischve
 
 INSERT INTO Lagerort_Berechtigt VALUES (1, 'a@a');
 INSERT INTO Lagerort_Berechtigt VALUES (2, 'b@b');
+	
 
