@@ -100,15 +100,24 @@ CREATE TABLE Lagerort_Berechtigt
 
 INSERT INTO Benutzer VALUES ('a@a', 'aa', 'Jens');
 INSERT INTO Benutzer VALUES ('b@b', 'bb', 'Pascal');
+INSERT INTO Benutzer VALUES ('c@c', 'cc', 'Janusz');
 
 INSERT INTO Lagerort VALUES(DEFAULT, 'Keller', DEFAULT, 'b@b');
 INSERT INTO Lagerort VALUES(DEFAULT, 'Küchenschrank', DEFAULT, 'a@a');
+INSERT INTO Lagerort VALUES(DEFAULT, 'Zimmer', DEFAULT, 'c@c');
 
-INSERT INTO Gegenstand VALUES ('Schraubenschluessel', '2016-6-15', '././img/mimg01.jpg', 1, DEFAULT, 'a@a', 'Schrauben, Schlüssel');
-INSERT INTO Gegenstand VALUES ('Grillwender', '2016-6-15', '././img/fimg02.jpg', 2, DEFAULT, 'a@a', 'Wender, Grill');
+INSERT INTO Gegenstand VALUES ('Schweizer Taschenmesser', '2016-6-15', '././img/taschenmesser.jpg', 1, DEFAULT, 'a@a', 'Schweizer, Taschenmesser');
+INSERT INTO Gegenstand VALUES ('Bluetooth Maus', '2016-6-15', '././img/maus.jpg', 2, DEFAULT, 'a@a', 'Bluetooth, Maus, Computer');
+INSERT INTO Gegenstand VALUES ('Rucksack', '2016-6-15', '././img/rucksack.jpg', 3, DEFAULT, 'a@a', 'Rucksack, Tasche');
+INSERT INTO Gegenstand VALUES ('Bluetooth Kopfhörer', '2016-6-15', '././img/bluetoothkopfhoerer.jpg', 4, DEFAULT, 'a@a', 'Bluetooth, Kopfhörer, Computer');
 
-INSERT INTO Gegenstand VALUES ('Bügeleisen', '2016-6-15', '././img/fimg06.jpg', 1, DEFAULT, 'b@b', 'Bügel, Eisen');
-INSERT INTO Gegenstand VALUES ('Alte Computer Maus', '2016-6-15', '././img/mimg10.jpg', 2, DEFAULT, 'b@b', 'Maus, Computer');
+INSERT INTO Gegenstand VALUES ('Kopfhörer', '2016-6-15', '././img/kopfhörer.jpg', 1, DEFAULT, 'b@b', 'Kopfhörer, Computer');
+INSERT INTO Gegenstand VALUES ('Mülleimer', '2016-6-15', '././img/muell.jpg', 2, DEFAULT, 'b@b', 'Mülleimer, Abfall');
+INSERT INTO Gegenstand VALUES ('Laptoptasche', '2016-6-15', '././img/laptoptasche.jpg', 3, DEFAULT, 'b@b', 'Laptop, Tasche');
+INSERT INTO Gegenstand VALUES ('Portmonaie', '2016-6-15', '././img/portmonaie.jpg', 4, DEFAULT, 'b@b', 'Geldbeutel, Portmonaie');
+
+INSERT INTO Gegenstand VALUES ('Stuhl', '2016-6-15', '././img/stuhl.jpg', 1, DEFAULT, 'c@c', 'Stuhl');
+INSERT INTO Gegenstand VALUES ('Tischverkleidung', '2016-6-15', '././img/tischverkleidung.jpg', 2, DEFAULT, 'c@c', 'Tischverkleidung');
 
 INSERT INTO Lagerort_Berechtigt VALUES (1, 'a@a');
 INSERT INTO Lagerort_Berechtigt VALUES (2, 'b@b');
