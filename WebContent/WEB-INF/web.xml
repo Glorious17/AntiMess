@@ -47,12 +47,20 @@
     <servlet-class>com.antimess.resources.ItemView</servlet-class>
   </servlet>
   <servlet>
-  	<servlet-name>deleteItem</servlet-name>
-  	<servlet-class>com.antimess.resources.delete</servlet-class>
+    <servlet-name>deleteItem</servlet-name>
+    <servlet-class>com.antimess.resources.delete</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>view</servlet-name>
+  	<servlet-class>com.antimess.resources.view</servlet-class>
   </servlet>
   <servlet-mapping>
-  	<servlet-name>deleteItem</servlet-name>
-  	<url-pattern>/delItem</url-pattern>
+  	<servlet-name>view</servlet-name>
+  	<url-pattern>/storageView</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>deleteItem</servlet-name>
+    <url-pattern>/delItem</url-pattern>
   </servlet-mapping>
   <servlet-mapping>
     <servlet-name>itemView</servlet-name>
