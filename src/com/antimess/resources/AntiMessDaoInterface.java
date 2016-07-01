@@ -12,15 +12,18 @@ public interface AntiMessDaoInterface {
 	void setSession(String Username, String id) throws SQLException;
 	boolean isOnline(String id) throws SQLException;
 	ResultSet pullItem(String name) throws SQLException;
+	ResultSet pullItem(int id) throws SQLException;
 	ResultSet getSession(String id) throws SQLException;
 	ResultSet getSessionName(String username) throws SQLException;
 	String getUserThroughId(String id) throws SQLException;
 	void deleteOnlineStatus(String id) throws SQLException;
 	boolean addLagerort(String name, String berechtigt, String user) throws SQLException;
 	void userLogoff(String username) throws SQLException;
-	void addItem(String name, Date date, String url, String lagerort, String username, String keyword)
+	ResultSet addItem(String name, Date date, String url, String lagerort, String username, String keyword)
 			throws SQLException;
 	ResultSet getLagerortBesitz(String user) throws SQLException;
 	ResultSet getLagerortBerechtigt(String user) throws SQLException;
 	int getLagerortID(String name, String user);
+	void updateItemPic(int id, String url) throws SQLException;
+	void deleteItem(int id) throws SQLException;
 }

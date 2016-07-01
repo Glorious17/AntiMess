@@ -10,11 +10,14 @@ public interface AntiMessBusinessInterface {
 	boolean isLogedIn(String id);
 	boolean registrieren(String name, String passwort, String nickname);
 	ArrayList<String> getItems(String name);
+	ArrayList<String> getItems(int id);
 	boolean checkAcc(String name, String id);
 	String getUserThroughId(String id);
 	boolean logout(String id);
 	boolean forgotToLogoff(String username);
-	boolean addItem(String name, Date date, String url, String lagerort, String username, String keyword);
+	int addItem(String name, Date date, String url, String lagerort, String username, String keyword);
 	void logoutUser(String username);
 	boolean addLagerort(String name, String berechtigt, String user);
+	void updateItemPic(int id, String url);
+	void deleteItem(int id);
 }

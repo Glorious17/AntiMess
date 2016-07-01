@@ -10,7 +10,6 @@ import javax.servlet.http.HttpServletResponse;
 /**
  * Servlet implementation class dashboard
  */
-@WebServlet("/dashboard")
 public class dashboard extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	AntiMessBusiness bus;
@@ -24,7 +23,7 @@ public class dashboard extends HttpServlet {
     }
     
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		if(bus.isLogedIn(request.getParameter("id")))
+		if(bus.isLogedIn(request.getParameter("id")) || request.getParameter("id") != null)
 			request.getRequestDispatcher("dashboard.html").forward(request, response);
 		else
 			response.sendRedirect("index.html");

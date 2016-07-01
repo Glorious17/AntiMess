@@ -3,6 +3,8 @@ package com.antimess.resources;
 import java.io.File;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.net.URISyntaxException;
+import java.net.URL;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -21,11 +23,13 @@ import org.apache.commons.fileupload.servlet.ServletFileUpload;
 import java.util.GregorianCalendar;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Random;
 
 public class addServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private AntiMessBusiness bus;
 	private String url;
+	private	File file = null;
 
     public addServlet() {
         super();
@@ -33,6 +37,7 @@ public class addServlet extends HttpServlet {
     }
     
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		request.setCharacterEncoding("UTF-8");
 		if(request.getParameter("new-lagerort") == null){
 			if(ServletFileUpload.isMultipartContent(request)){
 				url = getFile(request);
@@ -42,7 +47,12 @@ public class addServlet extends HttpServlet {
 				String name = request.getParameter("gegenstand");
 				String lagerort = request.getParameter("top5");
 				String keyword = request.getParameter("attribut");
-				bus.addItem(name, new java.sql.Date(findDate().getTime()), (String) request.getSession().getAttribute("pic-url"), lagerort, bus.getUserThroughId(request.getSession().getId()), keyword);
+				String url = (String) request.getSession().getAttribute("pic-url");
+				int id = bus.addItem(name, new java.sql.Date(findDate().getTime()), url, lagerort, bus.getUserThroughId(request.getSession().getId()), keyword);				
+				url = id + url.substring(url.lastIndexOf('_'));
+				File newFile = new File("C:/tomcat/" + url);
+				file.renameTo(newFile);
+				bus.updateItemPic(id, "/images/" + url);
 				request.getSession().setAttribute("pic-url", null);
 				response.sendRedirect("./home");
 			}else{
@@ -86,7 +96,6 @@ public class addServlet extends HttpServlet {
 	}
 
 	private String getFile(HttpServletRequest request) {
-		File file = null;
 		String path = "";
 		
 		DiskFileItemFactory factory = new DiskFileItemFactory();
@@ -105,8 +114,7 @@ public class addServlet extends HttpServlet {
 				if ( !fi.isFormField () )
 				{
 					String fileName = fi.getName();
-					path = bus.getUserThroughId(request.getSession().getId())
-					+ "_" + fileName.substring(fileName.lastIndexOf("\\")+1);
+					path = bus.getUserThroughId(request.getSession().getId()) + "_" + fileName.substring(fileName.lastIndexOf("\\")+1);
 					file = new File("C:/tomcat/" +  path );
 					fi.write( file ) ;
 				}

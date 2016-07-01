@@ -15,8 +15,7 @@ public class AntiMessDao implements AntiMessDaoInterface {
 	private DataSource ds = null;
 	private Connection conn = null; 
 	private Statement stmt = null;
-	private PreparedStatement prpStPushUser, prpStSetSession, prpStDelOnlineStatus, prpStAddLagerort;
-	private PreparedStatement prpStAddItem; 
+	private PreparedStatement prpSt;
 	
 	public AntiMessDao(){
 		try {
@@ -29,6 +28,13 @@ public class AntiMessDao implements AntiMessDaoInterface {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+	}
+	
+	@Override
+	public void deleteItem(int id) throws SQLException{
+		prpSt = conn.prepareStatement("DELETE FROM Gegenstand WHERE GegenstandID = ?");
+		prpSt.setInt(1, id);
+		prpSt.execute();
 	}
 
 	@Override
@@ -46,35 +52,42 @@ public class AntiMessDao implements AntiMessDaoInterface {
 		if(isInUser((String) data[0]))
 			return false;
 
-		prpStPushUser = conn.prepareStatement("INSERT INTO Benutzer VALUES (?, ?, ?)");
-		prpStPushUser.setString(1, (String) data[0]);
-		prpStPushUser.setString(2, (String) data[1]);
-		prpStPushUser.setString(3, (String) data[2]);
-		prpStPushUser.execute();
+		prpSt = conn.prepareStatement("INSERT INTO Benutzer VALUES (?, ?, ?)");
+		prpSt.setString(1, (String) data[0]);
+		prpSt.setString(2, (String) data[1]);
+		prpSt.setString(3, (String) data[2]);
+		prpSt.execute();
 		return true;
 	}
 	
 	@Override
 	public void userLogoff(String username) throws SQLException{
-		prpStDelOnlineStatus = conn.prepareStatement("DELETE FROM Aktive_Session WHERE BenutzerName_FK = ?");
-		prpStDelOnlineStatus.setString(1, username);
-		prpStDelOnlineStatus.execute();
+		prpSt = conn.prepareStatement("DELETE FROM Aktive_Session WHERE BenutzerName_FK = ?");
+		prpSt.setString(1, username);
+		prpSt.execute();
 	}
 	
 	@Override
-	public void addItem(String name, java.sql.Date date, String url, String lagerort, String username, String keyword) throws SQLException{
-		prpStAddItem = conn.prepareStatement("INSERT INTO Gegenstand VALUES (?, ?, ?, ?, DEFAULT, ?, ?)");
-		prpStAddItem.setString(1, name);
-		prpStAddItem.setDate(2, date);
-		prpStAddItem.setString(3, url);
+	public ResultSet addItem(String name, java.sql.Date date, String url, String lagerort, String username, String keyword) throws SQLException{
+		prpSt = conn.prepareStatement("INSERT INTO Gegenstand VALUES (?, ?, ?, ?, DEFAULT, ?, ?)");
+		prpSt.setString(1, name);
+		prpSt.setDate(2, date);
+		prpSt.setString(3, url);
 		if(lagerort.contains("Berechtigter Zugriff")){
-			prpStAddItem.setInt(4, getLagerortID(lagerort.substring(lagerort.indexOf(':')+2), lagerort.substring(25,lagerort.indexOf(':'))));
+			prpSt.setInt(4, getLagerortID(lagerort.substring(lagerort.indexOf(':')+2), lagerort.substring(25,lagerort.indexOf(':'))));
 		}else{
-			prpStAddItem.setInt(4, getLagerortID(lagerort, username));
+			prpSt.setInt(4, getLagerortID(lagerort, username));
 		}
-		prpStAddItem.setString(5, username);
-		prpStAddItem.setString(6, keyword);
-		prpStAddItem.execute();
+		prpSt.setString(5, username);
+		prpSt.setString(6, keyword);
+		prpSt.execute();
+		return stmt.executeQuery("SELECT LAST_INSERT_ID() FROM Gegenstand");
+	}
+	
+	@Override
+	public void updateItemPic(int id, String url) throws SQLException{
+		prpSt = conn.prepareStatement("UPDATE Gegenstand SET Icon = '" + url + "' WHERE GegenstandID = " + id);
+		prpSt.execute();
 	}
 	
 	@Override
@@ -94,14 +107,14 @@ public class AntiMessDao implements AntiMessDaoInterface {
 	public boolean addLagerort(String lagerortname, String berechtigt, String user) throws SQLException{
 		if(getLagerortID(lagerortname, user) != -1)
 			return false;
-		prpStAddLagerort = conn.prepareStatement("INSERT INTO Lagerort VALUES (DEFAULT, ?, DEFAULT, ?)");
-		prpStAddLagerort.setString(1, lagerortname);
-		prpStAddLagerort.setString(2, user);
-		prpStAddLagerort.execute();
-		prpStAddLagerort = conn.prepareStatement("INSERT INTO Lagerort_Berechtigt VALUES (?, ?)");
-		prpStAddLagerort.setInt(1, getLagerortID(lagerortname, user));
-		prpStAddLagerort.setString(2, berechtigt);
-		prpStAddLagerort.execute();
+		prpSt = conn.prepareStatement("INSERT INTO Lagerort VALUES (DEFAULT, ?, DEFAULT, ?)");
+		prpSt.setString(1, lagerortname);
+		prpSt.setString(2, user);
+		prpSt.execute();
+		prpSt = conn.prepareStatement("INSERT INTO Lagerort_Berechtigt VALUES (?, ?)");
+		prpSt.setInt(1, getLagerortID(lagerortname, user));
+		prpSt.setString(2, berechtigt);
+		prpSt.execute();
 		return true;
 	}
 	
@@ -117,22 +130,27 @@ public class AntiMessDao implements AntiMessDaoInterface {
 	
 	@Override
 	public ResultSet pullItem(String name) throws SQLException{
-		return stmt.executeQuery("SELECT GegenstandName, Lagerort_Name, Lagerdatum, Icon, Keywords FROM Gegenstand, Lagerort WHERE LagerortID_FK = LagerortID and BenutzerNameFK = '" + name + "'");
+		return stmt.executeQuery("SELECT GegenstandName, Lagerort_Name, Lagerdatum, Icon, Keywords, GegenstandID FROM Gegenstand, Lagerort WHERE LagerortID_FK = LagerortID and BenutzerNameFK = '" + name + "'");
+	}
+	
+	@Override
+	public ResultSet pullItem(int id) throws SQLException{
+		return stmt.executeQuery("SELECT GegenstandName, Lagerort_Name, Lagerdatum, Icon, Keywords FROM Gegenstand, Lagerort WHERE LagerortID_FK = LagerortID and GegenstandID = " + id);
 	}
 	
 	@Override
 	public void setSession(String username, String id) throws SQLException{
-		prpStSetSession = conn.prepareStatement("INSERT INTO Aktive_Session VALUES (?, ?)");
-		prpStSetSession.setString(1, id);
-		prpStSetSession.setString(2, username);
-		prpStSetSession.execute();
+		prpSt = conn.prepareStatement("INSERT INTO Aktive_Session VALUES (?, ?)");
+		prpSt.setString(1, id);
+		prpSt.setString(2, username);
+		prpSt.execute();
 	}
 	
 	@Override
 	public void deleteOnlineStatus(String id) throws SQLException{
-		prpStDelOnlineStatus = conn.prepareStatement("DELETE FROM Aktive_Session WHERE Session_ID = ?");
-		prpStDelOnlineStatus.setString(1, id);
-		prpStDelOnlineStatus.execute();
+		prpSt = conn.prepareStatement("DELETE FROM Aktive_Session WHERE Session_ID = ?");
+		prpSt.setString(1, id);
+		prpSt.execute();
 	}
 	
 	@Override

@@ -47,6 +47,15 @@ public class AntiMessBusiness implements AntiMessBusinessInterface{
 	}
 	
 	@Override
+	public void deleteItem(int id){
+		try {
+			dao.deleteItem(id);
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+	}
+	
+	@Override
 	public boolean anmelden(String name, String passwort) {
 		name.toLowerCase();
 		try {
@@ -68,14 +77,29 @@ public class AntiMessBusiness implements AntiMessBusinessInterface{
 	}
 	
 	@Override
-	public boolean addItem(String name, Date date, String url, String lagerort, String username, String keyword){
+	public void updateItemPic(int id, String url){
 		try {
-			dao.addItem(name, date, url, lagerort, username, keyword);
+			dao.updateItemPic(id, url);
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+	
+	@Override
+	public int addItem(String name, Date date, String url, String lagerort, String username, String keyword){
+		int output;
+		try {
+			ResultSet rs = dao.addItem(name, date, url, lagerort, username, keyword);
+			if(rs.next())
+				output = rs.getInt(1);
+			else
+				return -1;
 		} catch (SQLException e) {
 			e.printStackTrace();
-			return false;
+			return -1;
 		}
-		return true;
+		return output;
 	}
 	
 	@Override
@@ -86,7 +110,31 @@ public class AntiMessBusiness implements AntiMessBusinessInterface{
 			rs = dao.pullItem(name);
 			while(rs.next()){
 				ls.add("{\"GegenstandName\":  \"" + rs.getString(1) + "\", \"Lagerort\": \"" + rs.getString(2) + "\", \"LagerDatum\": \""
-						+ rs.getDate(3) + "\", \"Icon\": \"" + rs.getString(4) + "\", \"Keywords\": \"" + rs.getString(5) + "\"}");
+						+ rs.getDate(3) + "\", \"Icon\": \"" + rs.getString(4) + "\", \"Keywords\": \"" + rs.getString(5)
+						+ "\", \"ID\": " + rs.getInt(6) + "}");
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return ls;
+	}
+	
+	@Override
+	public ArrayList<String> getItems(int id){
+		ResultSet rs;
+		ArrayList<String>ls = new ArrayList<String>();
+		try {
+			rs = dao.pullItem(id);
+			while(rs.next()){
+				for(int zaehler = 1; zaehler < 6; zaehler++)
+				switch(zaehler){
+				case 3:
+					ls.add(rs.getDate(zaehler) + "");
+					break;
+				default:
+					ls.add(rs.getString(zaehler));
+					break;
+				}
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
