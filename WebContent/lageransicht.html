@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<link rel="stylesheet" href="style/verwaltung-style.css"/>
-    <link rel="stylesheet" href="style/dashboard-style.css"/>
-        <link href='https://fonts.googleapis.com/css?family=Fira+Sans:400,700' rel='stylesheet' type='text/css'>
-        <link href='https://fonts.googleapis.com/css?family=Lato:400,900,700,300' rel='stylesheet' type='text/css'>
-	    <meta charset="utf-8">
+
+    <link rel="stylesheet" href="style/header.css"/>
+    <link rel="stylesheet" href="style/lageransicht.css"/>
+
+    <link href='https://fonts.googleapis.com/css?family=Fira+Sans:400,700' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Lato:400,900,700,300' rel='stylesheet' type='text/css'>
+    <meta charset="utf-8">
 	<meta charset="ISO-8859-1">
 	<title>Lagerverwaltung</title>
 </head>
@@ -19,31 +21,25 @@
         </div>
     </header>
     <div id="content">
-        <ul>
-            <li>Bremen</li>
-                <ul>
-                    <li>Westerstraße</li>
-                        <ul>
-                            <li>Dachboden Nr.3</li>
-                                <ul>
-                                    <li>Kiste 1</li>
-                                    <li>Kiste 1</li>
-                                    <li>Kiste 1</li>
-                                    <li>Kiste 1</li>
-                                    <li>Kiste 1</li>
-                                </ul>
-                            <li>Abstellraum</li>
-                        </ul>
-                    <li>Kurt Georg Kiesinger Allee</li>
-                </ul>
-            <li>Hamburg</li>
-            <li>Niedersachsen</li>
-
-        </ul>
-
-
-
+        <div id="menu">
+            <label ng-controller="strgController">
+                <select name="top5" size="1">
+                    <option ng-repeat = "item in store">{{item.Lagerort}}</option>
+                </select>
+                <button id="bearbeiten">BEA</button>
+                <button id="hinzufügen">[+]</button>
+            </label>
+        </div>
+        <div ng-controller="ContentCtrl">
+            <ul>
+                <a href="item.html"><li ng-repeat="person in person | filter : globalsearch | limitTo : 20"
+                                        ng-class="getIteratingClass ($index, 'red-row', 'green-row', 'blue-row')">
+                    <img src="{{person.Icon}}" height="200" width="auto">
+                </li></a>
+            </ul>
+        </div>
     </div>
+
 
 
 </body>

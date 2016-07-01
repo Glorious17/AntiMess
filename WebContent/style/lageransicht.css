@@ -1,0 +1,22 @@
+#content #menu {
+    text-align: center;
+    margin-top: 5%;
+}
+
+select {
+    padding: 20px;
+    width: 400px;
+}
+
+button {
+    padding: 20px;
+}
+
+#global {
+    padding: 20px;
+    background-color: white;
+    width: 500px;
+    border: solid 2px #212121;
+}
+
+ul {list-style: none;}

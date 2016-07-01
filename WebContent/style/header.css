@@ -2,11 +2,12 @@ body, html {
     margin:0;
     padding:0;
     width:100%;
-    height:100%;
-    background:#F8F8F8 center center no-repeat;
-    background-size:cover;
+    height:auto;
     font-family: 'lato', sens-serif;
+    background-image: url("img/background.jpg");
+    background-size: cover;
 }
+
 
 header #header-menu {
     width: 100%;
@@ -25,4 +26,14 @@ header #logo {
 header #logo .logo{
     text-transform:uppercase;
     font-size:20px;
+}
+
+header #header-menu .logout-link{
+    float: right;
+    margin: 17px 20px 0 0;
+}
+
+header #header-menu .logout-icon {
+    width: 25px;
+    height: 25px;
 }
