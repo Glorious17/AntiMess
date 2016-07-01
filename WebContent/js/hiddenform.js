@@ -6,6 +6,21 @@
 
 window.onload=function()
 {
+    //Formular bearbeiten
+    $('#bearbeiten').click(function(){
+        $('#formular-bearbeiten').fadeIn("slow");
+    });
+    $('#close-bea').click(function(){
+        $('#formular-bearbeiten').fadeOut("slow");
+    });
+
+    //Formular bearbeiten
+    $('#hinzufügen').click(function(){
+        $('#formular-hinzufügen').fadeIn("slow");
+    });
+    $('#close-hinzu').click(function(){
+        $('#formular-hinzufügen').fadeOut("slow");
+    });
 
 }
 
@@ -22,4 +37,8 @@ function back() {
     document.getElementById("new").style.visibility = "visible";
     document.getElementById("back").style.visibility = "hidden";
 }
+
+
+
+
 
