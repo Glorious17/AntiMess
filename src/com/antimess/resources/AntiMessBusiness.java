@@ -111,7 +111,7 @@ public class AntiMessBusiness implements AntiMessBusinessInterface{
 			while(rs.next()){
 				ls.add("{\"GegenstandName\":  \"" + rs.getString(1) + "\", \"Lagerort\": \"" + rs.getString(2) + "\", \"LagerDatum\": \""
 						+ rs.getDate(3) + "\", \"Icon\": \"" + rs.getString(4) + "\", \"Keywords\": \"" + rs.getString(5)
-						+ "\", \"ID\": " + rs.getInt(6) + "}");
+						+ "\", \"ID\": " + rs.getInt(6) + ", \"Berechtigt\": " + rs.getString(7) + "}");
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -126,7 +126,7 @@ public class AntiMessBusiness implements AntiMessBusinessInterface{
 		try {
 			rs = dao.pullItem(id);
 			while(rs.next()){
-				for(int zaehler = 1; zaehler < 7; zaehler++)
+				for(int zaehler = 1; zaehler < 8; zaehler++)
 				switch(zaehler){
 				case 3:
 					ls.add(rs.getDate(zaehler) + "");

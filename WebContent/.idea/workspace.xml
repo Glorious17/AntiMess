@@ -2,43 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b4ff6540-1fcf-4d27-859c-82662c96c2ca" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/img/bluetoothkopfhoerer.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/img/kopfhörer.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/img/laptoptasche.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/img/maus.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/img/muell.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/img/portmonaie.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/img/rucksack.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/img/stuhl.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/img/taschenmesser.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/img/tischverkleidung.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../src/com/antimess/resources/view.java" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/fimg01.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/fimg02.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/fimg03.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/fimg04.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/fimg05.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/fimg06.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/fimg07.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/fimg08.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/mimg01.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/mimg02.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/mimg03.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/mimg04.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/mimg05.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/mimg06.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/mimg07.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/mimg08.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/mimg09.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/mimg10.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/mimg11.jpg" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../src/com/antimess/resources/ItemView.java" afterPath="$PROJECT_DIR$/../src/com/antimess/resources/ItemView.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../Database/AntiMess.sql" afterPath="$PROJECT_DIR$/../Database/AntiMess.sql" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/WEB-INF/web.xml" afterPath="$PROJECT_DIR$/WEB-INF/web.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dashboard.html" afterPath="$PROJECT_DIR$/dashboard.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/ctrl/CtrlModule.js" afterPath="$PROJECT_DIR$/js/ctrl/CtrlModule.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lageransicht.html" afterPath="$PROJECT_DIR$/lageransicht.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/style/form-hinzufügen.css" afterPath="$PROJECT_DIR$/style/form-hinzufügen.css" />
     </list>
     <ignored path="WebContent.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -62,8 +27,8 @@
       <file leaf-file-name="lageransicht.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/lageransicht.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1192">
-              <caret line="63" column="0" selection-start-line="63" selection-start-column="0" selection-end-line="63" selection-end-column="0" />
+            <state relative-caret-position="420">
+              <caret line="27" column="22" selection-start-line="27" selection-start-column="22" selection-end-line="27" selection-end-column="22" />
               <folding />
             </state>
           </provider>
@@ -120,27 +85,10 @@
       <file leaf-file-name="form-hinzufügen.css" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/style/form-hinzufügen.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="595">
+            <state relative-caret-position="2065">
               <caret line="59" column="1" selection-start-line="59" selection-start-column="1" selection-end-line="59" selection-end-column="1" />
               <folding>
-                <element signature="e#21#198#0" expanded="false" />
-                <element signature="e#233#311#0" expanded="false" />
-                <element signature="e#349#383#0" expanded="false" />
-                <element signature="e#409#435#0" expanded="false" />
-                <element signature="e#465#505#0" expanded="false" />
-                <element signature="e#531#634#0" expanded="false" />
-                <element signature="e#662#762#0" expanded="false" />
-                <element signature="e#795#822#0" expanded="false" />
-                <element signature="e#853#946#0" expanded="false" />
-                <element signature="e#976#997#0" expanded="false" />
-                <element signature="e#1027#1236#0" expanded="false" />
-                <element signature="e#1268#1390#0" expanded="false" />
-                <element signature="e#1427#1467#0" expanded="false" />
-                <element signature="e#1501#1879#0" expanded="false" />
-                <element signature="e#1914#1966#0" expanded="false" />
-                <element signature="e#2029#2161#0" expanded="false" />
-                <element signature="e#2242#2290#0" expanded="false" />
-                <element signature="e#2382#2640#0" expanded="false" />
+                <element signature="e#2400#2658#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -183,10 +131,10 @@
         <option value="$PROJECT_DIR$/form-template.html" />
         <option value="$PROJECT_DIR$/style/form.css" />
         <option value="$PROJECT_DIR$/js/hiddenform.js" />
-        <option value="$PROJECT_DIR$/lageransicht.html" />
         <option value="$PROJECT_DIR$/style/lageransicht.css" />
         <option value="$PROJECT_DIR$/style/form-bearbeiten.css" />
         <option value="$PROJECT_DIR$/style/form-hinzufügen.css" />
+        <option value="$PROJECT_DIR$/lageransicht.html" />
       </list>
     </option>
   </component>
@@ -197,10 +145,9 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="-12" />
-    <option name="y" value="-12" />
-    <option name="width" value="3224" />
-    <option name="height" value="1754" />
+    <option name="x" value="1588" />
+    <option name="width" value="1623" />
+    <option name="height" value="1741" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
     <entry key="Project Default">
@@ -249,8 +196,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="Scratches" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -437,11 +384,12 @@
       <workItem from="1467384049023" duration="12650000" />
       <workItem from="1467400233691" duration="7000" />
       <workItem from="1467401430828" duration="358000" />
+      <workItem from="1467452395048" duration="655000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="67357000" />
+    <option name="totallyTimeSpent" value="68012000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -453,10 +401,10 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-12" y="-12" width="3224" height="1754" extended-state="6" />
+    <frame x="1588" y="0" width="1623" height="1741" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.125" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25015634" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3299363" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
@@ -845,35 +793,18 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/style/form-hinzufügen.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="595">
+        <state relative-caret-position="2065">
           <caret line="59" column="1" selection-start-line="59" selection-start-column="1" selection-end-line="59" selection-end-column="1" />
           <folding>
-            <element signature="e#21#198#0" expanded="false" />
-            <element signature="e#233#311#0" expanded="false" />
-            <element signature="e#349#383#0" expanded="false" />
-            <element signature="e#409#435#0" expanded="false" />
-            <element signature="e#465#505#0" expanded="false" />
-            <element signature="e#531#634#0" expanded="false" />
-            <element signature="e#662#762#0" expanded="false" />
-            <element signature="e#795#822#0" expanded="false" />
-            <element signature="e#853#946#0" expanded="false" />
-            <element signature="e#976#997#0" expanded="false" />
-            <element signature="e#1027#1236#0" expanded="false" />
-            <element signature="e#1268#1390#0" expanded="false" />
-            <element signature="e#1427#1467#0" expanded="false" />
-            <element signature="e#1501#1879#0" expanded="false" />
-            <element signature="e#1914#1966#0" expanded="false" />
-            <element signature="e#2029#2161#0" expanded="false" />
-            <element signature="e#2242#2290#0" expanded="false" />
-            <element signature="e#2382#2640#0" expanded="false" />
+            <element signature="e#2400#2658#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/lageransicht.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1192">
-          <caret line="63" column="0" selection-start-line="63" selection-start-column="0" selection-end-line="63" selection-end-column="0" />
+        <state relative-caret-position="420">
+          <caret line="27" column="22" selection-start-line="27" selection-start-column="22" selection-end-line="27" selection-end-column="22" />
           <folding />
         </state>
       </provider>
