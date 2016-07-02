@@ -106,20 +106,18 @@ INSERT INTO Lagerort VALUES(DEFAULT, 'Keller', DEFAULT, 'b@b');
 INSERT INTO Lagerort VALUES(DEFAULT, 'Küchenschrank', DEFAULT, 'a@a');
 INSERT INTO Lagerort VALUES(DEFAULT, 'Zimmer', DEFAULT, 'c@c');
 
-INSERT INTO Gegenstand VALUES ('Schweizer Taschenmesser', '2016-6-15', '././img/taschenmesser.jpg', 2, DEFAULT, 'b@b', 'Schweizer, Taschenmesser');
-INSERT INTO Gegenstand VALUES ('Bluetooth Maus', '2016-6-15', '././img/maus.jpg', 1, DEFAULT, 'a@a', 'Bluetooth, Maus, Computer');
-INSERT INTO Gegenstand VALUES ('Rucksack', '2016-6-15', '././img/rucksack.jpg', 1, DEFAULT, 'a@a', 'Rucksack, Tasche');
-INSERT INTO Gegenstand VALUES ('Bluetooth Kopfhörer', '2016-6-15', '././img/bluetoothkopfhoerer.jpg', 2, DEFAULT, 'b@b', 'Bluetooth, Kopfhörer, Computer');
+INSERT INTO Gegenstand VALUES ('Schweizer Taschenmesser', '2016-6-15', '././img/taschenmesser.jpg', 1, DEFAULT, 'b@b', 'Schweizer, Taschenmesser');
+INSERT INTO Gegenstand VALUES ('Bluetooth Maus', '2016-6-15', '././img/maus.jpg', 2, DEFAULT, 'a@a', 'Bluetooth, Maus, Computer');
+INSERT INTO Gegenstand VALUES ('Rucksack', '2016-6-15', '././img/rucksack.jpg', 2, DEFAULT, 'a@a', 'Rucksack, Tasche');
+INSERT INTO Gegenstand VALUES ('Bluetooth Kopfhörer', '2016-6-15', '././img/bluetoothkopfhoerer.jpg', 1, DEFAULT, 'b@b', 'Bluetooth, Kopfhörer, Computer');
 
-INSERT INTO Gegenstand VALUES ('Kopfhörer', '2016-6-15', '././img/kopfhörer.jpg', 2, DEFAULT, 'b@b', 'Kopfhörer, Computer');
-INSERT INTO Gegenstand VALUES ('Mülleimer', '2016-6-15', '././img/muell.jpg', 1, DEFAULT, 'a@a', 'Mülleimer, Abfall');
-INSERT INTO Gegenstand VALUES ('Laptoptasche', '2016-6-15', '././img/laptoptasche.jpg', 2, DEFAULT, 'b@b', 'Laptop, Tasche');
-INSERT INTO Gegenstand VALUES ('Portmonaie', '2016-6-15', '././img/portmonaie.jpg', 1, DEFAULT, 'a@a', 'Geldbeutel, Portmonaie');
+INSERT INTO Gegenstand VALUES ('Kopfhörer', '2016-6-15', '././img/kopfhörer.jpg', 1, DEFAULT, 'b@b', 'Kopfhörer, Computer');
+INSERT INTO Gegenstand VALUES ('Mülleimer', '2016-6-15', '././img/muell.jpg', 2, DEFAULT, 'a@a', 'Mülleimer, Abfall');
+INSERT INTO Gegenstand VALUES ('Laptoptasche', '2016-6-15', '././img/laptoptasche.jpg', 1, DEFAULT, 'b@b', 'Laptop, Tasche');
+INSERT INTO Gegenstand VALUES ('Portmonaie', '2016-6-15', '././img/portmonaie.jpg', 2, DEFAULT, 'a@a', 'Geldbeutel, Portmonaie');
 
 INSERT INTO Gegenstand VALUES ('Stuhl', '2016-6-15', '././img/stuhl.jpg', 3, DEFAULT, 'c@c', 'Stuhl');
 INSERT INTO Gegenstand VALUES ('Tischverkleidung', '2016-6-15', '././img/tischverkleidung.jpg', 3, DEFAULT, 'c@c', 'Tischverkleidung');
 
 INSERT INTO Lagerort_Berechtigt VALUES (1, 'a@a');
 INSERT INTO Lagerort_Berechtigt VALUES (2, 'b@b');
-	
-

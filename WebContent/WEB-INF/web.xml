@@ -54,6 +54,14 @@
     <servlet-name>view</servlet-name>
     <servlet-class>com.antimess.resources.view</servlet-class>
   </servlet>
+  <servlet>
+  	<servlet-name>newName</servlet-name>
+  	<servlet-class>com.antimess.resources.newName</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>newName</servlet-name>
+  	<url-pattern>/newName</url-pattern>
+  </servlet-mapping>
   <servlet-mapping>
     <servlet-name>view</servlet-name>
     <url-pattern>/storageView</url-pattern>

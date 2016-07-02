@@ -22,6 +22,6 @@ public interface AntiMessBusinessInterface {
 	void deleteItem(int id);
 	int getLagerortID(String name, String besitzer);
 	void updateLagerortName(int id, String newName);
-	void addPermission(int lagerortID, String benutzer);
 	void deletePermission(int lagerID, String username);
+	void addPermission(int lagerortID, String benutzer, String admin);
 }

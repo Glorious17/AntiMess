@@ -112,11 +112,24 @@ public class AntiMessDao implements AntiMessDaoInterface {
 	}
 	
 	@Override
-	public void addPermission(int id, String user) throws SQLException{
-		prpSt = conn.prepareStatement("INSERT INTO Lagerort_Berechtigt VALUES (?, ?)");
-		prpSt.setInt(1,id);
-		prpSt.setString(2,user);
-		prpSt.execute();
+	public void addPermission(int id, String berechtigt, String user) throws SQLException{
+		String berechtigter;
+		while(berechtigt.contains(",")){
+			berechtigter = berechtigt.substring(0, berechtigt.indexOf(','));
+			berechtigt = berechtigt.substring(berechtigt.indexOf(',')+2);
+			if(!berechtigter.equals(user)){
+				prpSt = conn.prepareStatement("INSERT INTO Lagerort_Berechtigt VALUES (?, ?)");
+				prpSt.setInt(1, id);
+				prpSt.setString(2, berechtigter);
+				prpSt.execute();
+			}
+		}
+		if(!berechtigt.contains(user)){
+			prpSt = conn.prepareStatement("INSERT INTO Lagerort_Berechtigt VALUES (?, ?)");
+			prpSt.setInt(1, id);
+			prpSt.setString(2, berechtigt);
+			prpSt.execute();
+		}
 	}
 	
 	@Override
@@ -136,20 +149,7 @@ public class AntiMessDao implements AntiMessDaoInterface {
 		prpSt.setString(1, lagerortname);
 		prpSt.setString(2, user);
 		prpSt.execute();
-		while(berechtigt.contains(",")){
-			berechtigter = berechtigt.substring(0, berechtigt.indexOf(','));
-			berechtigt = berechtigt.substring(berechtigt.indexOf(',')+2);
-			if(!berechtigter.equals(user)){
-				prpSt = conn.prepareStatement("INSERT INTO Lagerort_Berechtigt VALUES (?, ?)");
-				prpSt.setInt(1, getLagerortID(lagerortname, user));
-				prpSt.setString(2, berechtigter);
-				prpSt.execute();
-			}
-		}
-		prpSt = conn.prepareStatement("INSERT INTO Lagerort_Berechtigt VALUES (?, ?)");
-		prpSt.setInt(1, getLagerortID(lagerortname, user));
-		prpSt.setString(2, berechtigt);
-		prpSt.execute();
+		addPermission(getLagerortID(lagerortname, user), berechtigt, user);
 		return true;
 	}
 	
@@ -163,19 +163,27 @@ public class AntiMessDao implements AntiMessDaoInterface {
 		return stmt.executeQuery("SELECT Lagerort_Name, Ersteller FROM Lagerort, Lagerort_Berechtigt WHERE Berechtigt = '" + user + "' and LagerortID_FK = LagerortID");
 	}
 	
-	
-	//Ersteller = '" + name + "' and 
 	@Override
 	public ResultSet pullItem(String name) throws SQLException{
-		return stmt.executeQuery("SELECT DISTINCT GegenstandName, Lagerort_Name, Lagerdatum, Icon, Keywords, GegenstandID, Berechtigt"
-				+ " FROM Gegenstand, Lagerort, Lagerort_Berechtigt WHERE (Ersteller = '"+name+"' and Berechtigt != Ersteller and Gegenstand.LagerortID_FK = LagerortID)"
-				+ " or (Berechtigt = '" + name + "' and Gegenstand.LagerortID_FK = Lagerort_Berechtigt.LagerortID_FK and LagerortID = Gegenstand.LagerortID_FK)");
+		return stmt.executeQuery("SELECT DISTINCT GegenstandName, Lagerort_Name, Lagerdatum, Icon, Keywords, GegenstandID FROM"
+				+ " Gegenstand, Lagerort WHERE Ersteller = '"+name+"' and Gegenstand.LagerortID_FK = LagerortID");
+	}
+	
+	@Override
+	public ResultSet pullItemBerechtigt(String name) throws SQLException{
+		return stmt.executeQuery("SELECT DISTINCT GegenstandName, Lagerort_Name, Lagerdatum, Icon, Keywords, GegenstandID"
+				+" FROM Gegenstand, Lagerort, Lagerort_Berechtigt WHERE Berechtigt = '"+name+"' and Gegenstand.LagerortID_FK = Lagerort_Berechtigt.LagerortID_FK and LagerortID = Gegenstand.LagerortID_FK");
+	}
+	
+	@Override
+	public ResultSet pullPermissions(String name) throws SQLException{
+		return stmt.executeQuery("SELECT DISTINCT Lagerort_Name, Berechtigt FROM Lagerort, Lagerort_Berechtigt WHERE LagerortID = LagerortID_FK and Ersteller = '"+name+"'");
 	}
 	
 	@Override
 	public ResultSet pullItem(int id) throws SQLException{
-		return stmt.executeQuery("SELECT DISTINCT GegenstandName, Lagerort_Name, Lagerdatum, Icon, Keywords, Gegenstand.BenutzerNameFK, Berechtigt FROM Gegenstand, Lagerort, Lagerort_Berechtigt, Benutzer"
-				+ " WHERE Lagerort_Berechtigt.LagerortID_FK = LagerortID and Berechtigt = BenutzerName and GegenstandID = " + id  + " and Lagerort_Berechtigt.LagerortID_FK = Gegenstand.LagerortID_FK");
+		return stmt.executeQuery("SELECT GegenstandName, Lagerort_Name, Lagerdatum, Icon, Keywords, BenutzerNameFK FROM Gegenstand, Lagerort"
+				+ " WHERE GegenstandID = " + id + " and LagerortID_FK = LagerortID");
 	}
 	
 	@Override
