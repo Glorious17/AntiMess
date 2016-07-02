@@ -12,11 +12,9 @@ function get_url_param( name )
 		return results[1];
 }
 
-function ContentCtrl ( $scope, $log, $http )
+function ContentCtrl ( $scope, $log, $http, $location )
 {
     $log.log ("ContentCtrl");
-
-
         $http({
         	mehtod: 'GET',
         	url: 'rest/search?&id=' + get_url_param("id")

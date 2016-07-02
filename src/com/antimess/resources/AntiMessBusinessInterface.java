@@ -20,4 +20,8 @@ public interface AntiMessBusinessInterface {
 	boolean addLagerort(String name, String berechtigt, String user);
 	void updateItemPic(int id, String url);
 	void deleteItem(int id);
+	int getLagerortID(String name, String besitzer);
+	void updateLagerortName(int id, String newName);
+	void addPermission(int lagerortID, String benutzer);
+	void deletePermission(int lagerID, String username);
 }

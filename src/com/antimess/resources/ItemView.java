@@ -50,7 +50,7 @@ public class ItemView extends HttpServlet {
 		out.println("<p>Lagerort:</p>");
 		out.println("<p>Lagerdatum:</p>");
 		out.println("<p>Besitzer:</p>");
-		out.println("<p>Berechtigt:</p>");
+		out.println("Berechtigt:");
 		out.println("</div>");
 		out.println("<div id=\"gegenstand\">");
 		out.println("<p>" + ls.get(0) + "</p>");

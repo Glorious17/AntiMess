@@ -111,7 +111,7 @@ public class AntiMessBusiness implements AntiMessBusinessInterface{
 			while(rs.next()){
 				ls.add("{\"GegenstandName\":  \"" + rs.getString(1) + "\", \"Lagerort\": \"" + rs.getString(2) + "\", \"LagerDatum\": \""
 						+ rs.getDate(3) + "\", \"Icon\": \"" + rs.getString(4) + "\", \"Keywords\": \"" + rs.getString(5)
-						+ "\", \"ID\": " + rs.getInt(6) + ", \"Berechtigt\": " + rs.getString(7) + "}");
+						+ "\", \"ID\": " + rs.getInt(6) + ", \"Berechtigt\": \"" + rs.getString(7) + "\"}");
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -161,6 +161,20 @@ public class AntiMessBusiness implements AntiMessBusinessInterface{
 	}
 	
 	@Override
+	public int getLagerortID(String besitzer, String name){
+		return dao.getLagerortID(name, besitzer);
+	}
+	
+	@Override
+	public void updateLagerortName(int id, String newName){
+		try {
+			dao.updateLagerortName(id, newName);
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+	}
+	
+	@Override
 	public boolean addLagerort(String name, String berechtigt, String user){
 		try {
 			return dao.addLagerort(name, berechtigt, user);
@@ -169,6 +183,24 @@ public class AntiMessBusiness implements AntiMessBusinessInterface{
 			e.printStackTrace();
 		}
 		return false;
+	}
+	
+	@Override
+	public void deletePermission(int lagerID, String username){
+		try {
+			dao.deletePermission(lagerID, username);
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+	}
+	
+	@Override
+	public void addPermission(int lagerortID, String benutzer){
+		try {
+			dao.addPermission(lagerortID, benutzer);
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
 	}
 	
 	@Override

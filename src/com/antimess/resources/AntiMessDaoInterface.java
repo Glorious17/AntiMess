@@ -26,4 +26,7 @@ public interface AntiMessDaoInterface {
 	int getLagerortID(String name, String user);
 	void updateItemPic(int id, String url) throws SQLException;
 	void deleteItem(int id) throws SQLException;
+	void updateLagerortName(int id, String newName) throws SQLException;
+	void addPermission(int id, String user) throws SQLException;
+	void deletePermission(int lagerID, String username) throws SQLException;
 }

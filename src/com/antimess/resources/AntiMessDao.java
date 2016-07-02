@@ -104,6 +104,30 @@ public class AntiMessDao implements AntiMessDaoInterface {
 	}
 	
 	@Override
+	public void updateLagerortName(int id, String newName) throws SQLException{
+		prpSt = conn.prepareStatement("UPDATE Lagerort SET Lagerort_Name = ? WHERE LagerortID = ?");
+		prpSt.setString(1, newName);
+		prpSt.setInt(2, id);
+		prpSt.execute();
+	}
+	
+	@Override
+	public void addPermission(int id, String user) throws SQLException{
+		prpSt = conn.prepareStatement("INSERT INTO Lagerort_Berechtigt VALUES (?, ?)");
+		prpSt.setInt(1,id);
+		prpSt.setString(2,user);
+		prpSt.execute();
+	}
+	
+	@Override
+	public void deletePermission(int lagerID, String username) throws SQLException{
+		prpSt = conn.prepareStatement("DELETE FROM Lagerort_Berechtigt WHERE LagerortID_FK = ? and Berechtigt = ?");
+		prpSt.setInt(1, lagerID);
+		prpSt.setString(2, username);
+		prpSt.execute();
+	}
+	
+	@Override
 	public boolean addLagerort(String lagerortname, String berechtigt, String user) throws SQLException{
 		String berechtigter;
 		if(getLagerortID(lagerortname, user) != -1)
@@ -139,16 +163,19 @@ public class AntiMessDao implements AntiMessDaoInterface {
 		return stmt.executeQuery("SELECT Lagerort_Name, Ersteller FROM Lagerort, Lagerort_Berechtigt WHERE Berechtigt = '" + user + "' and LagerortID_FK = LagerortID");
 	}
 	
+	
+	//Ersteller = '" + name + "' and 
 	@Override
 	public ResultSet pullItem(String name) throws SQLException{
 		return stmt.executeQuery("SELECT DISTINCT GegenstandName, Lagerort_Name, Lagerdatum, Icon, Keywords, GegenstandID, Berechtigt"
-				+ " FROM Gegenstand, Lagerort, Lagerort_Berechtigt WHERE (Ersteller = '" + name + "' and Gegenstand.LagerortID_FK = LagerortID)"
+				+ " FROM Gegenstand, Lagerort, Lagerort_Berechtigt WHERE (Ersteller = '"+name+"' and Berechtigt != Ersteller and Gegenstand.LagerortID_FK = LagerortID)"
 				+ " or (Berechtigt = '" + name + "' and Gegenstand.LagerortID_FK = Lagerort_Berechtigt.LagerortID_FK and LagerortID = Gegenstand.LagerortID_FK)");
 	}
 	
 	@Override
 	public ResultSet pullItem(int id) throws SQLException{
-		return stmt.executeQuery("SELECT DISTINCT GegenstandName, Lagerort_Name, Lagerdatum, Icon, Keywords, Gegenstand.BenutzerNameFK, Berechtigt FROM Gegenstand, Lagerort, Lagerort_Berechtigt, Benutzer WHERE Lagerort_Berechtigt.LagerortID_FK = LagerortID and Berechtigt = BenutzerName and GegenstandID = " + id);
+		return stmt.executeQuery("SELECT DISTINCT GegenstandName, Lagerort_Name, Lagerdatum, Icon, Keywords, Gegenstand.BenutzerNameFK, Berechtigt FROM Gegenstand, Lagerort, Lagerort_Berechtigt, Benutzer"
+				+ " WHERE Lagerort_Berechtigt.LagerortID_FK = LagerortID and Berechtigt = BenutzerName and GegenstandID = " + id  + " and Lagerort_Berechtigt.LagerortID_FK = Gegenstand.LagerortID_FK");
 	}
 	
 	@Override

@@ -61,22 +61,32 @@ public class view extends HttpServlet {
 				out.println("<img id=\"close-hinzu\" src=\"style/img/clear_black.png\">");
 				out.println("<input name=\"new-lagerort\" type=\"text\" placeholder=\"Lagerort\" required>");
 				out.println("</br>");
+				out.println("<input name=\"permission\" type=\"text\" placeholder=\"Berechtigung\" required>");
+				out.println("</br>");
 				out.println("<input type=\"submit\" value=\"Hinzufügen\" id=\"ud_send\">");
 				out.println("</form>");
 			out.println("</div>");
 			
 			out.println("<div id=\"formular-bearbeiten\">");
-				out.println("<form id=\"form-edit\" method=\"post\" action=\"add\">");
+				out.println("<form id=\"form-edit\" method=\"post\" action=\"newName\">");
 				out.println("<h2>Lagerort bearbeiten</h2>");
 				out.println("<img id=\"close-bea\" src=\"style/img/clear_black.png\">");
 				out.println("<h4>Lagerort umbenennen</h4>");
+				out.println("<select name=\"top5\" size=\"1\" ng-model=\"lager.Lagerort\">");
+				for(String storage : ls){
+					if(storage.contains("Berechtigter Zugriff")){
+						storage = storage.substring(storage.indexOf(':')+2);
+					}
+					out.println("<option>" + storage + "</option>");
+				}
 				out.println("<input name=\"Name\" type=\"text\" placeholder=\"Neuer Name\">");
 				out.println("<h3>Lagerort Freigabe</h3>");
 				out.println("<h4>Person hinzufügen</h4>");
 				out.println("<input name=\"Person hinzufügen\" type=\"text\" placeholder=\"E-Mail Adresse\">");
 				out.println("<h4>Person entfernen</h4>");
-				out.println("<select name=\"top5\" size=\"1\">");
-					out.println("<option ng-repeat=\"data in person\">""</option>");
+				out.println("<select name=\"permissions\" size=\"1\">");
+					out.println("<option value = \"\"><option>");
+					out.println("<option ng-repeat=\"data in person | filter : lager\">{{data.Berechtigt}}</option>");
 				out.println("</select>");
 				out.println("<input type=\"submit\" value=\"Übernehmen\" id=\"ud_send\">");
 				out.println("</form>");
@@ -84,7 +94,6 @@ public class view extends HttpServlet {
 			out.println("<div id=\"menu\">");
 			out.println("<label>");
 			out.println("<select name=\"top5\" size=\"1\" ng-model=\"lager.Lagerort\">");
-			out.println("<option></option>");
 			for(String storage : ls){
 				if(storage.contains("Berechtigter Zugriff")){
 					storage = storage.substring(storage.indexOf(':')+2);
