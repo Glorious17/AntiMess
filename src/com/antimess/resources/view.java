@@ -55,8 +55,8 @@ public class view extends HttpServlet {
 		
 		out.println("<div id=\"content\">");
 		
-			out.println("<div id=\"formular-hinzufügen\">");
-				out.println("<form id=\"idName\" method=\"post\" action=\"add\">");
+			out.println("<div id=\"formular-hinzufuegen\">");
+				out.println("<form id=\"form-add\" method=\"post\" action=\"add\">");
 				out.println("<h2>Neuer Lagerort</h2>");
 				out.println("<img id=\"close-hinzu\" src=\"style/img/clear_black.png\">");
 				out.println("<input name=\"new-lagerort\" type=\"text\" placeholder=\"Lagerort\" required>");
@@ -66,7 +66,7 @@ public class view extends HttpServlet {
 			out.println("</div>");
 			
 			out.println("<div id=\"formular-bearbeiten\">");
-				out.println("<form id=\"idName\" method=\"post\" action=\"add\">");
+				out.println("<form id=\"form-edit\" method=\"post\" action=\"add\">");
 				out.println("<h2>Lagerort bearbeiten</h2>");
 				out.println("<img id=\"close-bea\" src=\"style/img/clear_black.png\">");
 				out.println("<h4>Lagerort umbenennen</h4>");
@@ -100,13 +100,13 @@ public class view extends HttpServlet {
 			out.println("</label>");
 			out.println("<ul class=\"menu-list\">");
 			out.println("<li class=\"menu-button\"><img src=\"style/img/edit.png\" id=\"bearbeiten\"></li>");
-			out.println("<li class=\"menu-button\"><img src=\"style/img/add.png\" id=\"hinzufügen\"></li>");
+			out.println("<li class=\"menu-button\"><img src=\"style/img/add.png\" id=\"hinzufuegen\"></li>");
 			out.println("</ul>");
 		out.println("</div>");
 		out.println("<script src=\"https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js\"></script>");
 		out.println("<script src=\"js/hiddenform.js\"></script>");
 			out.println("<div>");
-				out.println("<ul ng-controller=\"ContentCtrl\">");
+				out.println("<ul class=\"item-pic\" ng-controller=\"ContentCtrl\">");
 				out.println("<li ng-repeat=\"data in person | filter : lager\">");
 				out.println("<a href=\"item?picid={{data.ID}}\"><img src=\"{{data.Icon}}\" height=\"200\" width=\"auto\"></a>");
 				out.println("</li>");

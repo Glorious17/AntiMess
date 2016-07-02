@@ -14,7 +14,7 @@ select {
 }
 
 
-#bearbeiten, #hinzufügen {
+#bearbeiten, #hinzufuegen {
     margin-right: 30px;
     z-index: -999999;
 
@@ -35,4 +35,4 @@ select {
 
 .item-pic li{display: inline-block; margin: 2px;}
 
-.item-pic ul {list-style: none;}
+.item-pic {margin-top:5%; list-style: none;}

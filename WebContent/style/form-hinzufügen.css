@@ -1,4 +1,4 @@
-#formular-hinzufügen {
+#formular-hinzufuegen {
     display: none;
     position: absolute;
     top: 0px;
@@ -8,7 +8,7 @@
     text-align: center;
     z-index: 1;
 }
-#formular-hinzufügen #close-hinzu {
+#formular-hinzufuegen #close-hinzu {
     cursor: pointer;
     position: absolute;
     top:20px;
@@ -16,19 +16,19 @@
 }
 
 
-#formular-hinzufügen h1, h2, h3, h4{
+#formular-hinzufuegen h1, h2, h3, h4{
     text-transform: uppercase;
 }
 
-#formular-hinzufügen h3 {
+#formular-hinzufuegen h3 {
     padding-top: 50px;
 }
 
-#formular-hinzufügen select {
+#formular-hinzufuegen select {
     padding: 10px;
     width: 400px;
 }
-#formular-hinzufügen #new{
+#formular-hinzufuegen #new{
     position: absolute;
     left:70%;
     top: 117%;
@@ -37,7 +37,7 @@
 
 }
 
-#formular-hinzufügen #back{
+#formular-hinzufuegen #back{
     position: absolute;
     left:70%;
     top: 80%;
@@ -45,23 +45,23 @@
     cursor: pointer;
 }
 
-#formular-hinzufügen .highlight{
+#formular-hinzufuegen .highlight{
     background:#ff0000;
 }
 
-#formular-hinzufügen .message{
+#formular-hinzufuegen .message{
     font-family: 'lato', sens-serif;
     text-align:center;
     background-color:#99FF99;
 }
 
-#formular-hinzufügen .delete{
+#formular-hinzufuegen .delete{
     display:none;
 }
 
 
 
-#formular-hinzufügen form {
+#formular-hinzufuegen form {
     width:600px;
     height:auto;
     overflow:hidden;
@@ -74,7 +74,7 @@
 
 }
 
-#formular-hinzufügen #ud_send {
+#formular-hinzufuegen #ud_send {
     background:#dadada;
     border:none;
     color:#777;
@@ -83,12 +83,12 @@
     cursor:pointer;
 }
 
-#formular-hinzufügen #ud_send:hover{
+#formular-hinzufuegen #ud_send:hover{
     background:#666;
     color:#fff;
 }
 
-#formular-hinzufügen form input {
+#formular-hinzufuegen form input {
     margin:10% 10% 0 10%;
     width:70%;
     padding:5%;
@@ -102,24 +102,24 @@
     color:#dadada;
 }
 
-#formular-hinzufügen input:focus {
+#formular-hinzufuegen input:focus {
     outline:none;
     background-size:100% 100%;
 }
 
-#formular-hinzufügen input:focus:: -webkit-input-placeholder {
+#formular-hinzufuegen input:focus:: -webkit-input-placeholder {
     font-size:11px;
     -webkit-transform:translateY(-25px);
     transform:translateY(-25px);
     visibility:visible !important;
 }
 
-#formular-hinzufügen input:focus:valid::-webkit-input-placeholder, input:valid {
+#formular-hinzufuegen input:focus:valid::-webkit-input-placeholder, input:valid {
     color:#14DC19;
     border-color:#14dc19;
 }
 
-#formular-hinzufügen input:focus:invalid:: -webkit-input-placeholder; input:focus:invalid {
+#formular-hinzufuegen input:focus:invalid:: -webkit-input-placeholder; input:focus:invalid {
                                                                           color:#c9272a;
                                                                           border-color:#C9272A;
                                                                       }

@@ -15,11 +15,11 @@ window.onload=function()
     });
 
     //Formular bearbeiten
-    $('#hinzufügen').click(function(){
-        $('#formular-hinzufügen').fadeIn("slow");
+    $('#hinzufuegen').click(function(){
+        $('#formular-hinzufuegen').fadeIn("slow");
     });
     $('#close-hinzu').click(function(){
-        $('#formular-hinzufügen').fadeOut("slow");
+        $('#formular-hinzufuegen').fadeOut("slow");
     });
 
 }
