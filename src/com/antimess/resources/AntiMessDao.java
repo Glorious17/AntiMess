@@ -115,10 +115,12 @@ public class AntiMessDao implements AntiMessDaoInterface {
 		while(berechtigt.contains(",")){
 			berechtigter = berechtigt.substring(0, berechtigt.indexOf(','));
 			berechtigt = berechtigt.substring(berechtigt.indexOf(',')+2);
-			prpSt = conn.prepareStatement("INSERT INTO Lagerort_Berechtigt VALUES (?, ?)");
-			prpSt.setInt(1, getLagerortID(lagerortname, user));
-			prpSt.setString(2, berechtigter);
-			prpSt.execute();
+			if(!berechtigter.equals(user)){
+				prpSt = conn.prepareStatement("INSERT INTO Lagerort_Berechtigt VALUES (?, ?)");
+				prpSt.setInt(1, getLagerortID(lagerortname, user));
+				prpSt.setString(2, berechtigter);
+				prpSt.execute();
+			}
 		}
 		prpSt = conn.prepareStatement("INSERT INTO Lagerort_Berechtigt VALUES (?, ?)");
 		prpSt.setInt(1, getLagerortID(lagerortname, user));

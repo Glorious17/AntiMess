@@ -53,7 +53,7 @@ public class view extends HttpServlet {
 		
 		out.println("</header>");
 		
-		out.println("<div id=\"content\">");
+		out.println("<div id=\"content\"  ng-controller=\"ContentCtrl\">");
 		
 			out.println("<div id=\"formular-hinzufügen\">");
 				out.println("<form id=\"idName\" method=\"post\" action=\"add\">");
@@ -106,7 +106,7 @@ public class view extends HttpServlet {
 		out.println("<script src=\"https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js\"></script>");
 		out.println("<script src=\"js/hiddenform.js\"></script>");
 			out.println("<div>");
-				out.println("<ul ng-controller=\"ContentCtrl\">");
+				out.println("<ul>");
 				out.println("<li ng-repeat=\"data in person | filter : lager\">");
 				out.println("<a href=\"item?picid={{data.ID}}\"><img src=\"{{data.Icon}}\" height=\"200\" width=\"auto\"></a>");
 				out.println("</li>");

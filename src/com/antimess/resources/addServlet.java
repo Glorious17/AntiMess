@@ -74,6 +74,8 @@ public class addServlet extends HttpServlet {
 				out.println("<form id=\"lagerort\" method=\"post\" action=\"add\">");
 				out.println("<input name=\"new-lagerort\" type=\"text\" placeholder=\"Lagerort\" required>");
 				out.println("</br>");
+				out.println("<input name=\"permission\" type=\"text\" placeholder=\"Berechtigung\" required>");
+				out.println("</br>");
 				out.println("<input type=\"submit\" value=\"upload\" id=\"lo_add\">");
 				out.println("</form>");
 				out.close();
