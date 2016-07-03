@@ -32,8 +32,8 @@
                    <input name="global" type="text" autofocus required id="global" placeholder="Gegenstand suchen" ng-model="globalsearch">
                </div>
                    <ul>
-                     	<li ng-repeat="person in person | filter : globalsearch">
-                           <a href="item?picid={{person.ID}}"><img src="{{person.Icon}}" height="200" width="auto"></a>
+                     	<li ng-repeat="data in person | filter : globalsearch">
+                           <a href="item?picid={{data.ID}}"><img src="{{data.Icon}}" height="200" width="auto"></a>
                        </li>
                    </ul>
 
